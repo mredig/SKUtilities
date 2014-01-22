@@ -5,7 +5,7 @@
 //  Created by Michael Redig on 1/1/14.
 //  Copyright (c) 2014 Michael Redig. All rights reserved.
 //
-// version 1.0
+// version 1.0.5
 
 #import "SGG_SKUtilities.h"
 
