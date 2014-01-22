@@ -122,5 +122,14 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	
 }
 
+#pragma mark TIME HANDLERS
+
+-(void)updateCurrentTime:(CFTimeInterval)timeUpdate {
+	
+	_previousFrameDuration = timeUpdate - _currentTime;
+	_currentTime = timeUpdate;
+
+}
+
 
 @end
