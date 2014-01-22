@@ -21,6 +21,7 @@
 		332C243F1890897600281B03 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332C24181890897600281B03 /* Cocoa.framework */; };
 		332C24471890897600281B03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 332C24451890897600281B03 /* InfoPlist.strings */; };
 		332C24491890897600281B03 /* time_convTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 332C24481890897600281B03 /* time_convTests.m */; };
+		332C2456189089A300281B03 /* SGG_SKUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 332C2454189089A300281B03 /* SGG_SKUtilities.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,9 @@
 		332C24441890897600281B03 /* time_convTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "time_convTests-Info.plist"; sourceTree = "<group>"; };
 		332C24461890897600281B03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		332C24481890897600281B03 /* time_convTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = time_convTests.m; sourceTree = "<group>"; };
+		332C2453189089A300281B03 /* SGG_SKUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGG_SKUtilities.h; sourceTree = "<group>"; };
+		332C2454189089A300281B03 /* SGG_SKUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGG_SKUtilities.m; sourceTree = "<group>"; };
+		332C2455189089A300281B03 /* SKUtilityConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKUtilityConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +128,7 @@
 		332C24201890897600281B03 /* time_conv */ = {
 			isa = PBXGroup;
 			children = (
+				332C2452189089A300281B03 /* Utilities */,
 				332C242C1890897600281B03 /* MainMenu.xib */,
 				332C242E1890897600281B03 /* SGG_MyScene.m */,
 				332C24301890897600281B03 /* SGG_MyScene.h */,
@@ -164,6 +169,16 @@
 				332C24451890897600281B03 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		332C2452189089A300281B03 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				332C2453189089A300281B03 /* SGG_SKUtilities.h */,
+				332C2454189089A300281B03 /* SGG_SKUtilities.m */,
+				332C2455189089A300281B03 /* SKUtilityConstants.h */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -267,6 +282,7 @@
 			files = (
 				332C24321890897600281B03 /* SGG_AppDelegate.m in Sources */,
 				332C242F1890897600281B03 /* SGG_MyScene.m in Sources */,
+				332C2456189089A300281B03 /* SGG_SKUtilities.m in Sources */,
 				332C24271890897600281B03 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
