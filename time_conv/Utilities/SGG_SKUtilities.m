@@ -146,6 +146,14 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	return directionVector;
 }
 
+-(CGVector)vectorFromRadianAngle:(CGFloat)angle {
+	return CGVectorMake(-sinf(angle),cosf(angle));
+}
+
+-(CGVector)vectorFromDegreeAngle:(CGFloat)degrees {
+	CGFloat angle = degrees * _degreesToRadiansConversionFactor;
+	return CGVectorMake(-sinf(angle),cosf(angle));
+}
 
 
 
@@ -214,27 +222,10 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 -(BOOL)nodeAtPoint:(CGPoint)originPos isBehindNodeAtPoint:(CGPoint)victimPos facingVector:(CGVector)victimFacingVector isVectorNormal:(BOOL)victimFacingVectorNormal withLatitudeOf:(CGFloat)latitude andMaximumDistanceBetweenPoints:(CGFloat)maxDistance{
 	
 	
-	CGVector normalOriginFacingVector, normalVictimFacingVector;
-	
-	normalOriginFacingVector = [self vectorFacingPoint:originPos fromPoint:victimPos andNormalize:YES];
-	
-	//normalize victim vector if necessary
-	if (victimFacingVectorNormal) {
-		normalVictimFacingVector = victimFacingVector;
-	} else {
-		normalVictimFacingVector = [self vectorNormalize:victimFacingVector];
-	}
-	
-	//calculate dotProduct
-	//values > 0 means murderer is infront of victim, value == 0 means murderer is DIRECTLY beside victim (left OR right), value < 0 means murderer is behind victim, -1 is EXACTLY DIRECTLY behind victim. Range of -1 to 1;
-	//see http://www.youtube.com/watch?v=Q9FZllr6-wY for more info
-	
-	CGFloat dotProduct = normalOriginFacingVector.dx * normalVictimFacingVector.dx + normalOriginFacingVector.dy * normalVictimFacingVector.dy;
-
-//	NSLog(@"DP: %f", dotProduct);
+	bool anglesMatch = [self nodeAtPoint:originPos isBehindNodeAtPoint:victimPos facingVector:victimFacingVector isVectorNormal:victimFacingVectorNormal withLatitudeOf:latitude];
 	
 	//check if angles match up
-	if (dotProduct < -latitude) {
+	if (anglesMatch) {
 		//only calculate distance if we know the angles work for a backstab
 		if ([self distanceBetweenPointA:originPos andPointB:victimPos isWithinXDistance:maxDistance]) {
 			return YES; //distance is within range

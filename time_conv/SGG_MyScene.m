@@ -59,7 +59,12 @@
 		startInput = CGPointMake(1024, 768);
 		
 		ship = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
+		ship.position = CGPointMake(512, 384);
 		[self addChild:ship];
+		
+		SKAction* rotate = [SKAction rotateByAngle:M_PI duration:1.5];
+		SKAction* repeat = [SKAction repeatActionForever:rotate];
+		[ship runAction:repeat];
 		
     }
     return self;
@@ -125,16 +130,18 @@
 	endInput = location;
 	
 	
-	CGVector facingVector1 = CGVectorMake(1, 0);
-	CGVector facingVector2 = CGVectorMake(1, 1);
-	
-	bool isBackstab = [sharedUtilties nodeAtPoint:startInput isBehindNodeAtPoint:endInput facingVector:facingVector2 isVectorNormal:NO withLatitudeOf:0.5];
-	
-	
-	NSLog(@"startPoint: %f %f end: %f %f", startInput.x, startInput.y, endInput.x, endInput.y);
-	NSLog(@"distance: %f", [sharedUtilties distanceBetween:startInput and:endInput]);
-	NSLog(@"is a backstab: %i", isBackstab);
+//	CGVector facingVector1 = CGVectorMake(1, 0);
+//	CGVector facingVector2 = CGVectorMake(1, 1);
+//	
+//	bool isBackstab = [sharedUtilties nodeAtPoint:startInput isBehindNodeAtPoint:endInput facingVector:facingVector2 isVectorNormal:NO withLatitudeOf:0.5];
+//	
+//	
+//	NSLog(@"startPoint: %f %f end: %f %f", startInput.x, startInput.y, endInput.x, endInput.y);
+//	NSLog(@"distance: %f", [sharedUtilties distanceBetween:startInput and:endInput]);
+//	NSLog(@"is a backstab: %i", isBackstab);
 
+	
+	NSLog(@"ship vec: %f %f", [sharedUtilties vectorFromRadianAngle:ship.zRotation]);
 	
 }
 
