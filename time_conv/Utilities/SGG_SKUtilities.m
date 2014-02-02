@@ -187,29 +187,30 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 
 -(NSDictionary*)parseDurationsFromSeconds:(CFTimeInterval)seconds {
 	
-	//declarations
-	CGFloat leftOverSeconds;
-	CGFloat minutes;
-	CGFloat hours;
-	CGFloat days;
-	CGFloat weeks;
-	
-	//calculations
-//	leftOverSeconds = seconds;
-	
-//	minutes = seconds / 60.0f;
-//	hours = minutes / 60.0f;
-//	days = hours / 24.0f;
-	weeks = fmod(seconds, 604800);
-	
-	//return dict
-	NSDictionary* outputDict = [NSDictionary dictionaryWithObjectsAndKeys:
-								[NSNumber numberWithFloat:leftOverSeconds], @"seconds",
-								[NSNumber numberWithFloat:minutes], @"minutes",
-								[NSNumber numberWithFloat:hours], @"hours",
-								[NSNumber numberWithFloat:days], @"days",
-								[NSNumber numberWithFloat:weeks], @"weeks",
-								nil];
+//	//declarations
+//	CGFloat leftOverSeconds;
+//	CGFloat minutes;
+//	CGFloat hours;
+//	CGFloat days;
+//	CGFloat weeks;
+//	
+//	//calculations
+////	leftOverSeconds = seconds;
+//	
+////	minutes = seconds / 60.0f;
+////	hours = minutes / 60.0f;
+////	days = hours / 24.0f;
+//	weeks = fmod(seconds, 604800);
+//	
+//	//return dict
+//	NSDictionary* outputDict = [NSDictionary dictionaryWithObjectsAndKeys:
+//								[NSNumber numberWithFloat:leftOverSeconds], @"seconds",
+//								[NSNumber numberWithFloat:minutes], @"minutes",
+//								[NSNumber numberWithFloat:hours], @"hours",
+//								[NSNumber numberWithFloat:days], @"days",
+//								[NSNumber numberWithFloat:weeks], @"weeks",
+//								nil];
+	NSDictionary* outputDict;
 	
 	return  outputDict;
 	

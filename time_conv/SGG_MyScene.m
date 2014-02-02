@@ -26,6 +26,10 @@
 	
 	int burr;
 	float durr;
+	
+	
+	CGPoint startInput;
+	CGPoint endInput;
 }
 
 @end
@@ -63,27 +67,43 @@
 	
 	for (UITouch* touch in touches) {
 		CGPoint location = [touch locationInNode:self];
+		[self inputBegan:location];
+	}
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+	
+	for (UITouch* touch in touches) {
+		CGPoint location = [touch locationInNode:self];
+		[self inputEnded:location];
 	}
 	
-	[self inputBegan:CGPointZero];
-	
 }
+
+
 #else
 -(void)mouseDown:(NSEvent *)theEvent {
      /* Called when a mouse click occurs */
     
-//    CGPoint location = [theEvent locationInNode:self];
+    CGPoint location = [theEvent locationInNode:self];
 	
 	prevTime = thisTime;
 	
 	thisTime = globalCurrentTime;
 	
 	
-	[self inputBegan:CGPointZero];
+	[self inputBegan:location];
 
 	
 	
 //	NSLog(@"time elapsed: %f", thisTime - prevTime);
+	
+}
+
+-(void)mouseUp:(NSEvent *)theEvent {
+	
+	CGPoint location = [theEvent locationInNode:self];
+	[self inputEnded:location];
 	
 }
 #endif
@@ -91,24 +111,50 @@
 
 -(void)inputBegan:(CGPoint)location {
 	
-	CGPoint pi = CGPointMake(0, 15);
-	CGPoint pp = CGPointMake(300, 500);
+//	CGPoint pi = CGPointMake(0, 15);
+//	CGPoint pp = CGPointMake(300, 500);
+//	
+//	CFTimeInterval start = CFAbsoluteTimeGetCurrent();
+//	NSLog(@"start %f", start);
+//	
+//	CGFloat distance;
+//	for (int i = 0 ; i < 10000000; i++) {
+////		CGVector newVec = [sharedUtilties normalizeVector:testVector];
+//		distance = [sharedUtilties distanceBetween:pi and:pp];
+//	}
+//	
+//	
+//	CFTimeInterval end = CFAbsoluteTimeGetCurrent();
+//	CGFloat difference = end - start;
+//	NSLog(@"end %f, total time: %f", end, difference);
+//
+//	NSLog(@"distance %f", distance);
 	
-	CFTimeInterval start = CFAbsoluteTimeGetCurrent();
-	NSLog(@"start %f", start);
-	
-	CGFloat distance;
-	for (int i = 0 ; i < 10000000; i++) {
-//		CGVector newVec = [sharedUtilties normalizeVector:testVector];
-		distance = [sharedUtilties distanceBetween:pi and:pp];
-	}
-	
-	
-	CFTimeInterval end = CFAbsoluteTimeGetCurrent();
-	CGFloat difference = end - start;
-	NSLog(@"end %f, total time: %f", end, difference);
+	startInput = location;
 
-	NSLog(@"distance %f", distance);
+	
+}
+
+-(void)inputEnded:(CGPoint)location {
+	
+	endInput = location;
+	
+	
+	
+	CGVector v1 = CGVectorMake(startInput.x, startInput.y);
+	CGVector v2 = CGVectorMake(endInput.x, endInput.y);
+	
+	CGVector normSum = [sharedUtilties addVectorA:v1 toVectorB:v2 andNormalize:YES];
+	CGVector sum = [sharedUtilties addVectorA:v1 toVectorB:v2 andNormalize:NO];
+	
+	CGPoint normConv = CGPointMake(normSum.dx, normSum.dy);
+	CGPoint sumConv = CGPointMake(sum.dx, sum.dy);
+	
+	CGFloat normDist = [sharedUtilties distanceBetween:CGPointZero and:normConv];
+	CGFloat dist = [sharedUtilties distanceBetween:CGPointZero and:sumConv];
+	
+	NSLog(@"normSum: %f %f and distance: %f", normSum.dx, normSum.dy, normDist);
+	NSLog(@"sum: %f %f and distance: %f", sum.dx, sum.dy, dist);
 	
 }
 
