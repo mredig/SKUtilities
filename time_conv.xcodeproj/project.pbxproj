@@ -96,6 +96,7 @@
 		33477358189DC5EE00055A53 /* SGG_ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGG_ViewController.h; sourceTree = "<group>"; };
 		33477359189DC5EE00055A53 /* SGG_ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGG_ViewController.m; sourceTree = "<group>"; };
 		33477366189DC5EE00055A53 /* skutilsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = skutilsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3347737F189E522A00055A53 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +145,7 @@
 		332C240C1890897600281B03 = {
 			isa = PBXGroup;
 			children = (
+				3347737F189E522A00055A53 /* LICENSE.txt */,
 				332C24201890897600281B03 /* time_conv */,
 				3347737A189DC62100055A53 /* OSX stuff */,
 				33477346189DC5EE00055A53 /* iOS stuff */,
