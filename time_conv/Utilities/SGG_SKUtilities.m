@@ -98,6 +98,10 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	return CGVectorMake(point.x, point.y);
 }
 
+-(CGVector)vectorInverse:(CGVector)vector {
+	return CGVectorMake(-vector.dx, -vector.dy);
+}
+
 -(CGVector)vectorNormalize:(CGVector)vector {
 	CGVector normal;
 	
@@ -151,6 +155,10 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	return CGPointMake(vector.dx, vector.dy);
 }
 
+-(CGPoint)pointInverse:(CGPoint)point {
+	return CGPointMake(-point.x, -point.y);
+}
+
 -(CGPoint)pointAddA:(CGPoint)pointA toPointB:(CGPoint)pointB {
 	return CGPointMake(pointA.x + pointB.x, pointA.y + pointB.y);
 }
@@ -201,6 +209,42 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	CGPoint newDestination = CGPointMake(origin.x + vectorBetweenPoints.dx * adjustedSpeed,
 									  origin.y + vectorBetweenPoints.dy * adjustedSpeed);
 	return newDestination;
+}
+
+-(BOOL)characterAtPoint:(CGPoint)originPos canBackstabCharacterAtPoint:(CGPoint)victimPos facingVector:(CGVector)victimFacingVector isVectorNormal:(BOOL)victimFacingVectorNormal withLatitudeOf:(CGFloat)latitude andMaximumDistanceBetweenPoints:(CGFloat)maxDistance{
+	
+	
+	CGVector normalOriginFacingVector, normalVictimFacingVector;
+	
+	normalOriginFacingVector = [self vectorFacingPoint:originPos fromPoint:victimPos andNormalize:YES];
+	
+	//normalize victim vector if necessary
+	if (victimFacingVectorNormal) {
+		normalVictimFacingVector = victimFacingVector;
+	} else {
+		normalVictimFacingVector = [self vectorNormalize:victimFacingVector];
+	}
+	
+	//calculate dotProduct
+	//values > 0 means murderer is infront of victim, value == 0 means murderer is DIRECTLY beside victim (left OR right), value < 0 means murderer is behind victim, -1 is EXACTLY DIRECTLY behind victim. Range of -1 to 1;
+	//see http://www.youtube.com/watch?v=Q9FZllr6-wY for more info
+	
+	CGFloat dotProduct = normalOriginFacingVector.dx * normalVictimFacingVector.dx + normalOriginFacingVector.dy * normalVictimFacingVector.dy;
+
+	NSLog(@"DP: %f", dotProduct);
+	
+	//check if angles match up
+	if (dotProduct < -latitude) {
+		//only calculate distance if we know the angles work for a backstab
+		if ([self distanceBetweenPointA:originPos andPointB:victimPos isWithinXDistance:maxDistance]) {
+			return YES; //distance is within range
+		} else {
+			return NO; //distance is not within range
+		}
+	} else {
+		return NO; //angles dont match
+	}
+
 }
 
 #pragma mark COORDINATE CONVERSIONS

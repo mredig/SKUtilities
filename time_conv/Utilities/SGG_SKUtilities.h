@@ -42,6 +42,7 @@
 
 #pragma mark CGVector HELPERS
 -(CGVector)vectorFromCGPoint:(CGPoint)point; //just converts variable formats
+-(CGVector)vectorInverse:(CGVector)vector;
 -(CGVector)vectorNormalize:(CGVector)vector; //returns a vector with a unit length of 1.0
 -(CGVector)vectorAddA:(CGVector)vectorA toVectorB:(CGVector)vectorB andNormalize:(BOOL)normalize; //adds two vectors together with option to normalize
 -(CGVector)vectorSubtractA:(CGVector)vectorA fromVectorB:(CGVector)vectorB andNormalize:(BOOL)normalize; //subtracts two vectors with option to normalize
@@ -50,9 +51,11 @@
 
 #pragma mark CGPoint HELPERS
 -(CGPoint)pointFromCGVector:(CGVector)vector; //just converts variable formats
+-(CGPoint)pointInverse:(CGPoint)point;
 -(CGPoint)pointAddA:(CGPoint)pointA toPointB:(CGPoint)pointB; //adds two points together (x+x, y+y)
 -(CGPoint)pointStepFromPoint:(CGPoint)origin withVector:(CGVector)vector vectorIsNormal:(BOOL)vectorIsNormal withFrameInterval:(CFTimeInterval)interval andMaxInterval:(CGFloat)maxInterval withSpeed:(CGFloat)speed andSpeedModifiers:(CGFloat)speedModifiers; //calculates where a new position should be relative to current position based on environmental variables
 -(CGPoint)pointStepFromPoint:(CGPoint)origin towardsPoint:(CGPoint)destination withFrameInterval:(CFTimeInterval)interval andMaxInterval:(CGFloat)maxInterval withSpeed:(CGFloat)speed andSpeedModifiers:(CGFloat)speedModifiers; //calculates where a new position should be to move towards destination based on environmental variables
+-(BOOL)characterAtPoint:(CGPoint)originPos canBackstabCharacterAtPoint:(CGPoint)victimPos facingVector:(CGVector)victimFacingVector isVectorNormal:(BOOL)victimFacingVectorNormal withLatitudeOf:(CGFloat)latitude andMaximumDistanceBetweenPoints:(CGFloat)maxDistance; //returns boolean whether or not a backstab would be valid given parameters. Latitude is range from 0 to 1.0. 0.5 would give a valid range of about 45 degrees to backstab
 
 
 #pragma mark COORDINATE CONVERSIONS

@@ -113,25 +113,7 @@
 
 
 -(void)inputBegan:(CGPoint)location {
-	
-//	CGPoint pi = CGPointMake(0, 15);
-//	CGPoint pp = CGPointMake(300, 500);
-//	
-//	CFTimeInterval start = CFAbsoluteTimeGetCurrent();
-//	NSLog(@"start %f", start);
-//	
-//	CGFloat distance;
-//	for (int i = 0 ; i < 10000000; i++) {
-////		CGVector newVec = [sharedUtilties normalizeVector:testVector];
-//		distance = [sharedUtilties distanceBetween:pi and:pp];
-//	}
-//	
-//	
-//	CFTimeInterval end = CFAbsoluteTimeGetCurrent();
-//	CGFloat difference = end - start;
-//	NSLog(@"end %f, total time: %f", end, difference);
-//
-//	NSLog(@"distance %f", distance);
+
 	
 	startInput = location;
 
@@ -142,31 +124,17 @@
 	
 	endInput = location;
 	
-	CGPoint p1 = CGPointMake(512, 384);
-	CGPoint p2 = location;
 	
-	CGVector vector = [sharedUtilties vectorFacingPoint:p2 fromPoint:p1 andNormalize:NO];
-	CGVector vectorNorm = [sharedUtilties vectorFacingPoint:p2 fromPoint:p1 andNormalize:YES];
+	CGVector facingVector1 = CGVectorMake(1, 0);
+	CGVector facingVector2 = CGVectorMake(1, 0);
 	
-	NSLog(@"vec: %f %f", vector.dx, vector.dy);
-	NSLog(@"vecNorm: %f %f", vectorNorm.dx, vectorNorm.dy);
+	bool isBackstab = [sharedUtilties characterAtPoint:startInput canBackstabCharacterAtPoint:endInput facingVector:facingVector2 isVectorNormal:YES withLatitudeOf:0.5 andMaximumDistanceBetweenPoints:500];
 	
 	
-	
-//	CGVector v1 = CGVectorMake(10, 25);
-//	CGVector v2 = CGVectorMake(0, 50);
-//	
-//	CGVector normSum = [sharedUtilties addVectorA:v1 toVectorB:v2 andNormalize:YES];
-//	CGVector sum = [sharedUtilties addVectorA:v1 toVectorB:v2 andNormalize:NO];
-//	
-//	CGPoint normConv = CGPointMake(normSum.dx, normSum.dy);
-//	CGPoint sumConv = CGPointMake(sum.dx, sum.dy);
-//	
-//	CGFloat normDist = [sharedUtilties distanceBetween:CGPointZero and:normConv];
-//	CGFloat dist = [sharedUtilties distanceBetween:CGPointZero and:sumConv];
-//	
-//	NSLog(@"normSum: %f %f and distance: %f", normSum.dx, normSum.dy, normDist);
-//	NSLog(@"sum: %f %f and distance: %f", sum.dx, sum.dy, dist);
+	NSLog(@"startPoint: %f %f end: %f %f", startInput.x, startInput.y, endInput.x, endInput.y);
+	NSLog(@"distance: %f", [sharedUtilties distanceBetween:startInput and:endInput]);
+	NSLog(@"is a backstab: %i", isBackstab);
+
 	
 }
 
@@ -181,9 +149,9 @@
 	CFTimeInterval interval = absTime - prevAbsTime;
 //	CGPoint newPos = [sharedUtilties pointStepFromPoint:ship.position withVector:CGVectorMake(1, 1) vectorIsNormal:NO withFrameInterval:0 andMaxInterval:0.05 withSpeed:200 andSpeedModifiers:1];
 	
-	CGPoint newPos = [sharedUtilties pointStepFromPoint:ship.position towardsPoint:startInput withFrameInterval:0 andMaxInterval:0.05 withSpeed:200 andSpeedModifiers:1];
-	
-	ship.position = newPos;
+//	CGPoint newPos = [sharedUtilties pointStepFromPoint:ship.position towardsPoint:startInput withFrameInterval:0 andMaxInterval:0.05 withSpeed:200 andSpeedModifiers:1];
+//	
+//	ship.position = newPos;
 	
 //	NSLog(@"Abs interval %f", interval);
 	
