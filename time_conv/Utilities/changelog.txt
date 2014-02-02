@@ -1,0 +1,19 @@
+Version 1.1
+
+	Features
+	- added "-(NSDictionary*)calculateDurationsFromSeconds:(CFTimeInterval)seconds"
+	- added ability to globally track time intervals to avoid the need to always pass time intervals into update functions 
+		-@property (nonatomic, readonly) CFTimeInterval currentTime;
+		-@property (nonatomic, readonly) CFTimeInterval previousFrameDuration;
+	- added vector normalization
+
+
+	Bug Fixes
+	-
+	
+	Known Issues
+	- parsing durations from seconds doesn't work yet
+
+Version 1.0
+
+	- Initial Release

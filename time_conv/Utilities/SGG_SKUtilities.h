@@ -4,7 +4,7 @@
 //  Created by Michael Redig on 1/1/14.
 //  Copyright (c) 2014 Michael Redig. All rights reserved.
 //
-// version 1.0.5
+// version 1.1
 
 //#import "TestFlight.h"
 
@@ -35,8 +35,16 @@
 -(CGFloat) angleBetween:(CGPoint)point1 from:(CGPoint)point2;
 -(CGPoint) getCGPointFromString:(NSString*)string;
 -(NSString*)getStringFromPoint:(CGPoint)location;
+
 -(void)updateCurrentTime:(CFTimeInterval)timeUpdate; //call this from the update method in the current scene
 
+-(NSDictionary*)calculateDurationsFromSeconds:(CFTimeInterval)seconds;
+-(NSDictionary*)parseDurationsFromSeconds:(CFTimeInterval)seconds;
+
+
+//vectors
+
+-(CGVector)normalizeVector:(CGVector)vector;
 
 
 

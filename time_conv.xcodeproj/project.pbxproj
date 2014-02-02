@@ -61,6 +61,7 @@
 		332C2453189089A300281B03 /* SGG_SKUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGG_SKUtilities.h; sourceTree = "<group>"; };
 		332C2454189089A300281B03 /* SGG_SKUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGG_SKUtilities.m; sourceTree = "<group>"; };
 		332C2455189089A300281B03 /* SKUtilityConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKUtilityConstants.h; sourceTree = "<group>"; };
+		33477339189DBE5F00055A53 /* changelog.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = changelog.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +175,7 @@
 		332C2452189089A300281B03 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				33477339189DBE5F00055A53 /* changelog.txt */,
 				332C2453189089A300281B03 /* SGG_SKUtilities.h */,
 				332C2454189089A300281B03 /* SGG_SKUtilities.m */,
 				332C2455189089A300281B03 /* SKUtilityConstants.h */,
@@ -488,6 +490,7 @@
 				332C244E1890897600281B03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		332C244F1890897600281B03 /* Build configuration list for PBXNativeTarget "time_convTests" */ = {
 			isa = XCConfigurationList;
@@ -496,6 +499,7 @@
 				332C24511890897600281B03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -5,7 +5,7 @@
 //  Created by Michael Redig on 1/1/14.
 //  Copyright (c) 2014 Michael Redig. All rights reserved.
 //
-// version 1.0.5
+// version 1.1
 
 #import "SGG_SKUtilities.h"
 
@@ -93,6 +93,24 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	return atan2f(deltaY, deltaX) - (90 * _degreesToRadiansConversionFactor);
 }
 
+#pragma mark VECTOR UTILTIES
+
+-(CGVector)normalizeVector:(CGVector)vector {
+	CGVector normal;
+	
+//	CGFloat distance = hypotf(vector.dx, vector.dy);
+	CGFloat distance = sqrt(vector.dx * vector.dx + vector.dy * vector.dy);
+	
+	
+	normal = CGVectorMake(vector.dx / distance, vector.dy / distance);
+	
+	
+	
+	return normal;
+	
+}
+
+
 #pragma mark COORDINATE CONVERSIONS
 
 
@@ -131,5 +149,62 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 
 }
 
+-(NSDictionary*)calculateDurationsFromSeconds:(CFTimeInterval)seconds {
+	
+	//declarations
+	CGFloat leftOverSeconds;
+	CGFloat minutes;
+	CGFloat hours;
+	CGFloat days;
+	CGFloat weeks;
+	
+	//calculations
+	leftOverSeconds = seconds;
+	minutes = seconds / 60.0f;
+	hours = minutes / 60.0f;
+	days = hours / 24.0f;
+	weeks = days / 7.0f;
+	
+	//return dict
+	NSDictionary* outputDict = [NSDictionary dictionaryWithObjectsAndKeys:
+								[NSNumber numberWithFloat:leftOverSeconds], @"seconds",
+								[NSNumber numberWithFloat:minutes], @"minutes",
+								[NSNumber numberWithFloat:hours], @"hours",
+								[NSNumber numberWithFloat:days], @"days",
+								[NSNumber numberWithFloat:weeks], @"weeks",
+								nil];
+	
+	return  outputDict;
+}
+
+-(NSDictionary*)parseDurationsFromSeconds:(CFTimeInterval)seconds {
+	
+	//declarations
+	CGFloat leftOverSeconds;
+	CGFloat minutes;
+	CGFloat hours;
+	CGFloat days;
+	CGFloat weeks;
+	
+	//calculations
+//	leftOverSeconds = seconds;
+	
+//	minutes = seconds / 60.0f;
+//	hours = minutes / 60.0f;
+//	days = hours / 24.0f;
+	weeks = fmod(seconds, 604800);
+	
+	//return dict
+	NSDictionary* outputDict = [NSDictionary dictionaryWithObjectsAndKeys:
+								[NSNumber numberWithFloat:leftOverSeconds], @"seconds",
+								[NSNumber numberWithFloat:minutes], @"minutes",
+								[NSNumber numberWithFloat:hours], @"hours",
+								[NSNumber numberWithFloat:days], @"days",
+								[NSNumber numberWithFloat:weeks], @"weeks",
+								nil];
+	
+	return  outputDict;
+	
+}
 
 @end
