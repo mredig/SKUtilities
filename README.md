@@ -12,7 +12,9 @@ Usage:
 
 Include
 
+	SKUtilityConstants.h
 	SGG_SKUtilities.h
+	SGG_SKUtilities.m
 
 In every file you want to use the utilities.
 
