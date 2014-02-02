@@ -5,7 +5,19 @@ Version 1.1
 	- added ability to globally track time intervals to avoid the need to always pass time intervals into update functions 
 		-@property (nonatomic, readonly) CFTimeInterval currentTime;
 		-@property (nonatomic, readonly) CFTimeInterval previousFrameDuration;
-	- added vector normalization
+	- added vector utilities
+		- normalization
+		- adding
+		- subtracting
+		- vector between origin and destination
+		- convert from point
+	- added point utilities
+		- add points together
+		- convert from vector
+		- step movement functions
+			- towards point
+			- using vector
+
 
 
 	Bug Fixes

@@ -24,6 +24,8 @@
 	
 	bool firstupdate;
 	
+	SKSpriteNode* ship;
+	
 	int burr;
 	float durr;
 	
@@ -54,9 +56,10 @@
 //        
 //        [self addChild:interval];
 		
-
+		startInput = CGPointMake(1024, 768);
 		
-		
+		ship = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
+		[self addChild:ship];
 		
     }
     return self;
@@ -139,34 +142,48 @@
 	
 	endInput = location;
 	
+	CGPoint p1 = CGPointMake(512, 384);
+	CGPoint p2 = location;
+	
+	CGVector vector = [sharedUtilties vectorFacingPoint:p2 fromPoint:p1 andNormalize:NO];
+	CGVector vectorNorm = [sharedUtilties vectorFacingPoint:p2 fromPoint:p1 andNormalize:YES];
+	
+	NSLog(@"vec: %f %f", vector.dx, vector.dy);
+	NSLog(@"vecNorm: %f %f", vectorNorm.dx, vectorNorm.dy);
 	
 	
-	CGVector v1 = CGVectorMake(startInput.x, startInput.y);
-	CGVector v2 = CGVectorMake(endInput.x, endInput.y);
 	
-	CGVector normSum = [sharedUtilties addVectorA:v1 toVectorB:v2 andNormalize:YES];
-	CGVector sum = [sharedUtilties addVectorA:v1 toVectorB:v2 andNormalize:NO];
-	
-	CGPoint normConv = CGPointMake(normSum.dx, normSum.dy);
-	CGPoint sumConv = CGPointMake(sum.dx, sum.dy);
-	
-	CGFloat normDist = [sharedUtilties distanceBetween:CGPointZero and:normConv];
-	CGFloat dist = [sharedUtilties distanceBetween:CGPointZero and:sumConv];
-	
-	NSLog(@"normSum: %f %f and distance: %f", normSum.dx, normSum.dy, normDist);
-	NSLog(@"sum: %f %f and distance: %f", sum.dx, sum.dy, dist);
+//	CGVector v1 = CGVectorMake(10, 25);
+//	CGVector v2 = CGVectorMake(0, 50);
+//	
+//	CGVector normSum = [sharedUtilties addVectorA:v1 toVectorB:v2 andNormalize:YES];
+//	CGVector sum = [sharedUtilties addVectorA:v1 toVectorB:v2 andNormalize:NO];
+//	
+//	CGPoint normConv = CGPointMake(normSum.dx, normSum.dy);
+//	CGPoint sumConv = CGPointMake(sum.dx, sum.dy);
+//	
+//	CGFloat normDist = [sharedUtilties distanceBetween:CGPointZero and:normConv];
+//	CGFloat dist = [sharedUtilties distanceBetween:CGPointZero and:sumConv];
+//	
+//	NSLog(@"normSum: %f %f and distance: %f", normSum.dx, normSum.dy, normDist);
+//	NSLog(@"sum: %f %f and distance: %f", sum.dx, sum.dy, dist);
 	
 }
 
 -(void)update:(CFTimeInterval)currentTime {
     /* Called before each frame is rendered */
 	
-//	[sharedUtilties updateCurrentTime:currentTime];
+	[sharedUtilties updateCurrentTime:currentTime];
 	
 	CFAbsoluteTime prevAbsTime = absTime;
 	absTime = CFAbsoluteTimeGetCurrent();
 	
 	CFTimeInterval interval = absTime - prevAbsTime;
+//	CGPoint newPos = [sharedUtilties pointStepFromPoint:ship.position withVector:CGVectorMake(1, 1) vectorIsNormal:NO withFrameInterval:0 andMaxInterval:0.05 withSpeed:200 andSpeedModifiers:1];
+	
+	CGPoint newPos = [sharedUtilties pointStepFromPoint:ship.position towardsPoint:startInput withFrameInterval:0 andMaxInterval:0.05 withSpeed:200 andSpeedModifiers:1];
+	
+	ship.position = newPos;
 	
 //	NSLog(@"Abs interval %f", interval);
 	

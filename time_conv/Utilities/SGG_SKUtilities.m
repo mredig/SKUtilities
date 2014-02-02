@@ -66,7 +66,6 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	CGFloat deltaY = pointA.y - pointB.y;
 	
 	return (deltaX * deltaX) + (deltaY * deltaY) <= distance * distance;
-	
 }
 
 
@@ -76,7 +75,6 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	CGFloat deltaY = pointA.y - pointB.y;
 	
 	return (deltaX * deltaX) + (deltaY * deltaY) <= distanceSquared;
-	
 }
 
 #pragma mark ORIENTATION
@@ -94,9 +92,13 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	return atan2f(deltaY, deltaX) - (90 * _degreesToRadiansConversionFactor);
 }
 
-#pragma mark VECTOR UTILTIES
+#pragma mark CGVector HELPERS
 
--(CGVector)normalizeVector:(CGVector)vector {
+-(CGVector)vectorFromCGPoint:(CGPoint)point {
+	return CGVectorMake(point.x, point.y);
+}
+
+-(CGVector)vectorNormalize:(CGVector)vector {
 	CGVector normal;
 	
 //	CGFloat distance = hypotf(vector.dx, vector.dy);
@@ -106,21 +108,102 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	return normal;
 }
 
--(CGVector)addVectorA:(CGVector)vectorA toVectorB:(CGVector)vectorB andNormalize:(BOOL)normalize {
+-(CGVector)vectorAddA:(CGVector)vectorA toVectorB:(CGVector)vectorB andNormalize:(BOOL)normalize {
 	
 	CGVector addedVector;
 	addedVector = CGVectorMake(vectorA.dx + vectorB.dx, vectorA.dy + vectorB.dy);
 	
 	if (normalize) {
-		addedVector = [self normalizeVector:addedVector];
+		addedVector = [self vectorNormalize:addedVector];
 	}
 
 	return addedVector;
 }
 
+-(CGVector)vectorSubtractA:(CGVector)vectorA fromVectorB:(CGVector)vectorB andNormalize:(BOOL)normalize {
+	CGVector subtractedVector;
+	
+	subtractedVector = CGVectorMake(vectorB.dx - vectorA.dx, vectorB.dy - vectorA.dy);
+	
+	if (normalize) {
+		subtractedVector = [self vectorNormalize:subtractedVector];
+	}
+	
+	return subtractedVector;
+}
+
+-(CGVector)vectorFacingPoint:(CGPoint)destination fromPoint:(CGPoint)origin andNormalize:(BOOL)normalize {
+	
+	CGVector destinationVec = [self vectorFromCGPoint:destination];
+	CGVector originVec = [self vectorFromCGPoint:origin];
+	
+	CGVector directionVector = [self vectorSubtractA:originVec fromVectorB:destinationVec andNormalize:normalize];
+	
+	return directionVector;
+}
+
+
+
+
+#pragma mark CGPoint HELPERS
+
+-(CGPoint)pointFromCGVector:(CGVector)vector {
+	return CGPointMake(vector.dx, vector.dy);
+}
+
+-(CGPoint)pointAddA:(CGPoint)pointA toPointB:(CGPoint)pointB {
+	return CGPointMake(pointA.x + pointB.x, pointA.y + pointB.y);
+}
+
+-(CGPoint)pointStepFromPoint:(CGPoint)origin withVector:(CGVector)vector vectorIsNormal:(BOOL)vectorIsNormal withFrameInterval:(CFTimeInterval)interval andMaxInterval:(CGFloat)maxInterval withSpeed:(CGFloat)speed andSpeedModifiers:(CGFloat)speedModifiers {
+	
+	if (interval == 0) {
+		interval = _previousFrameDuration;
+	}
+	if (maxInterval == 0) {
+		maxInterval = 0.05;
+	}
+	if (interval > maxInterval) {
+		interval = maxInterval;
+	}
+	
+	CGFloat adjustedSpeed = speed * speedModifiers * interval;
+	
+	
+	CGVector normalVec = vector;
+	if (!vectorIsNormal) {
+		normalVec = [self vectorNormalize:normalVec];
+	}
+	
+	CGPoint destination = CGPointMake(origin.x + normalVec.dx * adjustedSpeed,
+								origin.y + normalVec.dy * adjustedSpeed);
+
+	
+	return destination;
+}
+
+-(CGPoint)pointStepFromPoint:(CGPoint)origin towardsPoint:(CGPoint)destination withFrameInterval:(CFTimeInterval)interval andMaxInterval:(CGFloat)maxInterval withSpeed:(CGFloat)speed andSpeedModifiers:(CGFloat)speedModifiers {
+
+	if (interval == 0) {
+		interval = _previousFrameDuration;
+	}
+	if (maxInterval == 0) {
+		maxInterval = 0.05;
+	}
+	if (interval > maxInterval) {
+		interval = maxInterval;
+	}
+	
+	CGFloat adjustedSpeed = speed * speedModifiers * interval;
+	
+	CGVector vectorBetweenPoints = [self vectorFacingPoint:destination fromPoint:origin andNormalize:YES];
+	
+	CGPoint newDestination = CGPointMake(origin.x + vectorBetweenPoints.dx * adjustedSpeed,
+									  origin.y + vectorBetweenPoints.dy * adjustedSpeed);
+	return newDestination;
+}
 
 #pragma mark COORDINATE CONVERSIONS
-
 
 //OSX uses NSPoint and iOS uses CGPoint
 -(CGPoint) getCGPointFromString:(NSString*)string {
@@ -147,6 +230,9 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	return string;
 	
 }
+
+
+
 
 #pragma mark TIME HANDLERS
 
