@@ -38,7 +38,7 @@ Now you can access time intervals from previous frame and the current game time 
 	sharedData.previousFrameDuration
 	sharedData.currentTime
 	
-To get more information on different methods, refer to the header file. 
+To get more information on different methods, refer to the header file. You may also see how it was implemented in the scene file (I'm simply using that to test functionality) to get an idea.
 
 If you have anything worthwhile to add, please either email me @secretgamegroup.com (put "michael" first) or, as I'm new to github, there may be some contact method available here.
 
