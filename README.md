@@ -21,11 +21,15 @@ In every file you want to use the utilities.
 In the interface section of the file, create a global variable (not sure if that's 100% correct term for Obj C, but you get the idea) as such
 
 	@interface SGG_MyScene() {
-		
 		SGG_SKUtilities* sharedUtilities;
-		
 	}
 	@end
+	
+In the init statement of your scene, call upon the singleton:
+
+	sharedUtilties = [SGG_SKUtilities sharedUtilities];
+	
+This must be initialized before you can call any methods or properties of the class.
 
 finally, to access time data globally, add 
 
