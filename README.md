@@ -56,4 +56,4 @@ Target requirements:
 
 iOS 7+
 or 
-Mac OS X 10.9+
+Mac OS X 10.9+ or whatever SpriteKit's requirements are. I'm not 100% sure and I don't care enough to look them up just for this. I'm not your mom.
