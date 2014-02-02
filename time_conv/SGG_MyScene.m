@@ -57,7 +57,18 @@
     }
     return self;
 }
+#if TARGET_OS_IPHONE
 
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	
+	for (UITouch* touch in touches) {
+		CGPoint location = [touch locationInNode:self];
+	}
+	
+	[self inputBegan:CGPointZero];
+	
+}
+#else
 -(void)mouseDown:(NSEvent *)theEvent {
      /* Called when a mouse click occurs */
     
@@ -68,23 +79,36 @@
 	thisTime = globalCurrentTime;
 	
 	
-	CGPoint i = CGPointMake(3, 4);
-	CGPoint p = CGPointMake(1, 2);
-	CGVector testVector = CGVectorMake(i.x - p.x, i.y - p.y);
+	[self inputBegan:CGPointZero];
+
+	
+	
+//	NSLog(@"time elapsed: %f", thisTime - prevTime);
+	
+}
+#endif
+
+
+-(void)inputBegan:(CGPoint)location {
+	
+	CGPoint pi = CGPointMake(0, 15);
+	CGPoint pp = CGPointMake(300, 500);
 	
 	CFTimeInterval start = CFAbsoluteTimeGetCurrent();
 	NSLog(@"start %f", start);
 	
+	CGFloat distance;
 	for (int i = 0 ; i < 10000000; i++) {
-		CGVector newVec = [sharedUtilties normalizeVector:testVector];
+//		CGVector newVec = [sharedUtilties normalizeVector:testVector];
+		distance = [sharedUtilties distanceBetween:pi and:pp];
 	}
+	
 	
 	CFTimeInterval end = CFAbsoluteTimeGetCurrent();
 	CGFloat difference = end - start;
 	NSLog(@"end %f, total time: %f", end, difference);
-	
-	
-//	NSLog(@"time elapsed: %f", thisTime - prevTime);
+
+	NSLog(@"distance %f", distance);
 	
 }
 

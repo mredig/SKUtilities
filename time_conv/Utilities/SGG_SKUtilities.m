@@ -52,10 +52,11 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 
 
 #pragma mark DISTANCE FUNCTIONS
--(CGFloat)distanceBetween : (CGPoint) p1 and: (CGPoint)p2 {
-	return hypotf(p2.x - p1.x, p2.y - p1.y);
-	
-	//    return sqrt(pow(p2.x-p1.x,2)+pow(p2.y-p1.y,2));
+-(CGFloat)distanceBetween:(CGPoint)pointA and: (CGPoint)pointB {
+//	return hypotf(pointB.x - pointA.x, pointB.y - pointA.y); //faster
+//	return hypot(pointB.x - pointA.x, pointB.y - pointA.y); //fast
+//	return sqrt(pow(pointB.x-pointA.x,2)+pow(pointB.y-pointA.y,2)); //unfast
+	return sqrt((pointB.x - pointA.x) * (pointB.x - pointA.x) + (pointB.y - pointA.y) * (pointB.y - pointA.y)); //fastest
 }
 
 
@@ -99,15 +100,22 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	CGVector normal;
 	
 //	CGFloat distance = hypotf(vector.dx, vector.dy);
-	CGFloat distance = sqrt(vector.dx * vector.dx + vector.dy * vector.dy);
-	
+	CGFloat distance = sqrt(vector.dx * vector.dx + vector.dy * vector.dy); //this function is faster!
 	
 	normal = CGVectorMake(vector.dx / distance, vector.dy / distance);
-	
-	
-	
 	return normal;
+}
+
+-(CGVector)addVectorA:(CGVector)vectorA toVectorB:(CGVector)vectorB andNormalize:(BOOL)normalize {
 	
+	CGVector addedVector;
+	addedVector = CGVectorMake(vectorA.dx + vectorB.dx, vectorA.dy + vectorB.dy);
+	
+	if (normalize) {
+		addedVector = [self normalizeVector:addedVector];
+	}
+
+	return addedVector;
 }
 
 

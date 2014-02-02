@@ -15,8 +15,8 @@
 @interface SGG_SKUtilities : NSObject
 
 
-@property (nonatomic, assign) CGFloat radiansToDegreesConversionFactor;
-@property (nonatomic, assign) CGFloat degreesToRadiansConversionFactor;
+@property (nonatomic, readonly) CGFloat radiansToDegreesConversionFactor;
+@property (nonatomic, readonly) CGFloat degreesToRadiansConversionFactor;
 
 
 @property (nonatomic, readonly) CFTimeInterval currentTime;
@@ -28,7 +28,7 @@
 
 +(SGG_SKUtilities*) sharedUtilities;
 
--(CGFloat)distanceBetween:(CGPoint)p1 and:(CGPoint)p2;
+-(CGFloat)distanceBetween:(CGPoint)pointA and: (CGPoint)pointB;
 -(BOOL)distanceBetweenPointA:(CGPoint)pointA andPointB:(CGPoint)pointB isWithinXDistance:(CGFloat)distance;
 -(BOOL)distanceBetweenPointA:(CGPoint)pointA andPointB:(CGPoint)pointB isWithinXDistancePreSquared:(CGFloat)distanceSquared;
 -(CGFloat) orientTo:(CGPoint)point1 from:(CGPoint)point2;
@@ -45,7 +45,7 @@
 //vectors
 
 -(CGVector)normalizeVector:(CGVector)vector;
-
+-(CGVector)addVectorA:(CGVector)vectorA toVectorB:(CGVector)vectorB andNormalize:(BOOL)normalize;
 
 
 @end
