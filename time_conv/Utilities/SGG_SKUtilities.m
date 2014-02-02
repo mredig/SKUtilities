@@ -11,7 +11,6 @@
 
 
 @interface SGG_SKUtilities() {
-
 	
 }
 @end
@@ -21,13 +20,9 @@
 static SGG_SKUtilities* sharedUtilities = Nil;
 
 +(SGG_SKUtilities*) sharedUtilities {
-	
 	if (sharedUtilities == nil) {
-		
 		sharedUtilities = [[SGG_SKUtilities alloc] init];
 	}
-	
-	
 	return sharedUtilities;
 }
 
@@ -35,9 +30,7 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	if (self = [super init]) {
 		//		NSLog(@"initialized");
 	}
-	
 	[self initialSetup];
-	
 	return self;
 }
 
@@ -45,11 +38,7 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	
 	_radiansToDegreesConversionFactor = (180 / M_PI);
 	_degreesToRadiansConversionFactor = (M_PI / 180);
-	
-	
 }
-
-
 
 #pragma mark DISTANCE FUNCTIONS
 -(CGFloat)distanceBetween:(CGPoint)pointA and: (CGPoint)pointB {
