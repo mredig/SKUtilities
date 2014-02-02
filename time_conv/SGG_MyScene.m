@@ -126,9 +126,9 @@
 	
 	
 	CGVector facingVector1 = CGVectorMake(1, 0);
-	CGVector facingVector2 = CGVectorMake(1, 0);
+	CGVector facingVector2 = CGVectorMake(1, 1);
 	
-	bool isBackstab = [sharedUtilties characterAtPoint:startInput canBackstabCharacterAtPoint:endInput facingVector:facingVector2 isVectorNormal:YES withLatitudeOf:0.5 andMaximumDistanceBetweenPoints:500];
+	bool isBackstab = [sharedUtilties nodeAtPoint:startInput isBehindNodeAtPoint:endInput facingVector:facingVector2 isVectorNormal:NO withLatitudeOf:0.5];
 	
 	
 	NSLog(@"startPoint: %f %f end: %f %f", startInput.x, startInput.y, endInput.x, endInput.y);

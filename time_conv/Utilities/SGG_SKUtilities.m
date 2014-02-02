@@ -211,7 +211,7 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	return newDestination;
 }
 
--(BOOL)characterAtPoint:(CGPoint)originPos canBackstabCharacterAtPoint:(CGPoint)victimPos facingVector:(CGVector)victimFacingVector isVectorNormal:(BOOL)victimFacingVectorNormal withLatitudeOf:(CGFloat)latitude andMaximumDistanceBetweenPoints:(CGFloat)maxDistance{
+-(BOOL)nodeAtPoint:(CGPoint)originPos isBehindNodeAtPoint:(CGPoint)victimPos facingVector:(CGVector)victimFacingVector isVectorNormal:(BOOL)victimFacingVectorNormal withLatitudeOf:(CGFloat)latitude andMaximumDistanceBetweenPoints:(CGFloat)maxDistance{
 	
 	
 	CGVector normalOriginFacingVector, normalVictimFacingVector;
@@ -231,7 +231,7 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	
 	CGFloat dotProduct = normalOriginFacingVector.dx * normalVictimFacingVector.dx + normalOriginFacingVector.dy * normalVictimFacingVector.dy;
 
-	NSLog(@"DP: %f", dotProduct);
+//	NSLog(@"DP: %f", dotProduct);
 	
 	//check if angles match up
 	if (dotProduct < -latitude) {
@@ -244,7 +244,33 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	} else {
 		return NO; //angles dont match
 	}
+}
 
+-(BOOL)nodeAtPoint:(CGPoint)originPos isBehindNodeAtPoint:(CGPoint)victimPos facingVector:(CGVector)victimFacingVector isVectorNormal:(BOOL)victimFacingVectorNormal withLatitudeOf:(CGFloat)latitude {
+	CGVector normalOriginFacingVector, normalVictimFacingVector;
+	
+	normalOriginFacingVector = [self vectorFacingPoint:originPos fromPoint:victimPos andNormalize:YES];
+	
+	//normalize victim vector if necessary
+	if (victimFacingVectorNormal) {
+		normalVictimFacingVector = victimFacingVector;
+	} else {
+		normalVictimFacingVector = [self vectorNormalize:victimFacingVector];
+	}
+	
+	//calculate dotProduct
+	//values > 0 means murderer is infront of victim, value == 0 means murderer is DIRECTLY beside victim (left OR right), value < 0 means murderer is behind victim, -1 is EXACTLY DIRECTLY behind victim. Range of -1 to 1;
+	//see http://www.youtube.com/watch?v=Q9FZllr6-wY for more info
+	
+	CGFloat dotProduct = normalOriginFacingVector.dx * normalVictimFacingVector.dx + normalOriginFacingVector.dy * normalVictimFacingVector.dy;
+	
+	
+	//check if angles match up
+	if (dotProduct < -latitude) {
+		return YES; //angles match
+	} else {
+		return NO; //angles dont match
+	}
 }
 
 #pragma mark COORDINATE CONVERSIONS
