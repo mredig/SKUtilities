@@ -162,7 +162,10 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 -(CGPoint)pointStepFromPoint:(CGPoint)origin withVector:(CGVector)vector vectorIsNormal:(BOOL)vectorIsNormal withFrameInterval:(CFTimeInterval)interval andMaxInterval:(CGFloat)maxInterval withSpeed:(CGFloat)speed andSpeedModifiers:(CGFloat)speedModifiers {
 	
 	if (interval == 0) {
-		interval = _previousFrameDuration;
+		interval = _deltaFrameTime;
+		if (_deltaFrameTime == 0) {
+			NSLog(@"Please either set the interval in the point step call, or properly set \"updateCurrentTime\" in your update method.");
+		}
 	}
 	if (maxInterval == 0) {
 		maxInterval = 0.05;
@@ -189,7 +192,10 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 -(CGPoint)pointStepFromPoint:(CGPoint)origin towardsPoint:(CGPoint)destination withFrameInterval:(CFTimeInterval)interval andMaxInterval:(CGFloat)maxInterval withSpeed:(CGFloat)speed andSpeedModifiers:(CGFloat)speedModifiers {
 
 	if (interval == 0) {
-		interval = _previousFrameDuration;
+		interval = _deltaFrameTime;
+		if (_deltaFrameTime == 0) {
+			NSLog(@"Please either set the interval in the point step call, or properly set \"updateCurrentTime\" in your update method.");
+		}
 	}
 	if (maxInterval == 0) {
 		maxInterval = 0.05;
@@ -287,7 +293,7 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 
 -(void)updateCurrentTime:(CFTimeInterval)timeUpdate {
 	
-	_previousFrameDuration = timeUpdate - _currentTime;
+	_deltaFrameTime = timeUpdate - _currentTime;
 	_currentTime = timeUpdate;
 
 }

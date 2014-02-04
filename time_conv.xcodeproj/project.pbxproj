@@ -789,6 +789,7 @@
 				33477376189DC5EF00055A53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		33477377189DC5EF00055A53 /* Build configuration list for PBXNativeTarget "skutilsTests" */ = {
 			isa = XCConfigurationList;
@@ -797,6 +798,7 @@
 				33477379189DC5EF00055A53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

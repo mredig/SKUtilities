@@ -7,6 +7,10 @@ Intended to be an easy resource for SpriteKit projects to get quick access to co
 
 Note: I am a relatively new programmer, so it's entirely possible I haven't made everything in the neatest, tidiest way. I may not have optimized everything to the best it can be. There may be better, or MUCH better ways of doing these things. However, I am creating this because I have found a use for them and figure others may be able to benefit too. Please don't judge! 
 
+Also Note: Master branch is intended to be the latest stable branch. 
+
+Also Also Note: It is possible variable names or method names may change over time to either make more intuitive or be more organized. I apologize for the difficulty this will cause, but in the long run I expect it to work out better. A find/replace will generally get you going.
+
 Usage:
 =========
 
