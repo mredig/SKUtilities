@@ -72,5 +72,9 @@
 -(NSDictionary*)calculateDurationsFromSeconds:(CFTimeInterval)seconds; //returns a dictionary with CGFloat values converting seconds to minutes, hours, days, weeks, and years (5122435 seconds = 85373.917 minutes = 1422.8986 hours = 59.287442 days = 8.4696346 weeks = 0.16232017 years)
 -(NSDictionary*)parseDurationsFromSeconds:(CFTimeInterval)seconds; //returns a dictionary with a total value of the same duration of its seconds input, parsing minutes, hours, days, weeks, and years (93673.26 seconds = 0 years, 0 weeks, 1 day, 2 hours, 1 minute, and 13.26 seconds) ALSO NOTE: THIS DOES NOT WORK YET
 
+	
+#pragma mark MISC
+-(CGFloat)rampToValue:(CGFloat)idealValue fromCurrentValue:(CGFloat)currentValue withRampStep:(CGFloat)step; //ramps up or down to the ideal value from the current value. This is intended to be called from a repeating method and requires that currentValue remembers its previous value
+
 
 @end

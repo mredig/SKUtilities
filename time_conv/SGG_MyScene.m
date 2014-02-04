@@ -29,6 +29,9 @@
 	int burr;
 	float durr;
 	
+	CGFloat testValue;
+	
+	CGFloat anotherValue;
 	
 	CGPoint startInput;
 	CGPoint endInput;
@@ -114,6 +117,24 @@
 	[self inputEnded:location];
 	
 }
+	
+-(void)keyDown:(NSEvent *)theEvent {
+
+	NSString *characters = [theEvent characters];
+	if ([characters length]) {
+		for (int s = 0; s<[characters length]; s++) {
+			unichar character = [characters characterAtIndex:s];
+			switch (character) {
+			case ']':
+				anotherValue += 100;
+				break;
+			case '[':
+				anotherValue -= 100;
+				break;
+			}
+		}
+	}
+}
 #endif
 
 
@@ -141,7 +162,7 @@
 //	NSLog(@"is a backstab: %i", isBackstab);
 
 	
-	NSLog(@"ship vec: %f %f", [sharedUtilties vectorFromRadianAngle:ship.zRotation]);
+//	NSLog(@"ship vec: %f %f", [sharedUtilties vectorFromRadianAngle:ship.zRotation]);
 	
 }
 
@@ -153,21 +174,11 @@
 	CFAbsoluteTime prevAbsTime = absTime;
 	absTime = CFAbsoluteTimeGetCurrent();
 	
-	CFTimeInterval interval = absTime - prevAbsTime;
-//	CGPoint newPos = [sharedUtilties pointStepFromPoint:ship.position withVector:CGVectorMake(1, 1) vectorIsNormal:NO withFrameInterval:0 andMaxInterval:0.05 withSpeed:200 andSpeedModifiers:1];
+	testValue = [sharedUtilties rampToValue:anotherValue fromValue:testValue withRampStep:0.3];
 	
-//	CGPoint newPos = [sharedUtilties pointStepFromPoint:ship.position towardsPoint:startInput withFrameInterval:0 andMaxInterval:0.05 withSpeed:200 andSpeedModifiers:1];
-//	
-//	ship.position = newPos;
-	
-//	NSLog(@"Abs interval %f", interval);
+	NSLog(@"testValue: %f", testValue);
 	
 	
-	//	interval.text = [NSString stringWithFormat:@"%f", globalCurrentTime - thisTime];
-//	NSLog(@"update interval %f", currentTime - globalCurrentTime);
-	
-	
-	globalCurrentTime = currentTime;
 
 	if (!firstupdate) {
 		NSLog(@"launchtime: %f", currentTime);

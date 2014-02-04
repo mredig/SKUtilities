@@ -356,5 +356,35 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	return  outputDict;
 	
 }
+	
+#pragma mark MISC
+-(CGFloat)rampToValue:(CGFloat)idealValue fromCurrentValue:(CGFloat)currentValue withRampStep:(CGFloat)step {
+	
+	//check that step is valid
+	if (step < 0) {
+		step = -step;
+	} else if (step == 0) {
+		NSLog(@"uh, you need to assign a step value for a ramp to work!");
+	}
+	
+	//apply the step
+	CGFloat newValue;
+	if (currentValue < idealValue) {
+		newValue = currentValue + step;
+	} else if (currentValue > idealValue) {
+		newValue = currentValue - step;
+	} else {
+		newValue = idealValue;
+	}
+	
+	//check if you are at your target value
+	if (fabs(newValue - idealValue) < step) {
+		newValue = idealValue;
+	}
+	
+	
+	
+	return newValue;
+}
 
 @end
