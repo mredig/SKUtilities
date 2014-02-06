@@ -3,6 +3,7 @@ Version 1.2
 	- the previous version optimized the distance calculation, but no note was made in the previous notes
 	- changed _previousFrameDuration to be named _deltaFrameTime
 	- created an error log if calling a point step function without any delta time input
+	- added value ramping
 
 	Bug Fixes
 	-
