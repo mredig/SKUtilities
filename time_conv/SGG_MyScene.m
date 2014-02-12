@@ -35,6 +35,8 @@
 	
 	CGPoint startInput;
 	CGPoint endInput;
+	
+	CGPoint p0, p1, p2, p3;
 }
 
 @end
@@ -48,6 +50,12 @@
 		sharedUtilties = [SGG_SKUtilities sharedUtilities];
         
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
+		
+		p0 = CGPointMake(0, 0);
+		p1 = CGPointMake(1024, 0);
+		p2 = CGPointMake(0, 768);
+		p3 = CGPointMake(1024, 768);
+
         
 //        interval = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
 //        
@@ -59,19 +67,32 @@
 //        
 //        [self addChild:interval];
 		
-		startInput = CGPointMake(1024, 768);
-		
-		ship = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-		ship.position = CGPointMake(512, 384);
-		[self addChild:ship];
-		
-		SKAction* rotate = [SKAction rotateByAngle:M_PI duration:1.5];
-		SKAction* repeat = [SKAction repeatActionForever:rotate];
-		[ship runAction:repeat];
+//		startInput = CGPointMake(1024, 768);
+//		
+//		ship = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
+//		ship.position = CGPointMake(512, 384);
+//		[self addChild:ship];
+//		
+//		SKAction* rotate = [SKAction rotateByAngle:M_PI duration:1.5];
+//		SKAction* repeat = [SKAction repeatActionForever:rotate];
+//		[ship runAction:repeat];
 		
     }
     return self;
 }
+
+-(void)drawBezierSegmentWithIterations:(NSInteger)iterations andPoint0:(CGPoint)p0 andPoint1:(CGPoint)p1 andPoint2:(CGPoint)p2 andPoint3:(CGPoint)p3 {
+	
+	for (int i = 0; i < iterations; i++) {
+		SKSpriteNode* spriteSegment = [SKSpriteNode spriteNodeWithColor:[SKColor redColor] size:CGSizeMake(5, 5)];
+		CGFloat t = (CGFloat)i / (CGFloat)iterations;
+		//		spriteSegment.position = [self calculateBezierPoint:t andPoint0:p0 andPoint1:p1 andPoint2:p2 andPoint3:p3];
+		spriteSegment.position = [sharedUtilties findPointOnBezierCurveWithPointA:p0 andPointB:p1 andPointC:p2 andPointD:p3 andPlaceOnCurve:t];
+		spriteSegment.name = @"spriteSegment";
+		[self addChild:spriteSegment];
+	}
+}
+
 #if TARGET_OS_IPHONE
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -143,6 +164,7 @@
 	
 	startInput = location;
 
+	[self stressTest];
 	
 }
 
@@ -174,9 +196,9 @@
 	CFAbsoluteTime prevAbsTime = absTime;
 	absTime = CFAbsoluteTimeGetCurrent();
 	
-	testValue = [sharedUtilties rampToValue:anotherValue fromValue:testValue withRampStep:0.3];
-	
-	NSLog(@"testValue: %f", testValue);
+//	testValue = [sharedUtilties rampToValue:anotherValue fromCurrentValue:testValue withRampStep:0.3];
+//	
+//	NSLog(@"testValue: %f", testValue);
 	
 	
 
@@ -185,6 +207,20 @@
 		firstupdate = YES;
 	}
 	
+	
+}
+
+-(void)stressTest {
+	
+	NSTimeInterval timea = CFAbsoluteTimeGetCurrent();
+//	NSLog(@"startTime: %f", timea);
+	for (int i = 0; i < 10000000; i++) {
+		[sharedUtilties findPointOnBezierCurveWithPointA:p0 andPointB:p1 andPointC:p2 andPointD:p3 andPlaceOnCurve:0.5];
+//		[sharedUtilties calculateBezierPoint:0.5 andPoint0:p0 andPoint1:p1 andPoint2:p2 andPoint3:p3];
+	}
+	NSTimeInterval timeb = CFAbsoluteTimeGetCurrent();
+	NSLog(@"time taken: %f", timeb - timea);
+
 	
 }
 

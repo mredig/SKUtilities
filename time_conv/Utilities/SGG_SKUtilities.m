@@ -159,6 +159,10 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	return CGPointMake(pointA.x + pointB.x, pointA.y + pointB.y);
 }
 
+-(CGPoint)pointAddValue:(CGFloat)value toPoint:(CGPoint)point {
+	return CGPointMake(point.x + value, point.y + value);
+}
+
 -(CGPoint)pointStepFromPoint:(CGPoint)origin withVector:(CGVector)vector vectorIsNormal:(BOOL)vectorIsNormal withFrameInterval:(CFTimeInterval)interval andMaxInterval:(CGFloat)maxInterval withSpeed:(CGFloat)speed andSpeedModifiers:(CGFloat)speedModifiers {
 	
 	if (interval == 0) {
@@ -257,6 +261,12 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 		return NO; //angles dont match
 	}
 }
+
+-(CGPoint)linearInterpolationBetweenPointA:(CGPoint)a andPointB:(CGPoint)b andPlaceBetween:(CGFloat)t {	
+	return CGPointMake(a.x + (b.x-a.x)*t, a.y + (b.y-a.y)*t);
+}
+
+
 
 #pragma mark COORDINATE CONVERSIONS
 
@@ -385,6 +395,53 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	
 	
 	return newValue;
+}
+
+
+
+#pragma mark NEW
+
+
+
+-(CGPoint)findPointOnBezierCurveWithPointA:(CGPoint)a andPointB:(CGPoint)b andPointC:(CGPoint)c andPointD:(CGPoint)d andPlaceOnCurve:(CGFloat)t {
+	
+	CGPoint ab, bc, cd, abbc, bccd, dest;
+	ab = [self linearInterpolationBetweenPointA:a andPointB:b andPlaceBetween:t];
+//	bc = [self linearInterpolationBetweenPointA:b andPointB:c andPlaceBetween:t];
+//	cd = [self linearInterpolationBetweenPointA:c andPointB:d andPlaceBetween:t];
+//	abbc = [self linearInterpolationBetweenPointA:ab andPointB:bc andPlaceBetween:t];
+//	bccd = [self linearInterpolationBetweenPointA:bc andPointB:cd andPlaceBetween:t];
+//	dest = [self linearInterpolationBetweenPointA:abbc andPointB:bccd andPlaceBetween:t];
+	
+	
+	ab = CGPointMake(a.x + (b.x-a.x)*t, a.y + (b.y-a.y)*t);
+	bc = CGPointMake(b.x + (c.x-b.x)*t, b.y + (c.y-b.y)*t);
+	cd = CGPointMake(c.x + (d.x-c.x)*t, c.y + (d.y-c.y)*t);
+	abbc = CGPointMake(ab.x + (bc.x-ab.x)*t, ab.y + (bc.y-ab.y)*t);
+	bccd = CGPointMake(bc.x + (cd.x-bc.x)*t, bc.y + (cd.y-bc.y)*t);
+	dest = CGPointMake(abbc.x + (bccd.x-abbc.x)*t, abbc.y + (bccd.y-abbc.y)*t);
+
+	return dest;
+}
+
+
+
+-(CGPoint)calculateBezierPoint:(CGFloat)t andPoint0:(CGPoint)p0 andPoint1:(CGPoint)p1 andPoint2:(CGPoint)p2 andPoint3:(CGPoint)p3 {
+	
+	CGFloat u = 1 - t;
+	CGFloat tt = t * t;
+	CGFloat uu = u * u;
+	CGFloat uuu = uu * u;
+	CGFloat ttt = tt * t;
+	
+	
+	CGPoint finalPoint = CGPointMake(p0.x * uuu, p0.y * uuu);
+	finalPoint = CGPointMake(finalPoint.x + (3 * uu * t * p1.x), finalPoint.y + (3 * uu * t * p1.y));
+	finalPoint = CGPointMake(finalPoint.x + (3 * u * tt * p2.x), finalPoint.y + (3 * u * tt * p2.y));
+	finalPoint = CGPointMake(finalPoint.x + (ttt * p3.x), finalPoint.y + (ttt * p3.y));
+	
+	
+	return finalPoint;
 }
 
 @end

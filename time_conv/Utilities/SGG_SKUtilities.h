@@ -55,11 +55,12 @@
 -(CGPoint)pointFromCGVector:(CGVector)vector; //just converts variable formats
 -(CGPoint)pointInverse:(CGPoint)point;
 -(CGPoint)pointAddA:(CGPoint)pointA toPointB:(CGPoint)pointB; //adds two points together (x+x, y+y)
+-(CGPoint)pointAddValue:(CGFloat)value toPoint:(CGPoint)point; //adds a value to the point (x+v, y+v)
 -(CGPoint)pointStepFromPoint:(CGPoint)origin withVector:(CGVector)vector vectorIsNormal:(BOOL)vectorIsNormal withFrameInterval:(CFTimeInterval)interval andMaxInterval:(CGFloat)maxInterval withSpeed:(CGFloat)speed andSpeedModifiers:(CGFloat)speedModifiers; //calculates where a new position should be relative to current position based on environmental variables
 -(CGPoint)pointStepFromPoint:(CGPoint)origin towardsPoint:(CGPoint)destination withFrameInterval:(CFTimeInterval)interval andMaxInterval:(CGFloat)maxInterval withSpeed:(CGFloat)speed andSpeedModifiers:(CGFloat)speedModifiers; //calculates where a new position should be to move towards destination based on environmental variables
 -(BOOL)nodeAtPoint:(CGPoint)originPos isBehindNodeAtPoint:(CGPoint)victimPos facingVector:(CGVector)victimFacingVector isVectorNormal:(BOOL)victimFacingVectorNormal withLatitudeOf:(CGFloat)latitude andMaximumDistanceBetweenPoints:(CGFloat)maxDistance; //returns boolean whether or not a backstab would be valid given parameters. Latitude is range from 0 to 1.0. 0.5 would give a valid range of about 45 degrees to backstab
 -(BOOL)nodeAtPoint:(CGPoint)originPos isBehindNodeAtPoint:(CGPoint)victimPos facingVector:(CGVector)victimFacingVector isVectorNormal:(BOOL)victimFacingVectorNormal withLatitudeOf:(CGFloat)latitude; //returns boolean whether or not a backstab would be valid given parameters (see above) this assumes that distance logic has already occurred and simply returns whether the angles are valid
-
+-(CGPoint)linearInterpolationBetweenPointA:(CGPoint)a andPointB:(CGPoint)b andPlaceBetween:(CGFloat)t;
 
 #pragma mark COORDINATE CONVERSIONS
 -(CGPoint)getCGPointFromString:(NSString*)string; //converts a properly formatted string to a CGPoint (typically for reading storage)
@@ -76,5 +77,11 @@
 #pragma mark MISC
 -(CGFloat)rampToValue:(CGFloat)idealValue fromCurrentValue:(CGFloat)currentValue withRampStep:(CGFloat)step; //ramps up or down to the ideal value from the current value. This is intended to be called from a repeating method and requires that currentValue remembers its previous value
 
+
+
+#pragma mark NEW
+
+-(CGPoint)calculateBezierPoint:(CGFloat)t andPoint0:(CGPoint)p0 andPoint1:(CGPoint)p1 andPoint2:(CGPoint)p2 andPoint3:(CGPoint)p3;
+-(CGPoint)findPointOnBezierCurveWithPointA:(CGPoint)a andPointB:(CGPoint)b andPointC:(CGPoint)c andPointD:(CGPoint)d andPlaceOnCurve:(CGFloat)t;
 
 @end
