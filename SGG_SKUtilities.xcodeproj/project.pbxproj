@@ -57,16 +57,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		332C24151890897600281B03 /* time_conv.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = time_conv.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		332C24151890897600281B03 /* SGG_SKUtilities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGG_SKUtilities.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		332C24181890897600281B03 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		332C241A1890897600281B03 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
 		332C241D1890897600281B03 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		332C241E1890897600281B03 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		332C241F1890897600281B03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		332C24221890897600281B03 /* time_conv-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "time_conv-Info.plist"; sourceTree = "<group>"; };
+		332C24221890897600281B03 /* SGG_SKUtilities-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SGG_SKUtilities-Info.plist"; sourceTree = "<group>"; };
 		332C24241890897600281B03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		332C24261890897600281B03 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		332C24281890897600281B03 /* time_conv-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "time_conv-Prefix.pch"; sourceTree = "<group>"; };
+		332C24281890897600281B03 /* SGG_SKUtilities-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SGG_SKUtilities-Prefix.pch"; sourceTree = "<group>"; };
 		332C242A1890897600281B03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
 		332C242C1890897600281B03 /* MainMenu.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainMenu.xib; sourceTree = "<group>"; };
 		332C242E1890897600281B03 /* SGG_MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SGG_MyScene.m; sourceTree = "<group>"; };
@@ -75,7 +75,7 @@
 		332C24331890897600281B03 /* SGG_AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SGG_AppDelegate.h; sourceTree = "<group>"; };
 		332C24341890897600281B03 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		332C24361890897600281B03 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		332C243C1890897600281B03 /* time_convTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = time_convTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		332C243C1890897600281B03 /* SGG_SKUtilitiesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SGG_SKUtilitiesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		332C243D1890897600281B03 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		332C2453189089A300281B03 /* SGG_SKUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGG_SKUtilities.h; sourceTree = "<group>"; };
 		332C2454189089A300281B03 /* SGG_SKUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGG_SKUtilities.m; sourceTree = "<group>"; };
@@ -159,8 +159,8 @@
 		332C24161890897600281B03 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				332C24151890897600281B03 /* time_conv.app */,
-				332C243C1890897600281B03 /* time_convTests.xctest */,
+				332C24151890897600281B03 /* SGG_SKUtilities.app */,
+				332C243C1890897600281B03 /* SGG_SKUtilitiesTests.xctest */,
 				3347733E189DC5EE00055A53 /* skutils.app */,
 				33477366189DC5EE00055A53 /* skutilsTests.xctest */,
 			);
@@ -206,10 +206,10 @@
 		332C24211890897600281B03 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				332C24221890897600281B03 /* time_conv-Info.plist */,
+				332C24221890897600281B03 /* SGG_SKUtilities-Info.plist */,
 				332C24231890897600281B03 /* InfoPlist.strings */,
 				332C24261890897600281B03 /* main.m */,
-				332C24281890897600281B03 /* time_conv-Prefix.pch */,
+				332C24281890897600281B03 /* SGG_SKUtilities-Prefix.pch */,
 				332C24291890897600281B03 /* Credits.rtf */,
 			);
 			name = "Supporting Files";
@@ -267,9 +267,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		332C24141890897600281B03 /* time_conv */ = {
+		332C24141890897600281B03 /* SGG_SKUtilities */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 332C244C1890897600281B03 /* Build configuration list for PBXNativeTarget "time_conv" */;
+			buildConfigurationList = 332C244C1890897600281B03 /* Build configuration list for PBXNativeTarget "SGG_SKUtilities" */;
 			buildPhases = (
 				332C24111890897600281B03 /* Sources */,
 				332C24121890897600281B03 /* Frameworks */,
@@ -279,14 +279,14 @@
 			);
 			dependencies = (
 			);
-			name = time_conv;
+			name = SGG_SKUtilities;
 			productName = time_conv;
-			productReference = 332C24151890897600281B03 /* time_conv.app */;
+			productReference = 332C24151890897600281B03 /* SGG_SKUtilities.app */;
 			productType = "com.apple.product-type.application";
 		};
-		332C243B1890897600281B03 /* time_convTests */ = {
+		332C243B1890897600281B03 /* SGG_SKUtilitiesTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 332C244F1890897600281B03 /* Build configuration list for PBXNativeTarget "time_convTests" */;
+			buildConfigurationList = 332C244F1890897600281B03 /* Build configuration list for PBXNativeTarget "SGG_SKUtilitiesTests" */;
 			buildPhases = (
 				332C24381890897600281B03 /* Sources */,
 				332C24391890897600281B03 /* Frameworks */,
@@ -297,9 +297,9 @@
 			dependencies = (
 				332C24411890897600281B03 /* PBXTargetDependency */,
 			);
-			name = time_convTests;
+			name = SGG_SKUtilitiesTests;
 			productName = time_convTests;
-			productReference = 332C243C1890897600281B03 /* time_convTests.xctest */;
+			productReference = 332C243C1890897600281B03 /* SGG_SKUtilitiesTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		3347733D189DC5EE00055A53 /* skutils */ = {
@@ -355,7 +355,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 332C24101890897600281B03 /* Build configuration list for PBXProject "time_conv" */;
+			buildConfigurationList = 332C24101890897600281B03 /* Build configuration list for PBXProject "SGG_SKUtilities" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -368,8 +368,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				332C24141890897600281B03 /* time_conv */,
-				332C243B1890897600281B03 /* time_convTests */,
+				332C24141890897600281B03 /* SGG_SKUtilities */,
+				332C243B1890897600281B03 /* SGG_SKUtilitiesTests */,
 				3347733D189DC5EE00055A53 /* skutils */,
 				33477365189DC5EE00055A53 /* skutilsTests */,
 			);
@@ -460,7 +460,7 @@
 /* Begin PBXTargetDependency section */
 		332C24411890897600281B03 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 332C24141890897600281B03 /* time_conv */;
+			target = 332C24141890897600281B03 /* SGG_SKUtilities */;
 			targetProxy = 332C24401890897600281B03 /* PBXContainerItemProxy */;
 		};
 		3347736B189DC5EF00055A53 /* PBXTargetDependency */ = {
@@ -588,9 +588,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "time_conv/time_conv-Prefix.pch";
-				INFOPLIST_FILE = "time_conv/time_conv-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "time_conv/SGG_SKUtilities-Prefix.pch";
+				INFOPLIST_FILE = "time_conv/SGG_SKUtilities-Info.plist";
+				PRODUCT_NAME = SGG_SKUtilities;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -602,9 +602,9 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				COMBINE_HIDPI_IMAGES = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "time_conv/time_conv-Prefix.pch";
-				INFOPLIST_FILE = "time_conv/time_conv-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				GCC_PREFIX_HEADER = "time_conv/SGG_SKUtilities-Prefix.pch";
+				INFOPLIST_FILE = "time_conv/SGG_SKUtilities-Info.plist";
+				PRODUCT_NAME = SGG_SKUtilities;
 				SPRITEKIT_TEXTURE_ATLAS_OUTPUT = YES;
 				WRAPPER_EXTENSION = app;
 			};
@@ -626,7 +626,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "time_convTests/time_convTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SGG_SKUtilitiesTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -644,7 +644,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "time_conv/time_conv-Prefix.pch";
 				INFOPLIST_FILE = "time_convTests/time_convTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = SGG_SKUtilitiesTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -755,7 +755,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		332C24101890897600281B03 /* Build configuration list for PBXProject "time_conv" */ = {
+		332C24101890897600281B03 /* Build configuration list for PBXProject "SGG_SKUtilities" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				332C244A1890897600281B03 /* Debug */,
@@ -764,7 +764,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		332C244C1890897600281B03 /* Build configuration list for PBXNativeTarget "time_conv" */ = {
+		332C244C1890897600281B03 /* Build configuration list for PBXNativeTarget "SGG_SKUtilities" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				332C244D1890897600281B03 /* Debug */,
@@ -773,7 +773,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		332C244F1890897600281B03 /* Build configuration list for PBXNativeTarget "time_convTests" */ = {
+		332C244F1890897600281B03 /* Build configuration list for PBXNativeTarget "SGG_SKUtilitiesTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				332C24501890897600281B03 /* Debug */,

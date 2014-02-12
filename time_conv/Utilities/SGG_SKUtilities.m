@@ -406,7 +406,7 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 -(CGPoint)findPointOnBezierCurveWithPointA:(CGPoint)a andPointB:(CGPoint)b andPointC:(CGPoint)c andPointD:(CGPoint)d andPlaceOnCurve:(CGFloat)t {
 	
 	CGPoint ab, bc, cd, abbc, bccd, dest;
-	ab = [self linearInterpolationBetweenPointA:a andPointB:b andPlaceBetween:t];
+//	ab = [self linearInterpolationBetweenPointA:a andPointB:b andPlaceBetween:t];
 //	bc = [self linearInterpolationBetweenPointA:b andPointB:c andPlaceBetween:t];
 //	cd = [self linearInterpolationBetweenPointA:c andPointB:d andPlaceBetween:t];
 //	abbc = [self linearInterpolationBetweenPointA:ab andPointB:bc andPlaceBetween:t];
