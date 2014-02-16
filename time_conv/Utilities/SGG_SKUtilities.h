@@ -4,7 +4,7 @@
 //  Created by Michael Redig on 1/1/14.
 //  Copyright (c) 2014 Michael Redig. All rights reserved.
 //
-// v 1.2
+// v 1.3
 
 //#import "TestFlight.h"
 
@@ -15,8 +15,8 @@
 @interface SGG_SKUtilities : NSObject
 
 
-@property (nonatomic, readonly) CGFloat radiansToDegreesConversionFactor;
-@property (nonatomic, readonly) CGFloat degreesToRadiansConversionFactor;
+
+
 
 
 @property (nonatomic, readonly) CFTimeInterval currentTime;

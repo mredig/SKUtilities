@@ -35,8 +35,8 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 
 -(void)initialSetup {
 	
-	_radiansToDegreesConversionFactor = (180 / M_PI);
-	_degreesToRadiansConversionFactor = (M_PI / 180);
+//	_radiansToDegreesConversionFactor = (180 / M_PI);
+//	_degreesToRadiansConversionFactor = (M_PI / 180);
 }
 
 #pragma mark DISTANCE FUNCTIONS
@@ -77,7 +77,7 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 -(CGFloat) angleBetween:(CGPoint)point1 from:(CGPoint)point2 {
 	CGFloat deltaX = point2.x - point1.x;
 	CGFloat deltaY = point2.y - point1.y;
-	return atan2f(deltaY, deltaX) - (90 * _degreesToRadiansConversionFactor);
+	return atan2f(deltaY, deltaX) - (90 * kDegToRadConvFactor_SKUTIL);
 }
 
 #pragma mark CGVector HELPERS
@@ -139,7 +139,7 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 }
 
 -(CGVector)vectorFromDegreeAngle:(CGFloat)degrees {
-	CGFloat angle = degrees * _degreesToRadiansConversionFactor;
+	CGFloat angle = degrees * kDegToRadConvFactor_SKUTIL;
 	return CGVectorMake(-sinf(angle),cosf(angle));
 }
 
