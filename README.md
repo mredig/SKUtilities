@@ -20,7 +20,7 @@ Include
 	SGG_SKUtilities.h
 	SGG_SKUtilities.m
 
-In every file you want to use the utilities.
+In every file you want to use the utilities. These are also the only files required to copy to your project.
 
 In the interface section of the file, create a global variable (not sure if that's 100% correct term for Obj C, but you get the idea) as such
 
