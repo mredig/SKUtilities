@@ -55,6 +55,20 @@
 		p1 = CGPointMake(1024, 0);
 		p2 = CGPointMake(0, 768);
 		p3 = CGPointMake(1024, 768);
+		
+		SGG_SKPushButton* pushButton = [SGG_SKPushButton node];
+		pushButton.delegate = self;
+		pushButton.textureBase = [SKTexture textureWithImageNamed:@"Spaceship"];
+		pushButton.labelTitle = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
+		pushButton.labelTitle.text = @"StressTest";
+		pushButton.labelTitle.fontColor = [SKColor whiteColor];
+		pushButton.labelTitlePress = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
+		pushButton.labelTitlePress.text = @"StressTest";
+		pushButton.labelTitlePress.fontColor = [SKColor redColor];
+		pushButton.whichButton = kStressButton;
+		[pushButton setUpButton];
+		pushButton.position = CGPointMake(self.size.width/2, self.size.height/2);
+		[self addChild:pushButton];
 
         
 //        interval = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
@@ -164,7 +178,7 @@
 	
 	startInput = location;
 
-	[self stressTest];
+//	[self stressTest];
 	
 }
 
@@ -207,6 +221,21 @@
 		firstupdate = YES;
 	}
 	
+	
+}
+
+-(void)doButtonDown:(SGG_SKButton *)button {
+}
+
+-(void)doButtonUp:(SGG_SKButton *)button {
+	switch (button.whichButton) {
+		case kStressButton:
+			[self stressTest];
+			break;
+			
+		default:
+			break;
+	}
 	
 }
 

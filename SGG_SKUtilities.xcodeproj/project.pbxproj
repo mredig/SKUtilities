@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331E200318B319980087ABD9 /* SGG_SKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 331E1FFC18B319980087ABD9 /* SGG_SKButton.m */; };
+		331E200418B319980087ABD9 /* SGG_SKButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 331E1FFC18B319980087ABD9 /* SGG_SKButton.m */; };
+		331E200518B319980087ABD9 /* SGG_SKMasterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 331E1FFE18B319980087ABD9 /* SGG_SKMasterButton.m */; };
+		331E200618B319980087ABD9 /* SGG_SKMasterButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 331E1FFE18B319980087ABD9 /* SGG_SKMasterButton.m */; };
+		331E200718B319980087ABD9 /* SGG_SKPushButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 331E200018B319980087ABD9 /* SGG_SKPushButton.m */; };
+		331E200818B319980087ABD9 /* SGG_SKPushButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 331E200018B319980087ABD9 /* SGG_SKPushButton.m */; };
+		331E200918B319980087ABD9 /* SGG_SKToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 331E200218B319980087ABD9 /* SGG_SKToggleButton.m */; };
+		331E200A18B319980087ABD9 /* SGG_SKToggleButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 331E200218B319980087ABD9 /* SGG_SKToggleButton.m */; };
 		332C24191890897600281B03 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332C24181890897600281B03 /* Cocoa.framework */; };
 		332C241B1890897600281B03 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332C241A1890897600281B03 /* SpriteKit.framework */; };
 		332C24251890897600281B03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 332C24231890897600281B03 /* InfoPlist.strings */; };
@@ -57,6 +65,14 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		331E1FFB18B319980087ABD9 /* SGG_SKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGG_SKButton.h; sourceTree = "<group>"; };
+		331E1FFC18B319980087ABD9 /* SGG_SKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGG_SKButton.m; sourceTree = "<group>"; };
+		331E1FFD18B319980087ABD9 /* SGG_SKMasterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGG_SKMasterButton.h; sourceTree = "<group>"; };
+		331E1FFE18B319980087ABD9 /* SGG_SKMasterButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGG_SKMasterButton.m; sourceTree = "<group>"; };
+		331E1FFF18B319980087ABD9 /* SGG_SKPushButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGG_SKPushButton.h; sourceTree = "<group>"; };
+		331E200018B319980087ABD9 /* SGG_SKPushButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGG_SKPushButton.m; sourceTree = "<group>"; };
+		331E200118B319980087ABD9 /* SGG_SKToggleButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGG_SKToggleButton.h; sourceTree = "<group>"; };
+		331E200218B319980087ABD9 /* SGG_SKToggleButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGG_SKToggleButton.m; sourceTree = "<group>"; };
 		332C24151890897600281B03 /* SGG_SKUtilities.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SGG_SKUtilities.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		332C24181890897600281B03 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		332C241A1890897600281B03 /* SpriteKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SpriteKit.framework; path = System/Library/Frameworks/SpriteKit.framework; sourceTree = SDKROOT; };
@@ -143,6 +159,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		331E200B18B3199C0087ABD9 /* SKButtons */ = {
+			isa = PBXGroup;
+			children = (
+				331E1FFB18B319980087ABD9 /* SGG_SKButton.h */,
+				331E1FFC18B319980087ABD9 /* SGG_SKButton.m */,
+				331E1FFD18B319980087ABD9 /* SGG_SKMasterButton.h */,
+				331E1FFE18B319980087ABD9 /* SGG_SKMasterButton.m */,
+				331E1FFF18B319980087ABD9 /* SGG_SKPushButton.h */,
+				331E200018B319980087ABD9 /* SGG_SKPushButton.m */,
+				331E200118B319980087ABD9 /* SGG_SKToggleButton.h */,
+				331E200218B319980087ABD9 /* SGG_SKToggleButton.m */,
+			);
+			name = SKButtons;
+			sourceTree = "<group>";
+		};
 		332C240C1890897600281B03 = {
 			isa = PBXGroup;
 			children = (
@@ -195,8 +226,8 @@
 			isa = PBXGroup;
 			children = (
 				332C2452189089A300281B03 /* Utilities */,
-				332C242E1890897600281B03 /* SGG_MyScene.m */,
 				332C24301890897600281B03 /* SGG_MyScene.h */,
+				332C242E1890897600281B03 /* SGG_MyScene.m */,
 				332C24341890897600281B03 /* Spaceship.png */,
 				332C24361890897600281B03 /* Images.xcassets */,
 			);
@@ -218,6 +249,7 @@
 		332C2452189089A300281B03 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				331E200B18B3199C0087ABD9 /* SKButtons */,
 				33477339189DBE5F00055A53 /* changelog.txt */,
 				332C2453189089A300281B03 /* SGG_SKUtilities.h */,
 				332C2454189089A300281B03 /* SGG_SKUtilities.m */,
@@ -423,6 +455,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				332C24321890897600281B03 /* SGG_AppDelegate.m in Sources */,
+				331E200718B319980087ABD9 /* SGG_SKPushButton.m in Sources */,
+				331E200518B319980087ABD9 /* SGG_SKMasterButton.m in Sources */,
+				331E200918B319980087ABD9 /* SGG_SKToggleButton.m in Sources */,
+				331E200318B319980087ABD9 /* SGG_SKButton.m in Sources */,
 				332C242F1890897600281B03 /* SGG_MyScene.m in Sources */,
 				332C2456189089A300281B03 /* SGG_SKUtilities.m in Sources */,
 				332C24271890897600281B03 /* main.m in Sources */,
@@ -440,11 +476,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				331E200A18B319980087ABD9 /* SGG_SKToggleButton.m in Sources */,
 				3347737C189DC63F00055A53 /* SGG_MyScene.m in Sources */,
 				33477351189DC5EE00055A53 /* SGG_AppDelegate.m in Sources */,
 				3347734D189DC5EE00055A53 /* main.m in Sources */,
+				331E200418B319980087ABD9 /* SGG_SKButton.m in Sources */,
+				331E200618B319980087ABD9 /* SGG_SKMasterButton.m in Sources */,
 				3347737B189DC63F00055A53 /* SGG_SKUtilities.m in Sources */,
 				3347735A189DC5EE00055A53 /* SGG_ViewController.m in Sources */,
+				331E200818B319980087ABD9 /* SGG_SKPushButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

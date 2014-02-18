@@ -7,7 +7,14 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "SGG_SKMasterButton.h"
 
-@interface SGG_MyScene : SKScene
+typedef enum {
+    kStressButton,
+	
+} kButtonTypes;
+
+
+@interface SGG_MyScene : SKScene <SGG_SKButtonDelegate>
 
 @end

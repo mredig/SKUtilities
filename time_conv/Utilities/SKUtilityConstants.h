@@ -5,3 +5,6 @@
 
 #define kDegToRadConvFactor_SKUTIL 0.017453292519943295 // pi/180 //SKUTIL is appended to assure uniqueness
 #define kRadToDegConvFactor_SKUTIL 57.29577951308232 // 180/pi
+
+#define VISIBLE 0 //for node.hidden properties, this is more intuitive than YES/NO
+#define HIDDEN 1 //for node.hidden properties, this is more intuitive than YES/NO
