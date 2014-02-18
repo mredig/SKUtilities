@@ -4,6 +4,8 @@ Version 1.3
 	- renamed kPhone4Scale to kPhoneFromPadScale_SKUTIL 
 		- also added kPadToPhoneScale_SKUTIL, kPhoneToPadScale_SKUTIL, kPadFromPhoneScale_SKUTIL
 	- moved property of radiansToDegreesConversionFactor and degreesToRadiansConversionFactor to macros and can be used as "kDegToRadConvFactor_SKUTIL" and "kRadToDegConvFactor_SKUTIL"
+	- added SKMasterButton class
+		- platform agnostic buttons!
 
 	Bug Fixes
 	-
