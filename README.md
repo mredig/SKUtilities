@@ -14,11 +14,10 @@ Also Also Note: It is possible variable names or method names may change over ti
 Usage:
 =========
 
-Include
+Copy every file inside the Utilities folder to your project. The header file of every class you wish to access the utilties or buttons from should include:
 
-	SKUtilityConstants.h
-	SGG_SKUtilities.h
-	SGG_SKUtilities.m
+	#import "SGG_SKUtilties.h"
+	#import "SGG_SKMasterButton.h"
 
 In every file you want to use the utilities. These are also the only files required to copy to your project.
 
