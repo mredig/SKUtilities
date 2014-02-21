@@ -187,10 +187,14 @@
 //			[executor doButtonUp:self];
 //			NSLog(@"contained");
 
-			[self.delegate doButtonUp:self];
-
-
-		} else { /*if the touch is moved outside the button confines*/ }
+			[self.delegate doButtonUp:self inBounds:YES];
+			
+			
+		} else { /*if the touch is moved outside the button confines*/
+			
+			[self.delegate doButtonUp:self inBounds:NO];
+		}
+		
 		CGPathRelease(thePath);
 
 

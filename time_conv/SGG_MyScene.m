@@ -227,15 +227,18 @@
 -(void)doButtonDown:(SGG_SKButton *)button {
 }
 
--(void)doButtonUp:(SGG_SKButton *)button {
-	switch (button.whichButton) {
-		case kStressButton:
-			[self stressTest];
-			break;
-			
-		default:
-			break;
+-(void)doButtonUp:(SGG_SKButton *)button inBounds:(BOOL)inBounds {
+	if (inBounds) {
+		switch (button.whichButton) {
+			case kStressButton:
+				[self stressTest];
+				break;
+				
+			default:
+				break;
+		}
 	}
+
 	
 }
 

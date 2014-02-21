@@ -11,8 +11,8 @@
 @class SGG_SKButton;
 
 @protocol SGG_SKButtonDelegate   //define delegate protocol
-- (void)doButtonDown:(SGG_SKButton*)button;
-- (void)doButtonUp:(SGG_SKButton*)button;
+-(void)doButtonDown:(SGG_SKButton*)button;
+-(void)doButtonUp:(SGG_SKButton*)button inBounds:(BOOL)inBounds;
 @end //end protocol
 
 @interface SGG_SKButton : SKNode

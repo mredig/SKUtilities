@@ -323,9 +323,11 @@
 		if (CGPathContainsPoint(thePath, NULL, location, YES)) {
 			//change button on/off state here
 			[self toggleButtonState];
-			[self.delegate doButtonUp:self];
-
-		} else { /*if the touch is moved outside the button confines*/	}
+			[self.delegate doButtonUp:self inBounds:YES];
+			
+		} else { /*if the touch is moved outside the button confines*/
+			[self.delegate doButtonUp:self inBounds:NO];
+		}
 		CGPathRelease(thePath);
 		
 		//update button visual and update toggle state

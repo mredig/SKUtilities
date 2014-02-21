@@ -179,7 +179,7 @@
 			children = (
 				3347737F189E522A00055A53 /* LICENSE.txt */,
 				33477380189E52A800055A53 /* README.md */,
-				332C24201890897600281B03 /* time_conv */,
+				332C24201890897600281B03 /* skutilities */,
 				3347737A189DC62100055A53 /* OSX stuff */,
 				33477346189DC5EE00055A53 /* iOS stuff */,
 				332C24171890897600281B03 /* Frameworks */,
@@ -222,7 +222,7 @@
 			name = "Other Frameworks";
 			sourceTree = "<group>";
 		};
-		332C24201890897600281B03 /* time_conv */ = {
+		332C24201890897600281B03 /* skutilities */ = {
 			isa = PBXGroup;
 			children = (
 				332C2452189089A300281B03 /* Utilities */,
@@ -231,6 +231,7 @@
 				332C24341890897600281B03 /* Spaceship.png */,
 				332C24361890897600281B03 /* Images.xcassets */,
 			);
+			name = skutilities;
 			path = time_conv;
 			sourceTree = "<group>";
 		};
