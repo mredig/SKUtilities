@@ -9,12 +9,7 @@
 
 @interface SGG_SKToggleButton () {
 	
-	SKSpriteNode* buttonTitleOnToggledPress;
-	SKSpriteNode* buttonTitleOnToggledDisabled;
-	SKSpriteNode* buttonTitleOnToggled;
-	SKSpriteNode* buttonTitleOffToggledPress;
-	SKSpriteNode* buttonTitleOffToggledDisabled;
-	SKSpriteNode* buttonTitleOffToggled;
+
 	
 }
 
@@ -133,47 +128,47 @@
 	//check if there are textures and apply for both neutral and pressed states (note, both texture and label can appear at the same time... careful)
 	//enabled Textures
 	if (_textureToggledOn) {
-		buttonTitleOnToggled = [SKSpriteNode spriteNodeWithTexture:_textureToggledOn];
-		[self.anchorMover addChild:buttonTitleOnToggled];
+		_buttonTitleOnToggled = [SKSpriteNode spriteNodeWithTexture:_textureToggledOn];
+		[self.anchorMover addChild:_buttonTitleOnToggled];
 		toggleOnIsSet = YES;
 	}
 	
 	if (_textureToggledOnDisabled) {
-		buttonTitleOnToggledDisabled = [SKSpriteNode spriteNodeWithTexture:_textureToggledOnDisabled];
-		[self.anchorMover addChild:buttonTitleOnToggledDisabled];
+		_buttonTitleOnToggledDisabled = [SKSpriteNode spriteNodeWithTexture:_textureToggledOnDisabled];
+		[self.anchorMover addChild:_buttonTitleOnToggledDisabled];
 	}
-	buttonTitleOnToggledDisabled.hidden = HIDDEN;
+	_buttonTitleOnToggledDisabled.hidden = HIDDEN;
 	
 	if (_textureToggledOnPressed) {
-		buttonTitleOnToggledPress = [SKSpriteNode spriteNodeWithTexture:_textureToggledOnPressed];
-		[self.anchorMover addChild:buttonTitleOnToggledPress];
+		_buttonTitleOnToggledPress = [SKSpriteNode spriteNodeWithTexture:_textureToggledOnPressed];
+		[self.anchorMover addChild:_buttonTitleOnToggledPress];
 	} else if (!_textureToggledOnPressed && _textureToggledOn) {
-		buttonTitleOnToggledPress = [SKSpriteNode spriteNodeWithTexture:_textureToggledOn];
-		[self.anchorMover addChild:buttonTitleOnToggledPress];
+		_buttonTitleOnToggledPress = [SKSpriteNode spriteNodeWithTexture:_textureToggledOn];
+		[self.anchorMover addChild:_buttonTitleOnToggledPress];
 	}
-	buttonTitleOnToggledPress.hidden = HIDDEN;
+	_buttonTitleOnToggledPress.hidden = HIDDEN;
 	
 	//disabled Textures
 	if (_textureToggledOff) {
-		buttonTitleOffToggled = [SKSpriteNode spriteNodeWithTexture:_textureToggledOff];
-		[self.anchorMover addChild:buttonTitleOffToggled];
+		_buttonTitleOffToggled = [SKSpriteNode spriteNodeWithTexture:_textureToggledOff];
+		[self.anchorMover addChild:_buttonTitleOffToggled];
 		toggleOnIsSet = YES;
 	}
 	
 	if (_textureToggledOffDisabled) {
-		buttonTitleOffToggledDisabled = [SKSpriteNode spriteNodeWithTexture:_textureToggledOffDisabled];
-		[self.anchorMover addChild:buttonTitleOffToggledDisabled];
+		_buttonTitleOffToggledDisabled = [SKSpriteNode spriteNodeWithTexture:_textureToggledOffDisabled];
+		[self.anchorMover addChild:_buttonTitleOffToggledDisabled];
 	}
-	buttonTitleOffToggledDisabled.hidden = HIDDEN;
+	_buttonTitleOffToggledDisabled.hidden = HIDDEN;
 	
 	if (_textureToggledOffPressed) {
-		buttonTitleOffToggledPress = [SKSpriteNode spriteNodeWithTexture:_textureToggledOffPressed];
-		[self.anchorMover addChild:buttonTitleOffToggledPress];
+		_buttonTitleOffToggledPress = [SKSpriteNode spriteNodeWithTexture:_textureToggledOffPressed];
+		[self.anchorMover addChild:_buttonTitleOffToggledPress];
 	} else if (!_textureToggledOffPressed && _textureToggledOff) {
-		buttonTitleOffToggledPress = [SKSpriteNode spriteNodeWithTexture:_textureToggledOff];
-		[self.anchorMover addChild:buttonTitleOffToggledPress];
+		_buttonTitleOffToggledPress = [SKSpriteNode spriteNodeWithTexture:_textureToggledOff];
+		[self.anchorMover addChild:_buttonTitleOffToggledPress];
 	}
-	buttonTitleOffToggledPress.hidden = HIDDEN;
+	_buttonTitleOffToggledPress.hidden = HIDDEN;
 	
 	
 	//check default state and set hidden accordingly
@@ -181,15 +176,15 @@
 	
 	if (_defaultState) {
 		_labelToggledOn.hidden = VISIBLE;
-		buttonTitleOnToggled.hidden = VISIBLE;
+		_buttonTitleOnToggled.hidden = VISIBLE;
 		_labelToggledOff.hidden = HIDDEN;
-		buttonTitleOffToggled.hidden = HIDDEN;
+		_buttonTitleOffToggled.hidden = HIDDEN;
 		_on = YES;
 	} else {
 		_labelToggledOn.hidden = HIDDEN;
-		buttonTitleOnToggled.hidden = HIDDEN;
+		_buttonTitleOnToggled.hidden = HIDDEN;
 		_labelToggledOff.hidden = VISIBLE;
-		buttonTitleOffToggled.hidden = VISIBLE;
+		_buttonTitleOffToggled.hidden = VISIBLE;
 		_on = NO;
 	}
 	
@@ -208,14 +203,14 @@
 
 -(void)enableButton {
 	[super enableButton];
-	buttonTitleOffToggledDisabled.hidden = HIDDEN;
-	buttonTitleOnToggledDisabled.hidden = HIDDEN;
+	_buttonTitleOffToggledDisabled.hidden = HIDDEN;
+	_buttonTitleOnToggledDisabled.hidden = HIDDEN;
 	if (_on) {
-		buttonTitleOnToggled.hidden = VISIBLE;
-		buttonTitleOffToggled.hidden = HIDDEN;
+		_buttonTitleOnToggled.hidden = VISIBLE;
+		_buttonTitleOffToggled.hidden = HIDDEN;
 	} else {
-		buttonTitleOnToggled.hidden = HIDDEN;
-		buttonTitleOffToggled.hidden = VISIBLE;
+		_buttonTitleOnToggled.hidden = HIDDEN;
+		_buttonTitleOffToggled.hidden = VISIBLE;
 	}
 }
 
@@ -224,15 +219,15 @@
 	
 	if (self.disableType == kButtonDisableTypeAlternateTexture) {
 
-		buttonTitleOnToggled.hidden = HIDDEN;
-		buttonTitleOffToggled.hidden = HIDDEN;
+		_buttonTitleOnToggled.hidden = HIDDEN;
+		_buttonTitleOffToggled.hidden = HIDDEN;
 
 		if (_on) {
-			buttonTitleOffToggledDisabled.hidden = HIDDEN;
-			buttonTitleOnToggledDisabled.hidden = VISIBLE;
+			_buttonTitleOffToggledDisabled.hidden = HIDDEN;
+			_buttonTitleOnToggledDisabled.hidden = VISIBLE;
 		} else {
-			buttonTitleOffToggledDisabled.hidden = VISIBLE;
-			buttonTitleOnToggledDisabled.hidden =HIDDEN;
+			_buttonTitleOffToggledDisabled.hidden = VISIBLE;
+			_buttonTitleOnToggledDisabled.hidden =HIDDEN;
 		}
 	}
 }
@@ -265,14 +260,14 @@
 	if (_buttonType == kIsToggleButton) {
 		if (_on) {
 			_labelToggledOn.hidden = VISIBLE;
-			buttonTitleOnToggled.hidden = VISIBLE;
+			_buttonTitleOnToggled.hidden = VISIBLE;
 			_labelToggledOff.hidden = HIDDEN;
-			buttonTitleOffToggled.hidden = HIDDEN;
+			_buttonTitleOffToggled.hidden = HIDDEN;
 		} else {
 			_labelToggledOn.hidden = HIDDEN;
-			buttonTitleOnToggled.hidden = HIDDEN;
+			_buttonTitleOnToggled.hidden = HIDDEN;
 			_labelToggledOff.hidden = VISIBLE;
-			buttonTitleOffToggled.hidden = VISIBLE;
+			_buttonTitleOffToggled.hidden = VISIBLE;
 		}
 		if (!self.isEnabled) {
 			[self disableButton];
@@ -299,16 +294,16 @@
 		self.baseButtonPressed.hidden = VISIBLE;
 		if (_buttonType == kIsToggleButton) {
 			
-			buttonTitleOnToggled.hidden = HIDDEN;
-			buttonTitleOffToggled.hidden = HIDDEN;
+			_buttonTitleOnToggled.hidden = HIDDEN;
+			_buttonTitleOffToggled.hidden = HIDDEN;
 			_labelToggledOn.hidden = HIDDEN;
 			_labelToggledOff.hidden = HIDDEN;
 			
 			if (_on) {
-				buttonTitleOnToggledPress.hidden = VISIBLE;
+				_buttonTitleOnToggledPress.hidden = VISIBLE;
 				_labelToggledOnPressed.hidden = VISIBLE;
 			} else {
-				buttonTitleOffToggledPress.hidden = VISIBLE;
+				_buttonTitleOffToggledPress.hidden = VISIBLE;
 				_labelToggledOffPressed.hidden = VISIBLE;
 			}
 		}
@@ -337,22 +332,22 @@
 			
 			
 			
-			buttonTitleOnToggledPress.hidden = HIDDEN;
+			_buttonTitleOnToggledPress.hidden = HIDDEN;
 			_labelToggledOnPressed.hidden = HIDDEN;
-			buttonTitleOffToggledPress.hidden = HIDDEN;
+			_buttonTitleOffToggledPress.hidden = HIDDEN;
 			_labelToggledOffPressed.hidden = HIDDEN;
 			
 			if (_on) {
-				buttonTitleOnToggled.hidden = VISIBLE;
+				_buttonTitleOnToggled.hidden = VISIBLE;
 				_labelToggledOn.hidden = VISIBLE;
 			} else {
-				buttonTitleOffToggled.hidden = VISIBLE;
+				_buttonTitleOffToggled.hidden = VISIBLE;
 				_labelToggledOff.hidden = VISIBLE;
 			}
 			if (!self.isEnabled) {
-				buttonTitleOffToggled.hidden = HIDDEN;
+				_buttonTitleOffToggled.hidden = HIDDEN;
 				_labelToggledOff.hidden = HIDDEN;
-				buttonTitleOnToggled.hidden = HIDDEN;
+				_buttonTitleOnToggled.hidden = HIDDEN;
 				_labelToggledOn.hidden = HIDDEN;
 				self.baseButton.hidden = HIDDEN;
 			}

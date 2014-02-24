@@ -39,6 +39,15 @@
 @property (nonatomic, assign) BOOL defaultState;
 
 
+//titleSprites
+@property (nonatomic, strong) SKSpriteNode* buttonTitleOnToggledPress;
+@property (nonatomic, strong) SKSpriteNode* buttonTitleOnToggledDisabled;
+@property (nonatomic, strong) SKSpriteNode* buttonTitleOnToggled;
+@property (nonatomic, strong) SKSpriteNode* buttonTitleOffToggledPress;
+@property (nonatomic, strong) SKSpriteNode* buttonTitleOffToggledDisabled;
+@property (nonatomic, strong) SKSpriteNode* buttonTitleOffToggled;
+
+
 -(void)setUpToggleButton;//call this AFTER you have properly set all the above properties
 
 

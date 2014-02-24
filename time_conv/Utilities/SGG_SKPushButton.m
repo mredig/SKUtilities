@@ -8,9 +8,7 @@
 
 @interface SGG_SKPushButton (){
 	
-	SKSpriteNode* buttonTitle;
-	SKSpriteNode* buttonTitlePress;
-	SKSpriteNode* buttonTitleDisabled;
+
 	
 }
 @end
@@ -90,25 +88,25 @@
 	//check if there's a title texture and apply for both neutral and pressed states (note, both texture and label can appear at the same time... careful)
 	
 	if (_textureTitle) {
-		buttonTitle = [SKSpriteNode spriteNodeWithTexture:_textureTitle];
-		[self.anchorMover addChild:buttonTitle];
+		_buttonTitle = [SKSpriteNode spriteNodeWithTexture:_textureTitle];
+		[self.anchorMover addChild:_buttonTitle];
 		titleIsSet = YES;
 	}
 	
 	if (_textureTitlePressed) {
-		buttonTitlePress = [SKSpriteNode spriteNodeWithTexture:_textureTitlePressed];
-		[self.anchorMover addChild:buttonTitlePress];
+		_buttonTitlePress = [SKSpriteNode spriteNodeWithTexture:_textureTitlePressed];
+		[self.anchorMover addChild:_buttonTitlePress];
 	} else if (!_textureTitlePressed && _textureTitle) {
-		buttonTitlePress = [SKSpriteNode spriteNodeWithTexture:_textureTitle];
-		[self.anchorMover addChild:buttonTitlePress];
+		_buttonTitlePress = [SKSpriteNode spriteNodeWithTexture:_textureTitle];
+		[self.anchorMover addChild:_buttonTitlePress];
 	}
-	buttonTitlePress.hidden = HIDDEN;
+	_buttonTitlePress.hidden = HIDDEN;
 	
 	if (_textureTitleDisabled) {
-		buttonTitleDisabled = [SKSpriteNode spriteNodeWithTexture:_textureTitleDisabled];
-		[self.anchorMover addChild:buttonTitleDisabled];
+		_buttonTitleDisabled = [SKSpriteNode spriteNodeWithTexture:_textureTitleDisabled];
+		[self.anchorMover addChild:_buttonTitleDisabled];
 	}
-	buttonTitleDisabled.hidden = HIDDEN;
+	_buttonTitleDisabled.hidden = HIDDEN;
 	
 	
 	if (!titleIsSet) {
@@ -127,8 +125,10 @@
 -(void)enableButton {
 	[super enableButton];
 	
-	buttonTitle.hidden = VISIBLE;
-	buttonTitleDisabled.hidden = HIDDEN;
+	_labelTitle.hidden = VISIBLE;
+	
+	_buttonTitle.hidden = VISIBLE;
+	_buttonTitleDisabled.hidden = HIDDEN;
 	_labelTitleDisabled.hidden = HIDDEN;
 	
 }
@@ -138,11 +138,14 @@
 	[super disableButton];
 	
 	if (self.disableType == kButtonDisableTypeAlternateTexture) {
-		buttonTitle.hidden = HIDDEN;
-		buttonTitleDisabled.hidden = VISIBLE;
+		_labelTitle.hidden = HIDDEN;
+		_labelTitlePress.hidden = HIDDEN;
+		_buttonTitle.hidden = HIDDEN;
+		_buttonTitleDisabled.hidden = VISIBLE;
 		_labelTitleDisabled.hidden = VISIBLE;
 	}
 }
+
 
 
 
@@ -159,8 +162,8 @@
 		self.baseButtonPressed.hidden = VISIBLE;
 		if (_buttonType == kIsRegularButton) {
 			
-			buttonTitle.hidden = HIDDEN;
-			buttonTitlePress.hidden = VISIBLE;
+			_buttonTitle.hidden = HIDDEN;
+			_buttonTitlePress.hidden = VISIBLE;
 			
 			_labelTitle.hidden = HIDDEN;
 			_labelTitlePress.hidden = VISIBLE;
@@ -174,9 +177,9 @@
 	
 		//update button visual and update toggle state
 		self.baseButtonPressed.hidden = HIDDEN;
-		buttonTitlePress.hidden = HIDDEN;
+		_buttonTitlePress.hidden = HIDDEN;
 		_labelTitlePress.hidden = HIDDEN;
-		buttonTitle.hidden = VISIBLE;
+		_buttonTitle.hidden = VISIBLE;
 		_labelTitle.hidden = VISIBLE;
 		self.baseButton.hidden = VISIBLE;
 	

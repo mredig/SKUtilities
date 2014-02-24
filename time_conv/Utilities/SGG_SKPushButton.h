@@ -29,6 +29,11 @@
 @property (nonatomic, readonly) konstantButtonVariation buttonType;
 
 
+//title sprites
+@property (nonatomic, strong) SKSpriteNode* buttonTitle;
+@property (nonatomic, strong) SKSpriteNode* buttonTitlePress;
+@property (nonatomic, strong) SKSpriteNode* buttonTitleDisabled;
+
 //call ONE of these AFTER you have properly set all the above properties
 -(void)setUpButton;
 
