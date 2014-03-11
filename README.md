@@ -48,11 +48,11 @@ Now you can access time intervals from previous frame and the current game time 
 
 You may utilize multi line label nodes with a call such as
 
-		SKUMultiLineLabelNode* multiLineLabel = [SKUMultiLineLabelNode labelNodeWithFontNamed:@"Futura"];
-		multiLineLabel.text = @"Turn this skiff around! Absolutely. And we're going to be here every day. I don't care if it takes from now till the end of Shrimpfest. I need a fake passport, preferably to France… I like the way they think."; //bluthipsum.com
-		multiLineLabel.paragraphWidth = 500;
-		multiLineLabel.position = CGPointMake(self.size.width/2, self.size.height/2);
-		[self addChild:multiLineLabel];
+	SKUMultiLineLabelNode* multiLineLabel = [SKUMultiLineLabelNode labelNodeWithFontNamed:@"Futura"];
+	multiLineLabel.text = @"Turn this skiff around! Absolutely. And we're going to be here every day. I don't care if it takes from now till the end of Shrimpfest. I need a fake passport, preferably to France… I like the way they think."; //bluthipsum.com
+	multiLineLabel.paragraphWidth = 500;
+	multiLineLabel.position = CGPointMake(self.size.width/2, self.size.height/2);
+	[self addChild:multiLineLabel];
 		
 This functionality was originally sourced from Chris Allwein of Downright Simple(c). Many thanks to him for open sourcing this code!
 
