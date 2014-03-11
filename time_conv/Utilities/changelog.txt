@@ -3,6 +3,7 @@ Version 1.3
 	- can now add values to points (x+v, y+v)
 	- added SKMasterButton class
 		- platform agnostic buttons!
+	- added SKUMultiLineLabelNode class
 
 	Bug Fixes
 	- renamed kPhone4Scale to kPhoneFromPadScale_SKUTIL 
@@ -11,6 +12,7 @@ Version 1.3
 
 	Known Issues
 	- parsing durations from seconds doesn't work yet
+	- apologies for the inconsistent class naming schemes... I am very finicky on what to name them!
 	
 
 Version 1.2
