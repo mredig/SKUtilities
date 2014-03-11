@@ -8,3 +8,11 @@
 
 #define VISIBLE 0 //for node.hidden properties, this is more intuitive than YES/NO
 #define HIDDEN 1 //for node.hidden properties, this is more intuitive than YES/NO
+
+#if TARGET_OS_IPHONE
+#define SKUImage UIImage
+#define SKUFont UIFont
+#else
+#define SKUImage NSImage
+#define SKUFont NSFont
+#endif

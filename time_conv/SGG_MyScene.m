@@ -68,7 +68,19 @@
 		pushButton.whichButton = kStressButton;
 		[pushButton setUpButton];
 		pushButton.position = CGPointMake(self.size.width/2, self.size.height/2);
-		[self addChild:pushButton];
+//		[self addChild:pushButton];
+		
+		SKUMultiLineLabelNode* multiLineLabel = [SKUMultiLineLabelNode labelNodeWithFontNamed:@"Futura"];
+		multiLineLabel.text = @"Turn this skiff around! Absolutely. And we're going to be here every day. I don't care if it takes from now till the end of Shrimpfest. I need a fake passport, preferably to France… I like the way they think. That's so you can videotape it when they put you in a naked pyramid and point to your Charlie Browns. I guess you can say I'm buy-curious. You go buy a tape recorder and record yourself for a whole day. I think you'll be surprised at some of your phrasing. It's The Final Countdown Dead Dove DO NOT EAT. I believe you will find the dessert to be both engrossing and high-grossing! So we don't get dessert? I could use a leather jacket for when I'm on my hog and have to go into a controlled slide. Happy."; //bluthipsum.com
+		multiLineLabel.paragraphWidth = 500;
+		multiLineLabel.position = CGPointMake(self.size.width/2, self.size.height/2);
+		[self addChild:multiLineLabel];
+
+		SKLabelNode* label = [SKLabelNode labelNodeWithFontNamed:@"Futura"];
+		label.text = @"This is a line. \nThis is a new line.\nNew line here too!";
+		label.position = CGPointMake(self.size.width/2, self.size.height/2);
+//		[self addChild:label];
+		
 
         
 //        interval = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
