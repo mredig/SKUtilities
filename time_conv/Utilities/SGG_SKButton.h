@@ -53,8 +53,8 @@ typedef enum {
 //all buttons
 @property (nonatomic, strong) SKSpriteNode* buttonBounds;
 
-@property (nonatomic, assign) SKTexture* textureBase;
-@property (nonatomic, assign) SKTexture* textureBasePressed; //optional
+@property (nonatomic, strong) SKTexture* textureBase;
+@property (nonatomic, strong) SKTexture* textureBasePressed; //optional
 
 @property (nonatomic, strong) SKTexture* textureDisabled;
 

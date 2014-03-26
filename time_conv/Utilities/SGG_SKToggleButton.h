@@ -29,12 +29,12 @@
 @property (nonatomic, strong) SKLabelNode* labelToggledOffPressed;
 @property (nonatomic, strong) SKLabelNode* labelToggledOffDisabled;
 //or textures
-@property (nonatomic, assign) SKTexture* textureToggledOn;
-@property (nonatomic, assign) SKTexture* textureToggledOnPressed;
-@property (nonatomic, assign) SKTexture* textureToggledOnDisabled;
-@property (nonatomic, assign) SKTexture* textureToggledOff;
-@property (nonatomic, assign) SKTexture* textureToggledOffPressed;
-@property (nonatomic, assign) SKTexture* textureToggledOffDisabled;
+@property (nonatomic, strong) SKTexture* textureToggledOn;
+@property (nonatomic, strong) SKTexture* textureToggledOnPressed;
+@property (nonatomic, strong) SKTexture* textureToggledOnDisabled;
+@property (nonatomic, strong) SKTexture* textureToggledOff;
+@property (nonatomic, strong) SKTexture* textureToggledOffPressed;
+@property (nonatomic, strong) SKTexture* textureToggledOffDisabled;
 
 @property (nonatomic, assign) BOOL defaultState;
 

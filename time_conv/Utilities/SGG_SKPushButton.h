@@ -23,9 +23,9 @@
 @property (nonatomic, strong) SKLabelNode* labelTitleDisabled; //optional
 
 //or textures 
-@property (nonatomic, assign) SKTexture* textureTitle;
-@property (nonatomic, assign) SKTexture* textureTitlePressed; //optional
-@property (nonatomic, assign) SKTexture* textureTitleDisabled; //optional
+@property (nonatomic, strong) SKTexture* textureTitle;
+@property (nonatomic, strong) SKTexture* textureTitlePressed; //optional
+@property (nonatomic, strong) SKTexture* textureTitleDisabled; //optional
 @property (nonatomic, readonly) konstantButtonVariation buttonType;
 
 
