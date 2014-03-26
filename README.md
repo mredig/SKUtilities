@@ -56,6 +56,21 @@ You may utilize multi line label nodes with a call such as
 		
 This functionality was originally sourced from Chris Allwein of Downright Simple(c). Many thanks to him for open sourcing this code!
 
+
+SKScene has been modified with categories (see https://developer.apple.com/library/ios/documentation/cocoa/conceptual/ProgrammingWithObjectiveC/CustomizingExistingClasses/CustomizingExistingClasses.html) to consolidate Mac and iOS code. You may now accept input in your scene for either target with the following methods:
+
+	-(void)inputBegan:(CGPoint)location withEventDictionary:(NSDictionary*)eventDict ;
+	-(void)inputMoved:(CGPoint)location withEventDictionary:(NSDictionary*)eventDict ;
+	-(void)inputEnded:(CGPoint)location withEventDictionary:(NSDictionary*)eventDict ;
+
+The eventDict contains several useful tidbits. The following keys and values correspond:
+
+*	buttonNumber: iOS is always 0, OS X corresponds to mouse button clicked: 0 = left mouse, 1 = right mouse, 2 = middle mouse. More mouse buttons have not been tested, but theoretically they should work.
+*	inputIteration: for OS X, this would tell you if it was a single, double, triple, etc click. iOS would be the same, just with taps
+*	intervalTime: NSTimeInterval of the system time the event occurred
+*	event: OSX "theEvent" NSEvent object from the corresponding mouse method; iOS "event" object from the corresponding touch method
+*	touch: iOS only - the UITouch object from the corresponding touch method
+
 	
 To get more information on different methods, refer to the header file. You may also see how it was implemented in the scene file (I'm simply using that to test functionality) to get an idea.
 

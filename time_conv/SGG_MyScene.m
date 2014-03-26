@@ -18,7 +18,6 @@
 	CFTimeInterval globalCurrentTime;
 	CFAbsoluteTime absTime;
 	
-//	SKLabelNode* interval;
 	
 	SGG_SKUtilities* sharedUtilties;
 	
@@ -43,11 +42,13 @@
 
 @implementation SGG_MyScene
 
--(id)initWithSize:(CGSize)size {    
+-(id)initWithSize:(CGSize)size {
     if (self = [super initWithSize:size]) {
         /* Setup your scene here */
 		
 		sharedUtilties = [SGG_SKUtilities sharedUtilities];
+		
+		
         
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
 		
@@ -68,40 +69,17 @@
 		pushButton.whichButton = kStressButton;
 		[pushButton setUpButton];
 		pushButton.position = CGPointMake(self.size.width/2, self.size.height/2);
-//		[self addChild:pushButton];
+		//		[self addChild:pushButton];
 		
 		SKUMultiLineLabelNode* multiLineLabel = [SKUMultiLineLabelNode labelNodeWithFontNamed:@"Futura"];
-		multiLineLabel.text = @"Turn this skiff around! Absolutely. And we're going to be here every day. I don't care if it takes from now till the end of Shrimpfest. I need a fake passport, preferably to France… I like the way they think. That's so you can videotape it when they put you in a naked pyramid and point to your Charlie Browns. I guess you can say I'm buy-curious. You go buy a tape recorder and record yourself for a whole day. I think you'll be surprised at some of your phrasing. It's The Final Countdown Dead Dove DO NOT EAT. I believe you will find the dessert to be both engrossing and high-grossing! So we don't get dessert? I could use a leather jacket for when I'm on my hog and have to go into a controlled slide. Happy."; //bluthipsum.com
+		multiLineLabel.text = @"\tTurn this skiff around! Absolutely. And we're going to be here every day. I don't care if it takes from now till the end of Shrimpfest. I need a fake passport, preferably to France… I like the way they think. That's so you can videotape it when they put you in a naked pyramid and point to your Charlie Browns. \n\tI guess you can say I'm buy-curious. You go buy a tape recorder and record yourself for a whole day. I think you'll be surprised at some of your phrasing. It's The Final Countdown Dead Dove DO NOT EAT. I believe you will find the dessert to be both engrossing and high-grossing! So we don't get dessert? I could use a leather jacket for when I'm on my hog and have to go into a controlled slide. Happy."; //bluthipsum.com
 		multiLineLabel.paragraphWidth = 500;
+		multiLineLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+		multiLineLabel.name = @"multiLabel";
 		multiLineLabel.position = CGPointMake(self.size.width/2, self.size.height/2);
 		[self addChild:multiLineLabel];
-
-		SKLabelNode* label = [SKLabelNode labelNodeWithFontNamed:@"Futura"];
-		label.text = @"This is a line. \nThis is a new line.\nNew line here too!";
-		label.position = CGPointMake(self.size.width/2, self.size.height/2);
-//		[self addChild:label];
 		
-
-        
-//        interval = [SKLabelNode labelNodeWithFontNamed:@"Helvetica"];
-//        
-//        interval.text = @"Hello, World!";
-//        interval.fontSize = 65;
-//        interval.position = CGPointMake(CGRectGetMidX(self.frame),
-//                                       CGRectGetMidY(self.frame));
-//		interval.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
-//        
-//        [self addChild:interval];
 		
-//		startInput = CGPointMake(1024, 768);
-//		
-//		ship = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
-//		ship.position = CGPointMake(512, 384);
-//		[self addChild:ship];
-//		
-//		SKAction* rotate = [SKAction rotateByAngle:M_PI duration:1.5];
-//		SKAction* repeat = [SKAction repeatActionForever:rotate];
-//		[ship runAction:repeat];
 		
     }
     return self;
@@ -121,96 +99,53 @@
 
 #if TARGET_OS_IPHONE
 
--(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
-	
-	for (UITouch* touch in touches) {
-		CGPoint location = [touch locationInNode:self];
-		[self inputBegan:location];
-	}
-}
-
--(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
-	
-	for (UITouch* touch in touches) {
-		CGPoint location = [touch locationInNode:self];
-		[self inputEnded:location];
-	}
-	
-}
-
 
 #else
--(void)mouseDown:(NSEvent *)theEvent {
-     /* Called when a mouse click occurs */
-    
-    CGPoint location = [theEvent locationInNode:self];
-	
-	prevTime = thisTime;
-	
-	thisTime = globalCurrentTime;
-	
-	
-	[self inputBegan:location];
 
-	
-	
-//	NSLog(@"time elapsed: %f", thisTime - prevTime);
-	
-}
 
--(void)mouseUp:(NSEvent *)theEvent {
-	
-	CGPoint location = [theEvent locationInNode:self];
-	[self inputEnded:location];
-	
-}
-	
 -(void)keyDown:(NSEvent *)theEvent {
-
+	
 	NSString *characters = [theEvent characters];
 	if ([characters length]) {
 		for (int s = 0; s<[characters length]; s++) {
 			unichar character = [characters characterAtIndex:s];
 			switch (character) {
-			case ']':
-				anotherValue += 100;
-				break;
-			case '[':
-				anotherValue -= 100;
-				break;
+				case ']':
+					anotherValue += 100;
+					break;
+				case '[':
+					anotherValue -= 100;
+					break;
 			}
 		}
 	}
 }
+
+-(BOOL)isUserInteractionEnabled {
+	return YES;
+}
+
 #endif
 
 
--(void)inputBegan:(CGPoint)location {
-
+-(void)inputBegan:(CGPoint)location withEventDictionary:(NSDictionary *)eventDict {
 	
-	startInput = location;
-
-//	[self stressTest];
+	SKNode* label = [self childNodeWithName:@"multiLabel"];
+	label.position = location;
 	
 }
 
--(void)inputEnded:(CGPoint)location {
+-(void)inputMoved:(CGPoint)location withEventDictionary:(NSDictionary *)eventDict {
 	
-	endInput = location;
+	SKNode* label = [self childNodeWithName:@"multiLabel"];
+	label.position = location;
 	
-	
-//	CGVector facingVector1 = CGVectorMake(1, 0);
-//	CGVector facingVector2 = CGVectorMake(1, 1);
-//	
-//	bool isBackstab = [sharedUtilties nodeAtPoint:startInput isBehindNodeAtPoint:endInput facingVector:facingVector2 isVectorNormal:NO withLatitudeOf:0.5];
-//	
-//	
-//	NSLog(@"startPoint: %f %f end: %f %f", startInput.x, startInput.y, endInput.x, endInput.y);
-//	NSLog(@"distance: %f", [sharedUtilties distanceBetween:startInput and:endInput]);
-//	NSLog(@"is a backstab: %i", isBackstab);
+}
 
+-(void)inputEnded:(CGPoint)location withEventDictionary:(NSDictionary *)eventDict {
 	
-//	NSLog(@"ship vec: %f %f", [sharedUtilties vectorFromRadianAngle:ship.zRotation]);
+	SKNode* label = [self childNodeWithName:@"multiLabel"];
+	label.position = location;
 	
 }
 
@@ -222,16 +157,6 @@
 	CFAbsoluteTime prevAbsTime = absTime;
 	absTime = CFAbsoluteTimeGetCurrent();
 	
-//	testValue = [sharedUtilties rampToValue:anotherValue fromCurrentValue:testValue withRampStep:0.3];
-//	
-//	NSLog(@"testValue: %f", testValue);
-	
-	
-
-	if (!firstupdate) {
-		NSLog(@"launchtime: %f", currentTime);
-		firstupdate = YES;
-	}
 	
 	
 }
@@ -250,21 +175,21 @@
 				break;
 		}
 	}
-
+	
 	
 }
 
 -(void)stressTest {
 	
 	NSTimeInterval timea = CFAbsoluteTimeGetCurrent();
-//	NSLog(@"startTime: %f", timea);
+	//	NSLog(@"startTime: %f", timea);
 	for (int i = 0; i < 10000000; i++) {
 		[sharedUtilties findPointOnBezierCurveWithPointA:p0 andPointB:p1 andPointC:p2 andPointD:p3 andPlaceOnCurve:0.5];
-//		[sharedUtilties calculateBezierPoint:0.5 andPoint0:p0 andPoint1:p1 andPoint2:p2 andPoint3:p3];
+		//		[sharedUtilties calculateBezierPoint:0.5 andPoint0:p0 andPoint1:p1 andPoint2:p2 andPoint3:p3];
 	}
 	NSTimeInterval timeb = CFAbsoluteTimeGetCurrent();
 	NSLog(@"time taken: %f", timeb - timea);
-
+	
 	
 }
 
