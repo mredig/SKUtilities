@@ -8,6 +8,14 @@
 
 #import "SKUMultiLineLabelNode.h"
 
+@interface SKUMultiLineLabelNode () {
+	
+	bool setupMode;
+	
+}
+
+@end
+
 @implementation SKUMultiLineLabelNode
 
 #pragma mark init and convenience methods
@@ -17,6 +25,8 @@
     
     if (self) {
         
+		setupMode = YES;
+		
         //Initialize the same values as a default SKLabelNode
         self.fontColor = [SKColor whiteColor];
         self.fontName = @"Helvetica";
@@ -27,6 +37,8 @@
         
         //Paint our initial texture
         [self retexture];
+		
+		setupMode = NO;
     }
     
     return self;
@@ -127,9 +139,12 @@
 	
 	if (!font) {
 		font = [SKUFont fontWithName:@"Helvetica" size:self.fontSize];
-		NSLog(@"The font you specified was unavailable. Defaulted to Helvetica.");
-		//		NSLog(@"The font you specified was unavailable. Defaulted to Helvetica. Here is a list of available fonts: %@", [DSMultiLineLabelFont familyNames]); //only available for debugging on iOS
-		//		NSLog(@"Here is a list of variations to %@: %@", _fontName, [DSMultiLineLabelFont familyNames]);
+		if (!setupMode) {
+			NSLog(@"The font you specified was unavailable. Defaulted to Helvetica.");
+			//		NSLog(@"The font you specified was unavailable. Defaulted to Helvetica. Here is a list of available fonts: %@", [DSMultiLineLabelFont familyNames]); //only available for debugging on iOS
+			//		NSLog(@"Here is a list of variations to %@: %@", _fontName, [DSMultiLineLabelFont familyNames]);
+		}
+		
 	}
     
     //Create our textAttributes dictionary that we'll use when drawing to the graphics context

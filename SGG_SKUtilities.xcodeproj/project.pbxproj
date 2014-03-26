@@ -45,6 +45,10 @@
 		3347737C189DC63F00055A53 /* SGG_MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 332C242E1890897600281B03 /* SGG_MyScene.m */; };
 		3347737D189DC63F00055A53 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 332C24341890897600281B03 /* Spaceship.png */; };
 		3347737E189DC63F00055A53 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 332C24361890897600281B03 /* Images.xcassets */; };
+		33AA783E18E274BD003E4E24 /* SKScene+ConsolidatedInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 33AA783B18E274BD003E4E24 /* SKScene+ConsolidatedInput.m */; };
+		33AA783F18E274BD003E4E24 /* SKScene+ConsolidatedInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 33AA783B18E274BD003E4E24 /* SKScene+ConsolidatedInput.m */; };
+		33AA784018E274BD003E4E24 /* SKView+AdditionalMouseSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 33AA783D18E274BD003E4E24 /* SKView+AdditionalMouseSupport.m */; };
+		33AA784118E274BD003E4E24 /* SKView+AdditionalMouseSupport.m in Sources */ = {isa = PBXBuildFile; fileRef = 33AA783D18E274BD003E4E24 /* SKView+AdditionalMouseSupport.m */; };
 		33B2C2B118CED8710006AC87 /* SKUMultiLineLabelNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B2C2B018CED8710006AC87 /* SKUMultiLineLabelNode.m */; };
 		33B2C2B218CED8710006AC87 /* SKUMultiLineLabelNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 33B2C2B018CED8710006AC87 /* SKUMultiLineLabelNode.m */; };
 /* End PBXBuildFile section */
@@ -116,6 +120,10 @@
 		33477366189DC5EE00055A53 /* skutilsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = skutilsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3347737F189E522A00055A53 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		33477380189E52A800055A53 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		33AA783A18E274BD003E4E24 /* SKScene+ConsolidatedInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKScene+ConsolidatedInput.h"; sourceTree = "<group>"; };
+		33AA783B18E274BD003E4E24 /* SKScene+ConsolidatedInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKScene+ConsolidatedInput.m"; sourceTree = "<group>"; };
+		33AA783C18E274BD003E4E24 /* SKView+AdditionalMouseSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKView+AdditionalMouseSupport.h"; sourceTree = "<group>"; };
+		33AA783D18E274BD003E4E24 /* SKView+AdditionalMouseSupport.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKView+AdditionalMouseSupport.m"; sourceTree = "<group>"; };
 		33B2C2AF18CED8710006AC87 /* SKUMultiLineLabelNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKUMultiLineLabelNode.h; sourceTree = "<group>"; };
 		33B2C2B018CED8710006AC87 /* SKUMultiLineLabelNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKUMultiLineLabelNode.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -260,6 +268,10 @@
 				332C2454189089A300281B03 /* SGG_SKUtilities.m */,
 				33B2C2AF18CED8710006AC87 /* SKUMultiLineLabelNode.h */,
 				33B2C2B018CED8710006AC87 /* SKUMultiLineLabelNode.m */,
+				33AA783A18E274BD003E4E24 /* SKScene+ConsolidatedInput.h */,
+				33AA783B18E274BD003E4E24 /* SKScene+ConsolidatedInput.m */,
+				33AA783C18E274BD003E4E24 /* SKView+AdditionalMouseSupport.h */,
+				33AA783D18E274BD003E4E24 /* SKView+AdditionalMouseSupport.m */,
 				332C2455189089A300281B03 /* SKUtilityConstants.h */,
 			);
 			path = Utilities;
@@ -462,6 +474,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				332C24321890897600281B03 /* SGG_AppDelegate.m in Sources */,
+				33AA784018E274BD003E4E24 /* SKView+AdditionalMouseSupport.m in Sources */,
 				331E200718B319980087ABD9 /* SGG_SKPushButton.m in Sources */,
 				331E200518B319980087ABD9 /* SGG_SKMasterButton.m in Sources */,
 				331E200918B319980087ABD9 /* SGG_SKToggleButton.m in Sources */,
@@ -469,6 +482,7 @@
 				332C242F1890897600281B03 /* SGG_MyScene.m in Sources */,
 				332C2456189089A300281B03 /* SGG_SKUtilities.m in Sources */,
 				332C24271890897600281B03 /* main.m in Sources */,
+				33AA783E18E274BD003E4E24 /* SKScene+ConsolidatedInput.m in Sources */,
 				33B2C2B118CED8710006AC87 /* SKUMultiLineLabelNode.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -489,6 +503,8 @@
 				33477351189DC5EE00055A53 /* SGG_AppDelegate.m in Sources */,
 				3347734D189DC5EE00055A53 /* main.m in Sources */,
 				331E200418B319980087ABD9 /* SGG_SKButton.m in Sources */,
+				33AA784118E274BD003E4E24 /* SKView+AdditionalMouseSupport.m in Sources */,
+				33AA783F18E274BD003E4E24 /* SKScene+ConsolidatedInput.m in Sources */,
 				331E200618B319980087ABD9 /* SGG_SKMasterButton.m in Sources */,
 				3347737B189DC63F00055A53 /* SGG_SKUtilities.m in Sources */,
 				3347735A189DC5EE00055A53 /* SGG_ViewController.m in Sources */,

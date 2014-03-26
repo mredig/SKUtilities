@@ -11,6 +11,7 @@
 
 #import "SKUtilityConstants.h"
 #import "SKUMultiLineLabelNode.h"
+#import "SKScene+ConsolidatedInput.h"
 
 @interface SGG_SKUtilities : NSObject
 

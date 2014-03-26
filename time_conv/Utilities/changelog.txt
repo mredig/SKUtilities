@@ -4,6 +4,8 @@ Version 1.3
 	- added SKMasterButton class
 		- platform agnostic buttons!
 	- added SKUMultiLineLabelNode class
+	- added SKScene ability to consolidate input methods
+		- overwrote default ignoring of right click and other mouse clicks
 
 	Bug Fixes
 	- renamed kPhone4Scale to kPhoneFromPadScale_SKUTIL 
