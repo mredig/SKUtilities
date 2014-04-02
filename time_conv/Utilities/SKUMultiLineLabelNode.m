@@ -124,7 +124,11 @@
 -(void) retexture
 {
     SKUImage *newTextImage = [self imageFromText:self.text];
-    SKTexture *newTexture =[SKTexture textureWithImage:newTextImage];
+	SKTexture *newTexture;
+	
+	if (newTextImage) {
+		newTexture =[SKTexture textureWithImage:newTextImage];
+	}
     
     SKSpriteNode *selfNode = (SKSpriteNode*) self;
     selfNode.texture = newTexture;
@@ -133,6 +137,9 @@
     selfNode.anchorPoint = CGPointMake(0.5, 0.5);
 	
 }
+
+
+
 
 -(SKUImage*)imageFromText:(NSString *)text
 {
