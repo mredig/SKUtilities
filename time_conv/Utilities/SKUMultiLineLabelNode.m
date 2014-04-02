@@ -120,9 +120,12 @@
 	
 }
 
--(void)setStrokeColor:(NSColor *)strokeColor {
-	
-	_strokeColor = strokeColor;
+-(void)setStrokeColor:(SKColor *)strokeColor {
+	if (!strokeColor) {
+		_strokeColor = [SKColor blackColor];
+	} else {
+		_strokeColor = strokeColor;
+	}
 	[self retexture];
 
 }
@@ -132,6 +135,12 @@
 	_strokeWidth = strokeWidth;
 	[self retexture];
 	
+}
+
+-(void)setParagraphHeight:(CGFloat)paragraphHeight {
+	
+	_paragraphHeight = paragraphHeight;
+	[self retexture];
 }
 
 
@@ -190,8 +199,11 @@
     [textAttributes setObject:self.fontColor forKey:NSForegroundColorAttributeName];
 	
 	//stroke
-	[textAttributes setObject:_strokeColor forKey:NSStrokeColorAttributeName];
-	[textAttributes setObject:[NSNumber numberWithDouble:-_strokeWidth] forKey:NSStrokeWidthAttributeName];
+	if (_strokeWidth > 0 && _strokeColor) {
+		[textAttributes setObject:_strokeColor forKey:NSStrokeColorAttributeName];
+		[textAttributes setObject:[NSNumber numberWithDouble:-_strokeWidth] forKey:NSStrokeWidthAttributeName];
+	}
+
 	
     
     
@@ -199,14 +211,18 @@
 	if (_paragraphWidth == 0) {
 		_paragraphWidth = self.scene.size.width;
 	}
+	
+	if (_paragraphHeight == 0) {
+		_paragraphHeight = self.scene.size.width;
+	}
 #if TARGET_OS_IPHONE
-    CGRect textRect = [text boundingRectWithSize:CGSizeMake(_paragraphWidth, self.scene.size.height)
+    CGRect textRect = [text boundingRectWithSize:CGSizeMake(_paragraphWidth, _paragraphHeight)
                                          options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingTruncatesLastVisibleLine
                                       attributes:textAttributes
                                          context:nil];
 	
 #else
-	CGRect textRect = [text boundingRectWithSize:CGSizeMake(_paragraphWidth, self.scene.size.height)
+	CGRect textRect = [text boundingRectWithSize:CGSizeMake(_paragraphWidth, _paragraphHeight)
                                          options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingTruncatesLastVisibleLine
                                       attributes:textAttributes];
 #endif
@@ -218,6 +234,8 @@
 	if (textRect.size.width == 0 || textRect.size.height == 0) {
 		return Nil;
 	}
+	
+//	NSLog(@"textRect = %f %f %f %f", textRect.origin.x, textRect.origin.y, textRect.size.width, textRect.size.height);
     
     //The size of the bounding rect is going to be the size of our new node, so set the size here.
     SKSpriteNode *selfNode = (SKSpriteNode*) self;

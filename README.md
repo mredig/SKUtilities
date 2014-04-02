@@ -56,6 +56,30 @@ You may utilize multi line label nodes with a call such as
 		
 This functionality was originally sourced from Chris Allwein of Downright Simple(c). Many thanks to him for open sourcing this code!
 
+Additional functionality added also includes the ability to stroke the text with a color of varying widths like so:
+
+	multiLineLabel.strokeWidth = 3;
+	multiLineLabel.strokeColor = [SKColor greenColor];
+	
+This unfortunately only works correctly on OSX currently. Something about applying the attribute for strokeWidth disables the ability to properly generate proper bounds via this function:
+
+	if (_paragraphHeight == 0) {
+		_paragraphHeight = self.scene.size.width; // HERE
+	}
+
+    CGRect textRect = [text boundingRectWithSize:CGSizeMake(_paragraphWidth, _paragraphHeight)
+                                         options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingTruncatesLastVisibleLine
+                                      attributes:textAttributes
+                                         context:nil];
+										 
+A temporary workaround for iOS is to set multiLineLabel.paragraphHeight with a manual value. To get an appropriate value, you can uncomment this line
+
+	NSLog(@"textRect = %f %f %f %f", textRect.origin.x, textRect.origin.y, textRect.size.width, textRect.size.height);
+	
+lower in the SKUMultiLineLabelNode.m file. Take the largest height value given there and manually insert it.
+
+
+
 Note that you may implement tabs and hard returns with
 
 	/t

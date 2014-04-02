@@ -36,6 +36,9 @@
 	CGPoint endInput;
 	
 	CGPoint p0, p1, p2, p3;
+	
+	
+	NSMutableArray* points;
 }
 
 @end
@@ -48,7 +51,7 @@
 		
 		sharedUtilties = [SGG_SKUtilities sharedUtilities];
 		
-		
+		points = [[NSMutableArray alloc] init];
         
         self.backgroundColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
 		
@@ -72,10 +75,13 @@
 		//		[self addChild:pushButton];
 		
 		SKUMultiLineLabelNode* multiLineLabel = [SKUMultiLineLabelNode labelNodeWithFontNamed:@"Futura"];
-		multiLineLabel.lineSpacing = 30;
+//		multiLineLabel.lineSpacing = 30;
 		multiLineLabel.text = @"\tTurn this skiff around! Absolutely. And we're going to be here every day. I don't care if it takes from now till the end of Shrimpfest. I need a fake passport, preferably to France… I like the way they think. That's so you can videotape it when they put you in a naked pyramid and point to your Charlie Browns. \n\tI guess you can say I'm buy-curious. You go buy a tape recorder and record yourself for a whole day. I think you'll be surprised at some of your phrasing. It's The Final Countdown Dead Dove DO NOT EAT. I believe you will find the dessert to be both engrossing and high-grossing! So we don't get dessert? I could use a leather jacket for when I'm on my hog and have to go into a controlled slide. Happy."; //bluthipsum.com
-		multiLineLabel.paragraphWidth = 700;
+		multiLineLabel.paragraphWidth = 500;
 		multiLineLabel.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeLeft;
+		multiLineLabel.strokeWidth = 3;
+		multiLineLabel.strokeColor = [SKColor greenColor];
+		multiLineLabel.paragraphHeight = 1000;
 		multiLineLabel.name = @"multiLabel";
 		multiLineLabel.position = CGPointMake(self.size.width/2, self.size.height/2);
 		[self addChild:multiLineLabel];
@@ -131,22 +137,35 @@
 
 -(void)inputBegan:(CGPoint)location withEventDictionary:(NSDictionary *)eventDict {
 	
-	SKNode* label = [self childNodeWithName:@"multiLabel"];
-	label.position = location;
+//	SKNode* label = [self childNodeWithName:@"multiLabel"];
+//	label.position = location;
+	
+	[points removeAllObjects];
+	[points addObject:[sharedUtilties getStringFromPoint:location]];
+	
 	
 }
 
 -(void)inputMoved:(CGPoint)location withEventDictionary:(NSDictionary *)eventDict {
 	
+	CGPoint previousLocation = [sharedUtilties getCGPointFromString:points[points.count - 1]];
+	
+	
+	CGPoint locationDifference = [sharedUtilties pointAddA:location toPointB:[sharedUtilties pointInverse:previousLocation]];
+	
+	
 	SKNode* label = [self childNodeWithName:@"multiLabel"];
-	label.position = location;
+	label.position = [sharedUtilties pointAddA:locationDifference toPointB:label.position];
+	
+	[points addObject:[sharedUtilties getStringFromPoint:location]];
+
 	
 }
 
 -(void)inputEnded:(CGPoint)location withEventDictionary:(NSDictionary *)eventDict {
 	
-	SKNode* label = [self childNodeWithName:@"multiLabel"];
-	label.position = location;
+//	SKNode* label = [self childNodeWithName:@"multiLabel"];
+//	label.position = location;
 	
 }
 

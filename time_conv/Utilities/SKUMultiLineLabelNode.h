@@ -18,6 +18,7 @@
 @property(copy, nonatomic) NSString* text;
 @property(nonatomic) SKLabelVerticalAlignmentMode verticalAlignmentMode;
 @property(nonatomic, assign) CGFloat paragraphWidth;
+@property(nonatomic, assign) CGFloat paragraphHeight; //should only be necessary to force a proper height for stroked text
 @property(nonatomic, assign) CGFloat lineSpacing; //measures in points
 @property(nonatomic, assign) CGFloat strokeWidth;
 @property(retain, nonatomic) SKColor* strokeColor;
