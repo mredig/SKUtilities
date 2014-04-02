@@ -31,6 +31,7 @@
         self.fontColor = [SKColor whiteColor];
         self.fontName = @"Helvetica";
         self.fontSize = 32.0;
+		_lineSpacing = 1;
         
         self.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
         self.verticalAlignmentMode = SKLabelVerticalAlignmentModeBaseline;
@@ -112,6 +113,13 @@
 	
 }
 
+-(void)setLineSpacing:(CGFloat)lineSpacing {
+	
+	_lineSpacing = lineSpacing;
+	[self retexture];
+	
+}
+
 //Generates and applies new textures based on the current property values
 -(void) retexture
 {
@@ -132,7 +140,7 @@
     NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];
     paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping; //To get multi-line
     paragraphStyle.alignment = [self mapSkLabelHorizontalAlignmentToNSTextAlignment:self.horizontalAlignmentMode];
-    paragraphStyle.lineSpacing = 1;
+    paragraphStyle.lineSpacing = _lineSpacing;
     
     //Create the font using the values set by the user
     SKUFont* font = [SKUFont fontWithName:self.fontName size:self.fontSize];
