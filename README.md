@@ -76,7 +76,7 @@ A temporary workaround for iOS is to set multiLineLabel.paragraphHeight with a m
 
 	NSLog(@"textRect = %f %f %f %f", textRect.origin.x, textRect.origin.y, textRect.size.width, textRect.size.height);
 	
-lower in the SKUMultiLineLabelNode.m file. Take the largest height value given there and manually insert it.
+lower in the SKUMultiLineLabelNode.m file. Take the largest height value given there and manually set it.
 
 
 
