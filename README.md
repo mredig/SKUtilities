@@ -56,6 +56,11 @@ You may utilize multi line label nodes with a call such as
 		
 This functionality was originally sourced from Chris Allwein of Downright Simple(c). Many thanks to him for open sourcing this code!
 
+Note that you may implement tabs and hard returns with
+
+	/t
+	/r
+
 
 SKScene has been modified with categories (see https://developer.apple.com/library/ios/documentation/cocoa/conceptual/ProgrammingWithObjectiveC/CustomizingExistingClasses/CustomizingExistingClasses.html) to consolidate Mac and iOS code. You may now accept input in your scene for either target with the following methods:
 

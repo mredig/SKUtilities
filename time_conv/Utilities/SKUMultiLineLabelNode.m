@@ -120,6 +120,21 @@
 	
 }
 
+-(void)setStrokeColor:(NSColor *)strokeColor {
+	
+	_strokeColor = strokeColor;
+	[self retexture];
+
+}
+
+-(void)setStrokeWidth:(CGFloat)strokeWidth {
+	
+	_strokeWidth = strokeWidth;
+	[self retexture];
+	
+}
+
+
 //Generates and applies new textures based on the current property values
 -(void) retexture
 {
@@ -173,6 +188,11 @@
 	
     //Font Color
     [textAttributes setObject:self.fontColor forKey:NSForegroundColorAttributeName];
+	
+	//stroke
+	[textAttributes setObject:_strokeColor forKey:NSStrokeColorAttributeName];
+	[textAttributes setObject:[NSNumber numberWithDouble:-_strokeWidth] forKey:NSStrokeWidthAttributeName];
+	
     
     
     //Calculate the size that the text will take up, given our options.  We use the full screen size for the bounds
