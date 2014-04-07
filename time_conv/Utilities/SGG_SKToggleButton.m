@@ -53,8 +53,8 @@
 
 -(void)setUpToggleStates {
 	
-	BOOL toggleOnIsSet;
-	BOOL toggleOffIsSet;
+	BOOL toggleOnIsSet = NO;
+	BOOL toggleOffIsSet = NO;
 	//check if there are labels and apply for both neutral and pressed states
 	
 	//enabled label

@@ -50,7 +50,7 @@
 
 -(void)setUpTitle {
 
-	BOOL titleIsSet;
+	BOOL titleIsSet = NO;
 	//check if there's a title label and apply for both neutral and pressed states
 	if (_labelTitle) {
 		_labelTitle.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
