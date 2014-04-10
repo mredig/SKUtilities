@@ -10,13 +10,7 @@
 
 @implementation SKScene (ConsolidatedInput)
 
-//-(id)initWithSize:(CGSize)size {
-//	if (self = [super initWithSize:size]) {
-//
-//	}
-//	
-//	return self;	
-//}
+
 
 
 #if TARGET_OS_IPHONE
