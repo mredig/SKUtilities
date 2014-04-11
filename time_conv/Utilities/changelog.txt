@@ -6,6 +6,7 @@ Version 1.3
 	- added SKUMultiLineLabelNode class
 	- added SKScene ability to consolidate input methods
 		- overwrote default ignoring of right click and other mouse clicks
+	- added deltaMaxTime (defaults to 1.0f) to avoid abrupt spikes in delta time due to lag or being the first time the method is called
 
 	Bug Fixes
 	- renamed kPhone4Scale to kPhoneFromPadScale_SKUTIL 

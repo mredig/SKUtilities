@@ -37,6 +37,8 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	
 //	_radiansToDegreesConversionFactor = (180 / M_PI);
 //	_degreesToRadiansConversionFactor = (M_PI / 180);
+	
+	_deltaMaxTime = 1.0f;
 }
 
 #pragma mark DISTANCE FUNCTIONS
@@ -304,6 +306,10 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 -(void)updateCurrentTime:(CFTimeInterval)timeUpdate {
 	
 	_deltaFrameTime = timeUpdate - _currentTime;
+	
+	if (_deltaFrameTime < _deltaMaxTime) {
+		_deltaFrameTime = _deltaMaxTime;
+	}
 	_currentTime = timeUpdate;
 
 }
