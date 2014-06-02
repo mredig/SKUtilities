@@ -268,7 +268,23 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	return CGPointMake(a.x + (b.x-a.x)*t, a.y + (b.y-a.y)*t);
 }
 
+-(NSValue*)valueObjectFromPoint:(CGPoint)point {
+#if TARGET_OS_IPHONE
+	return [NSValue valueWithCGPoint:point];
+#else
+	return [NSValue valueWithPoint:point];
+#endif
+	
+}
 
+-(CGPoint)pointFromValueObject:(NSValue*)valueObject {
+#if TARGET_OS_IPHONE
+	return [valueObject CGPointValue];
+#else
+	return [valueObject pointValue];
+#endif
+	
+}
 
 #pragma mark COORDINATE CONVERSIONS
 

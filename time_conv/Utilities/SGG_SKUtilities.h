@@ -62,6 +62,9 @@
 -(BOOL)nodeAtPoint:(CGPoint)originPos isBehindNodeAtPoint:(CGPoint)victimPos facingVector:(CGVector)victimFacingVector isVectorNormal:(BOOL)victimFacingVectorNormal withLatitudeOf:(CGFloat)latitude andMaximumDistanceBetweenPoints:(CGFloat)maxDistance; //returns boolean whether or not a backstab would be valid given parameters. Latitude is range from 0 to 1.0. 0.5 would give a valid range of about 45 degrees to backstab
 -(BOOL)nodeAtPoint:(CGPoint)originPos isBehindNodeAtPoint:(CGPoint)victimPos facingVector:(CGVector)victimFacingVector isVectorNormal:(BOOL)victimFacingVectorNormal withLatitudeOf:(CGFloat)latitude; //returns boolean whether or not a backstab would be valid given parameters (see above) this assumes that distance logic has already occurred and simply returns whether the angles are valid
 -(CGPoint)linearInterpolationBetweenPointA:(CGPoint)a andPointB:(CGPoint)b andPlaceBetween:(CGFloat)t;
+// the following two methods allow you to convert CGPoints to and from objects for easy storage in dicts or arrays
+-(NSValue*)valueObjectFromPoint:(CGPoint)point;
+-(CGPoint)pointFromValueObject:(NSValue*)valueObject;
 
 #pragma mark COORDINATE CONVERSIONS
 -(CGPoint)getCGPointFromString:(NSString*)string; //converts a properly formatted string to a CGPoint (typically for reading storage)
