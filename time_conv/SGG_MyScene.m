@@ -86,7 +86,9 @@
 		multiLineLabel.position = CGPointMake(self.size.width/2, self.size.height/2);
 		[self addChild:multiLineLabel];
 		
-		NSLog(@"line: %f", multiLineLabel.lineSpacing);
+//		NSLog(@"line: %f", multiLineLabel.lineSpacing);
+		
+//		[self drawBezierSegmentWithIterations:50 andPoint0:p0 andPoint1:p1 andPoint2:p2 andPoint3:p3];
 		
     }
     return self;
@@ -158,7 +160,13 @@
 	label.position = [sharedUtilties pointAddA:locationDifference toPointB:label.position];
 	
 	[points addObject:[sharedUtilties getStringFromPoint:location]];
-
+	/* //bezier testing stuff
+	[self enumerateChildNodesWithName:@"spriteSegment" usingBlock:^(SKNode *node, BOOL *stop) {
+		[node removeFromParent];
+	}];
+	p2 = location;
+	[self drawBezierSegmentWithIterations:50 andPoint0:p0 andPoint1:p1 andPoint2:p2 andPoint3:p3];
+*/
 	
 }
 
