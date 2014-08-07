@@ -84,11 +84,18 @@
 		multiLineLabel.paragraphHeight = 1000;
 		multiLineLabel.name = @"multiLabel";
 		multiLineLabel.position = CGPointMake(self.size.width/2, self.size.height/2);
-		[self addChild:multiLineLabel];
+//		[self addChild:multiLineLabel];
 		
 //		NSLog(@"line: %f", multiLineLabel.lineSpacing);
 		
 //		[self drawBezierSegmentWithIterations:50 andPoint0:p0 andPoint1:p1 andPoint2:p2 andPoint3:p3];
+		
+		SGG_SKSlider* newSlider = [SGG_SKSlider node];
+		newSlider.position = CGPointMake(200, 200);
+		newSlider.maxValue = 1.0;
+		newSlider.minValue = 0.0;
+		newSlider.continuous = YES;
+		[self addChild:newSlider];
 		
     }
     return self;

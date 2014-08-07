@@ -10,6 +10,7 @@
 #import "SGG_SKButton.h"
 #import "SGG_SKPushButton.h"
 #import "SGG_SKToggleButton.h"
+#import "SGG_SKSlider.h"
 
 @interface SGG_SKMasterButton : SKNode
 

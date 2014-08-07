@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33113CDB199409490044C3EF /* SGG_SKSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 33113CDA199409490044C3EF /* SGG_SKSlider.m */; };
+		33113CDC199409490044C3EF /* SGG_SKSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 33113CDA199409490044C3EF /* SGG_SKSlider.m */; };
+		33113CDE1994148A0044C3EF /* SGGAssets.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 33113CDD1994148A0044C3EF /* SGGAssets.atlas */; };
+		33113CDF1994148A0044C3EF /* SGGAssets.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 33113CDD1994148A0044C3EF /* SGGAssets.atlas */; };
 		332C24191890897600281B03 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332C24181890897600281B03 /* Cocoa.framework */; };
 		332C241B1890897600281B03 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332C241A1890897600281B03 /* SpriteKit.framework */; };
 		332C24251890897600281B03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 332C24231890897600281B03 /* InfoPlist.strings */; };
@@ -71,6 +75,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		33113CD9199409490044C3EF /* SGG_SKSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGG_SKSlider.h; sourceTree = "<group>"; };
+		33113CDA199409490044C3EF /* SGG_SKSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGG_SKSlider.m; sourceTree = "<group>"; };
+		33113CDD1994148A0044C3EF /* SGGAssets.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = SGGAssets.atlas; sourceTree = "<group>"; };
 		331E1FFB18B319980087ABD9 /* SGG_SKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGG_SKButton.h; sourceTree = "<group>"; };
 		331E1FFC18B319980087ABD9 /* SGG_SKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGG_SKButton.m; sourceTree = "<group>"; };
 		331E1FFD18B319980087ABD9 /* SGG_SKMasterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGG_SKMasterButton.h; sourceTree = "<group>"; };
@@ -182,6 +189,9 @@
 				331E200018B319980087ABD9 /* SGG_SKPushButton.m */,
 				331E200118B319980087ABD9 /* SGG_SKToggleButton.h */,
 				331E200218B319980087ABD9 /* SGG_SKToggleButton.m */,
+				33113CD9199409490044C3EF /* SGG_SKSlider.h */,
+				33113CDA199409490044C3EF /* SGG_SKSlider.m */,
+				33113CDD1994148A0044C3EF /* SGGAssets.atlas */,
 			);
 			name = SKButtons;
 			sourceTree = "<group>";
@@ -434,6 +444,7 @@
 			files = (
 				332C24351890897600281B03 /* Spaceship.png in Resources */,
 				332C24371890897600281B03 /* Images.xcassets in Resources */,
+				33113CDE1994148A0044C3EF /* SGGAssets.atlas in Resources */,
 				332C24251890897600281B03 /* InfoPlist.strings in Resources */,
 				332C242B1890897600281B03 /* Credits.rtf in Resources */,
 				332C242D1890897600281B03 /* MainMenu.xib in Resources */,
@@ -453,6 +464,7 @@
 			files = (
 				3347737D189DC63F00055A53 /* Spaceship.png in Resources */,
 				3347737E189DC63F00055A53 /* Images.xcassets in Resources */,
+				33113CDF1994148A0044C3EF /* SGGAssets.atlas in Resources */,
 				33477357189DC5EE00055A53 /* Main_iPad.storyboard in Resources */,
 				33477354189DC5EE00055A53 /* Main_iPhone.storyboard in Resources */,
 				3347734B189DC5EE00055A53 /* InfoPlist.strings in Resources */,
@@ -483,6 +495,7 @@
 				33AA784818E27799003E4E24 /* SKScene+ConsolidatedInput.m in Sources */,
 				33AA784718E27799003E4E24 /* SKUMultiLineLabelNode.m in Sources */,
 				332C24271890897600281B03 /* main.m in Sources */,
+				33113CDB199409490044C3EF /* SGG_SKSlider.m in Sources */,
 				33AA784A18E27799003E4E24 /* SGG_MyScene.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -501,6 +514,7 @@
 				33477351189DC5EE00055A53 /* SGG_AppDelegate.m in Sources */,
 				33AA785218E2779A003E4E24 /* SKView+AdditionalMouseSupport.m in Sources */,
 				3347734D189DC5EE00055A53 /* main.m in Sources */,
+				33113CDC199409490044C3EF /* SGG_SKSlider.m in Sources */,
 				3347735A189DC5EE00055A53 /* SGG_ViewController.m in Sources */,
 				33AA784E18E2779A003E4E24 /* SGG_SKToggleButton.m in Sources */,
 				33AA784D18E2779A003E4E24 /* SGG_SKPushButton.m in Sources */,
