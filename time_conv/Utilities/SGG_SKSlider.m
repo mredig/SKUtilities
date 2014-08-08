@@ -157,14 +157,32 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
 	
-	[self buttonPressed];
+	if (self.parent) { //only run if node has a parent (crashes when trying to get location without existing)
+		for (UITouch* touch in touches) {
+			CGPoint location = [touch locationInNode:self];
+			[self nobDown:location];
+		}
+	}
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+	
+	if (self.parent) { //only run if node has a parent (crashes when trying to get location without existing)
+		for (UITouch* touch in touches) {
+			CGPoint location = [touch locationInNode:self];
+			[self nobMoved:location];
+		}
+	}
+	
 }
 
 -(void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
 	
-	for (UITouch* touch in touches) {
-		CGPoint location = [touch locationInNode:self];
-		[self buttonReleased:location];
+	if (self.parent) { //only run if node has a parent (crashes when trying to get location without existing)
+		for (UITouch* touch in touches) {
+			CGPoint location = [touch locationInNode:self];
+			[self nobReleased:location];
+		}
 	}
 }
 
