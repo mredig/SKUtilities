@@ -81,6 +81,14 @@
 	
 }
 
+-(void)setSliderSize:(CGSize)sliderSize {
+	
+	_sliderSize = sliderSize;
+	
+	slide.size = _sliderSize;
+	
+}
+
 
 
 -(void)nobDown:(CGPoint)location {

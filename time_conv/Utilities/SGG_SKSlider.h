@@ -26,6 +26,8 @@
 
 @property (nonatomic) CGFloat sliderValue; //default 0.0
 @property (nonatomic) NSInteger sliderID;
+@property (nonatomic) CGSize sliderSize;
+
 
 
 @property (nonatomic, strong) SKTexture* nobTexture;
