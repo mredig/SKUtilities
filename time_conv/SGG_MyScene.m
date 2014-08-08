@@ -84,7 +84,7 @@
 		multiLineLabel.paragraphHeight = 1000;
 		multiLineLabel.name = @"multiLabel";
 		multiLineLabel.position = CGPointMake(self.size.width/2, self.size.height/2);
-//		[self addChild:multiLineLabel];
+		[self addChild:multiLineLabel];
 		
 //		NSLog(@"line: %f", multiLineLabel.lineSpacing);
 		
@@ -96,6 +96,7 @@
 		newSlider.minValue = 0.0;
 		newSlider.continuous = YES;
 		newSlider.name = @"newSlider";
+		newSlider.delegate = self;
 		[self addChild:newSlider];
 		
     }
@@ -193,6 +194,16 @@
 	
 	CFAbsoluteTime prevAbsTime = absTime;
 	absTime = CFAbsoluteTimeGetCurrent();
+	
+	
+	
+}
+
+-(void)sliderValueChanged:(SGG_SKSlider *)slider {
+	
+	if ([slider.name isEqualToString:@"newSlider"]) {
+		NSLog(@"slider value: %f", slider.sliderValue);
+	}
 	
 	
 	

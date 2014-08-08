@@ -120,6 +120,7 @@
 	
 	_sliderValue = (sliderPos * extremesDifference) + _minValue;
 	
+	[_delegate sliderValueChanged:self];
 	
 //	NSLog(@"Slider: %f", _sliderValue);
 	

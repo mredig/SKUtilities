@@ -9,18 +9,29 @@
 #import <SpriteKit/SpriteKit.h>
 #import "SGG_SKMasterButton.h"
 
+@class SGG_SKSlider;
+@protocol SGG_SKSliderDelegate   //define delegate protocol
+
+-(void)sliderValueChanged:(SGG_SKSlider*)slider;
+
+@end
+
 @interface SGG_SKSlider : SKNode 
+
+
 
 @property (nonatomic) CGFloat maxValue;
 @property (nonatomic) CGFloat minValue;
 @property (nonatomic) BOOL continuous;
 
 @property (nonatomic) CGFloat sliderValue;
+@property (nonatomic) NSInteger sliderID;
+
 
 @property (nonatomic, strong) SKTexture* nobTexture;
 @property (nonatomic, strong) SKTexture* nobTexturePressed;
 @property (nonatomic, strong) SKTexture* sliderTexture;
 
-
+@property (nonatomic, weak) id <SGG_SKSliderDelegate> delegate; //define MyClassDelegate as delegate
 
 @end

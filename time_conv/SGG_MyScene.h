@@ -15,6 +15,6 @@ typedef enum {
 } kButtonTypes;
 
 
-@interface SGG_MyScene : SKScene <SGG_SKButtonDelegate>
+@interface SGG_MyScene : SKScene <SGG_SKButtonDelegate, SGG_SKSliderDelegate>
 
 @end
