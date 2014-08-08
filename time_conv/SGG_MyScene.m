@@ -95,6 +95,7 @@
 		newSlider.maxValue = 1.0;
 		newSlider.minValue = 0.0;
 		newSlider.continuous = YES;
+		newSlider.name = @"newSlider";
 		[self addChild:newSlider];
 		
     }
@@ -152,7 +153,8 @@
 	[points removeAllObjects];
 	[points addObject:[sharedUtilties getStringFromPoint:location]];
 	
-	
+	SGG_SKSlider* newSlider = (SGG_SKSlider*)[self childNodeWithName:@"newSlider"];
+//	newSlider.nobTexturePressed = [SKTexture textureWithImageNamed:@"Spaceship"];
 }
 
 -(void)inputMoved:(CGPoint)location withEventDictionary:(NSDictionary *)eventDict {

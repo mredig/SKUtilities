@@ -13,6 +13,8 @@
 	SKSpriteNode* nob;
 	SKSpriteNode* slide;
 	
+	bool nobDown;
+	
 	
 }
 
@@ -32,6 +34,7 @@
 	
 	self.userInteractionEnabled = YES;
 	
+	nobDown = NO;
 	
 	_nobTexture = [SKTexture textureWithImageNamed:@"sliderNob"];
 	_nobTexturePressed = [SKTexture textureWithImageNamed:@"sliderNobPressed"];
@@ -47,10 +50,40 @@
 	
 }
 
+-(void)setNobTexture:(SKTexture *)nobTexture {
+	
+	_nobTexture = nobTexture;
+	if (!nobDown) {
+		nob.texture = _nobTexture;
+		nob.size = _nobTexture.size;
+	}
+	
+}
+
+-(void)setNobTexturePressed:(SKTexture *)nobTexturePressed {
+	_nobTexturePressed = nobTexturePressed;
+	if (nobDown) {
+		nob.texture = _nobTexturePressed;
+		nob.size = _nobTexturePressed.size;
+	}
+}
+
+-(void)setSliderTexture:(SKTexture *)sliderTexture {
+	
+	_sliderTexture = sliderTexture;
+	
+	slide.texture = _sliderTexture;
+	slide.size = _sliderTexture.size;
+	
+}
+
+
 
 -(void)nobDown:(CGPoint)location {
 	
 	nob.texture = _nobTexturePressed;
+	nob.size = _nobTexturePressed.size;
+	nobDown = YES;
 	
 }
 
@@ -72,7 +105,9 @@
 
 -(void)nobReleased:(CGPoint)location {
 
+	nobDown = NO;
 	nob.texture = _nobTexture;
+	nob.size = _nobTexture.size;
 	[self evaluateSliderValue];
 	
 }
