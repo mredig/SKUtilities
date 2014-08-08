@@ -35,6 +35,10 @@
 	self.userInteractionEnabled = YES;
 	
 	nobDown = NO;
+	_continuous = YES;
+	_maxValue = 1.0;
+	_minValue = 0.0;
+	_sliderValue = 0.0;
 	
 	_nobTexture = [SKTexture textureWithImageNamed:@"sliderNob"];
 	_nobTexturePressed = [SKTexture textureWithImageNamed:@"sliderNobPressed"];
@@ -123,6 +127,20 @@
 	[_delegate sliderValueChanged:self];
 	
 //	NSLog(@"Slider: %f", _sliderValue);
+	
+}
+
+-(void)setSliderValue:(CGFloat)sliderValue {
+	
+	_sliderValue = sliderValue;
+	
+	CGFloat extremesDifference = _maxValue - _minValue;
+
+	CGFloat xVal = (_sliderValue - _minValue) / extremesDifference;
+	xVal *= slide.size.width;
+	
+	nob.position = CGPointMake(xVal, 0);
+	
 	
 }
 

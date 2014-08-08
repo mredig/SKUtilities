@@ -20,11 +20,11 @@
 
 
 
-@property (nonatomic) CGFloat maxValue;
-@property (nonatomic) CGFloat minValue;
-@property (nonatomic) BOOL continuous;
+@property (nonatomic) CGFloat maxValue; //default 1.0
+@property (nonatomic) CGFloat minValue; //default 0.0
+@property (nonatomic) BOOL continuous; //defaults to YES
 
-@property (nonatomic) CGFloat sliderValue;
+@property (nonatomic) CGFloat sliderValue; //default 0.0
 @property (nonatomic) NSInteger sliderID;
 
 
