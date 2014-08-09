@@ -11,6 +11,8 @@
 		33113CDC199409490044C3EF /* SGG_SKSlider.m in Sources */ = {isa = PBXBuildFile; fileRef = 33113CDA199409490044C3EF /* SGG_SKSlider.m */; };
 		33113CDE1994148A0044C3EF /* SGGAssets.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 33113CDD1994148A0044C3EF /* SGGAssets.atlas */; };
 		33113CDF1994148A0044C3EF /* SGGAssets.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 33113CDD1994148A0044C3EF /* SGGAssets.atlas */; };
+		33113CF4199683790044C3EF /* SKColor+Mixing.m in Sources */ = {isa = PBXBuildFile; fileRef = 33113CF3199683790044C3EF /* SKColor+Mixing.m */; };
+		33113CF5199683790044C3EF /* SKColor+Mixing.m in Sources */ = {isa = PBXBuildFile; fileRef = 33113CF3199683790044C3EF /* SKColor+Mixing.m */; };
 		332C24191890897600281B03 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332C24181890897600281B03 /* Cocoa.framework */; };
 		332C241B1890897600281B03 /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 332C241A1890897600281B03 /* SpriteKit.framework */; };
 		332C24251890897600281B03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 332C24231890897600281B03 /* InfoPlist.strings */; };
@@ -78,6 +80,8 @@
 		33113CD9199409490044C3EF /* SGG_SKSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGG_SKSlider.h; sourceTree = "<group>"; };
 		33113CDA199409490044C3EF /* SGG_SKSlider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGG_SKSlider.m; sourceTree = "<group>"; };
 		33113CDD1994148A0044C3EF /* SGGAssets.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = SGGAssets.atlas; sourceTree = "<group>"; };
+		33113CF2199683790044C3EF /* SKColor+Mixing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKColor+Mixing.h"; sourceTree = "<group>"; };
+		33113CF3199683790044C3EF /* SKColor+Mixing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKColor+Mixing.m"; sourceTree = "<group>"; };
 		331E1FFB18B319980087ABD9 /* SGG_SKButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGG_SKButton.h; sourceTree = "<group>"; };
 		331E1FFC18B319980087ABD9 /* SGG_SKButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGG_SKButton.m; sourceTree = "<group>"; };
 		331E1FFD18B319980087ABD9 /* SGG_SKMasterButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SGG_SKMasterButton.h; sourceTree = "<group>"; };
@@ -283,6 +287,8 @@
 				33AA783C18E274BD003E4E24 /* SKView+AdditionalMouseSupport.h */,
 				33AA783D18E274BD003E4E24 /* SKView+AdditionalMouseSupport.m */,
 				332C2455189089A300281B03 /* SKUtilityConstants.h */,
+				33113CF2199683790044C3EF /* SKColor+Mixing.h */,
+				33113CF3199683790044C3EF /* SKColor+Mixing.m */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -488,6 +494,7 @@
 				33AA784418E27799003E4E24 /* SGG_SKPushButton.m in Sources */,
 				33AA784218E27799003E4E24 /* SGG_SKButton.m in Sources */,
 				33AA784318E27799003E4E24 /* SGG_SKMasterButton.m in Sources */,
+				33113CF4199683790044C3EF /* SKColor+Mixing.m in Sources */,
 				33AA784518E27799003E4E24 /* SGG_SKToggleButton.m in Sources */,
 				332C24321890897600281B03 /* SGG_AppDelegate.m in Sources */,
 				33AA784918E27799003E4E24 /* SKView+AdditionalMouseSupport.m in Sources */,
@@ -514,6 +521,7 @@
 				33477351189DC5EE00055A53 /* SGG_AppDelegate.m in Sources */,
 				33AA785218E2779A003E4E24 /* SKView+AdditionalMouseSupport.m in Sources */,
 				3347734D189DC5EE00055A53 /* main.m in Sources */,
+				33113CF5199683790044C3EF /* SKColor+Mixing.m in Sources */,
 				33113CDC199409490044C3EF /* SGG_SKSlider.m in Sources */,
 				3347735A189DC5EE00055A53 /* SGG_ViewController.m in Sources */,
 				33AA784E18E2779A003E4E24 /* SGG_SKToggleButton.m in Sources */,

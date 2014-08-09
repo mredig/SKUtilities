@@ -201,11 +201,12 @@
 
 -(void)sliderValueChanged:(SGG_SKSlider *)slider {
 	
-	if ([slider.name isEqualToString:@"newSlider"]) {
-		NSLog(@"slider value: %f", slider.sliderValue);
-	}
+	SKColor* originalColor = [SKColor colorWithRed:0.15 green:0.15 blue:0.3 alpha:1.0];
+//
+	self.backgroundColor = 	[originalColor blendWithColor:[SKColor greenColor] alpha:slider.sliderValue];
+;
 	
-	
+//	NSLog(@"%@", self.backgroundColor);
 	
 }
 
