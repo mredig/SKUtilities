@@ -30,8 +30,8 @@
 
 
 
-@property (nonatomic, strong) SKTexture* nobTexture;
-@property (nonatomic, strong) SKTexture* nobTexturePressed;
+@property (nonatomic, strong) SKTexture* knobTexture;
+@property (nonatomic, strong) SKTexture* knobTexturePressed;
 @property (nonatomic, strong) SKTexture* sliderTexture;
 
 @property (nonatomic, weak) id <SGG_SKSliderDelegate> delegate; //define MyClassDelegate as delegate

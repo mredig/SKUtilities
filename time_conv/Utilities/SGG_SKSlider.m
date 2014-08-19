@@ -10,10 +10,10 @@
 
 @interface SGG_SKSlider () {
 	
-	SKSpriteNode* nob;
+	SKSpriteNode* knob;
 	SKSpriteNode* slide;
 	
-	bool nobDown;
+	bool knobDown;
 	
 	
 }
@@ -34,41 +34,41 @@
 	
 	self.userInteractionEnabled = YES;
 	
-	nobDown = NO;
+	knobDown = NO;
 	_continuous = YES;
 	_maxValue = 1.0;
 	_minValue = 0.0;
 	_sliderValue = 0.0;
 	
-	_nobTexture = [SKTexture textureWithImageNamed:@"sliderNob"];
-	_nobTexturePressed = [SKTexture textureWithImageNamed:@"sliderNobPressed"];
+	_knobTexture = [SKTexture textureWithImageNamed:@"sliderNob"];
+	_knobTexturePressed = [SKTexture textureWithImageNamed:@"sliderNobPressed"];
 	_sliderTexture = [SKTexture textureWithImageNamed:@"slider"];
 	
 	slide = [SKSpriteNode spriteNodeWithTexture:_sliderTexture];
 	slide.anchorPoint = CGPointMake(0, 0.5);
 	[self addChild:slide];
 	
-	nob = [SKSpriteNode spriteNodeWithTexture:_nobTexture];
+	knob = [SKSpriteNode spriteNodeWithTexture:_knobTexture];
 	
-	[self addChild:nob];
+	[self addChild:knob];
 	
 }
 
--(void)setNobTexture:(SKTexture *)nobTexture {
+-(void)setKnobTexture:(SKTexture *)knobTexture {
 	
-	_nobTexture = nobTexture;
-	if (!nobDown) {
-		nob.texture = _nobTexture;
-		nob.size = _nobTexture.size;
+	_knobTexture = knobTexture;
+	if (!knobDown) {
+		knob.texture = _knobTexture;
+		knob.size = _knobTexture.size;
 	}
 	
 }
 
--(void)setNobTexturePressed:(SKTexture *)nobTexturePressed {
-	_nobTexturePressed = nobTexturePressed;
-	if (nobDown) {
-		nob.texture = _nobTexturePressed;
-		nob.size = _nobTexturePressed.size;
+-(void)setKnobTexturePressed:(SKTexture *)knobTexturePressed {
+	_knobTexturePressed = knobTexturePressed;
+	if (knobDown) {
+		knob.texture = _knobTexturePressed;
+		knob.size = _knobTexturePressed.size;
 	}
 }
 
@@ -96,23 +96,23 @@
 
 
 
--(void)nobDown:(CGPoint)location {
+-(void)knobDown:(CGPoint)location {
 	
-	nob.texture = _nobTexturePressed;
-	nob.size = _nobTexturePressed.size;
-	nobDown = YES;
+	knob.texture = _knobTexturePressed;
+	knob.size = _knobTexturePressed.size;
+	knobDown = YES;
 	
 }
 
--(void)nobMoved:(CGPoint)location {
+-(void)knobMoved:(CGPoint)location {
 
-	nob.position = CGPointMake(location.x, 0);
-	if (nob.position.x < 0) {
-		nob.position = CGPointMake(0, 0);
+	knob.position = CGPointMake(location.x, 0);
+	if (knob.position.x < 0) {
+		knob.position = CGPointMake(0, 0);
 	}
 	
-	if (nob.position.x > slide.size.width) {
-		nob.position = CGPointMake(slide.size.width, 0);
+	if (knob.position.x > slide.size.width) {
+		knob.position = CGPointMake(slide.size.width, 0);
 	}
 	
 	if (_continuous) {
@@ -120,18 +120,18 @@
 	}
 }
 
--(void)nobReleased:(CGPoint)location {
+-(void)knobReleased:(CGPoint)location {
 
-	nobDown = NO;
-	nob.texture = _nobTexture;
-	nob.size = _nobTexture.size;
+	knobDown = NO;
+	knob.texture = _knobTexture;
+	knob.size = _knobTexture.size;
 	[self evaluateSliderValue];
 	
 }
 
 -(void)evaluateSliderValue {
 	
-	CGFloat sliderPos = nob.position.x / slide.size.width;
+	CGFloat sliderPos = knob.position.x / slide.size.width;
 	
 	CGFloat extremesDifference = _maxValue - _minValue;
 	
@@ -152,7 +152,7 @@
 	CGFloat xVal = (_sliderValue - _minValue) / extremesDifference;
 	xVal *= slide.size.width;
 	
-	nob.position = CGPointMake(xVal, 0);
+	knob.position = CGPointMake(xVal, 0);
 //	NSLog(@"set to %f - width: %f", sliderValue, slide.size.width);
 	
 	
@@ -166,7 +166,7 @@
 	if (self.parent) { //only run if node has a parent (crashes when trying to get location without existing)
 		for (UITouch* touch in touches) {
 			CGPoint location = [touch locationInNode:self];
-			[self nobDown:location];
+			[self knobDown:location];
 		}
 	}
 }
@@ -176,7 +176,7 @@
 	if (self.parent) { //only run if node has a parent (crashes when trying to get location without existing)
 		for (UITouch* touch in touches) {
 			CGPoint location = [touch locationInNode:self];
-			[self nobMoved:location];
+			[self knobMoved:location];
 		}
 	}
 	
@@ -187,7 +187,7 @@
 	if (self.parent) { //only run if node has a parent (crashes when trying to get location without existing)
 		for (UITouch* touch in touches) {
 			CGPoint location = [touch locationInNode:self];
-			[self nobReleased:location];
+			[self knobReleased:location];
 		}
 	}
 }
@@ -198,7 +198,7 @@
 	if (self.parent) { //only run if node has a parent (crashes when trying to get location without existing)
 		CGPoint location = [theEvent locationInNode:self];
 		
-		[self nobDown:location];
+		[self knobDown:location];
 	}
 }
 
@@ -206,7 +206,7 @@
 	if (self.parent) { //only run if node has a parent (crashes when trying to get location without existing)
 		CGPoint location = [theEvent locationInNode:self];
 		
-		[self nobMoved:location];
+		[self knobMoved:location];
 	}
 }
 
@@ -214,7 +214,7 @@
 	if (self.parent) { //only run if node has a parent (crashes when trying to get location without existing)
 		CGPoint location = [theEvent locationInNode:self];
 		
-		[self nobReleased:location];
+		[self knobReleased:location];
 	}
 	
 }

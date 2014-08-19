@@ -155,7 +155,7 @@
 	[points addObject:[sharedUtilties getStringFromPoint:location]];
 	
 	SGG_SKSlider* newSlider = (SGG_SKSlider*)[self childNodeWithName:@"newSlider"];
-//	newSlider.nobTexturePressed = [SKTexture textureWithImageNamed:@"Spaceship"];
+//	newSlider.knobTexturePressed = [SKTexture textureWithImageNamed:@"Spaceship"];
 }
 
 -(void)inputMoved:(CGPoint)location withEventDictionary:(NSDictionary *)eventDict {
