@@ -79,6 +79,9 @@
 	slide.texture = _sliderTexture;
 	slide.size = _sliderTexture.size;
 	
+	[self setSliderValue:_sliderValue];
+
+	
 }
 
 -(void)setSliderSize:(CGSize)sliderSize {
@@ -86,6 +89,8 @@
 	_sliderSize = sliderSize;
 	
 	slide.size = _sliderSize;
+	
+	[self setSliderValue:_sliderValue];
 	
 }
 
@@ -148,6 +153,7 @@
 	xVal *= slide.size.width;
 	
 	nob.position = CGPointMake(xVal, 0);
+//	NSLog(@"set to %f - width: %f", sliderValue, slide.size.width);
 	
 	
 }
