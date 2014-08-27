@@ -45,6 +45,10 @@
 	
 	CGMutablePathRef mutPath;
 	SKUShapeNode* shape;
+	
+	CGRect squareRect;
+	CGFloat xVal;
+	SKUShapeNode* exampleShape;
 }
 
 @end
@@ -66,6 +70,27 @@
 		p2 = CGPointMake(0, 768);
 		p3 = CGPointMake(1024, 768);
 		
+		xVal = 0;
+		// EXAMPLE SHAPE NODE
+		
+		squareRect = CGRectMake(-20, -20, 40, 40);
+		CGPathRef circle = CGPathCreateWithEllipseInRect(squareRect, NULL);
+		
+		exampleShape = [SKUShapeNode node];
+		exampleShape.lineWidth = 2.0;
+		exampleShape.strokeColor = [SKColor whiteColor];
+		exampleShape.position = CGPointMake(self.size.width * 0.1, self.size.height * 0.75);
+		exampleShape.fillColor = [SKColor colorWithRed:1.0 green:0 blue:0 alpha:1.0];
+		exampleShape.anchorPoint = CGPointMake(0.5, 0.5);
+		exampleShape.path = circle;
+		[self addChild:exampleShape];
+
+		// END EXAMPLE SHAPE NODE
+
+		
+		
+// EXAMPLE BUTTON NODE
+
 		SGG_SKPushButton* pushButton = [SGG_SKPushButton node];
 		pushButton.delegate = self;
 		pushButton.textureBase = [SKTexture textureWithImageNamed:@"Spaceship"];
@@ -79,7 +104,11 @@
 		[pushButton setUpButton];
 		pushButton.position = CGPointMake(self.size.width/2, self.size.height/2);
 		//		[self addChild:pushButton];
+//END EXAMPLE BUTTON NODE
+
 		
+		
+//EXAMPLE MULTI LINE NODE
 		SKUMultiLineLabelNode* multiLineLabel = [SKUMultiLineLabelNode labelNodeWithFontNamed:@"Futura"];
 //		multiLineLabel.lineSpacing = 30;
 		multiLineLabel.text = @"\tTurn this skiff around! Absolutely. And we're going to be here every day. I don't care if it takes from now till the end of Shrimpfest. I need a fake passport, preferably to France… I like the way they think. That's so you can videotape it when they put you in a naked pyramid and point to your Charlie Browns. \n\tI guess you can say I'm buy-curious. You go buy a tape recorder and record yourself for a whole day. I think you'll be surprised at some of your phrasing. It's The Final Countdown Dead Dove DO NOT EAT. I believe you will find the dessert to be both engrossing and high-grossing! So we don't get dessert? I could use a leather jacket for when I'm on my hog and have to go into a controlled slide. Happy."; //bluthipsum.com
@@ -94,7 +123,14 @@
 		
 //		NSLog(@"line: %f", multiLineLabel.lineSpacing);
 		
+		
+//END EXAMPLE MULTI LINE NODE
+
+		
 //		[self drawBezierSegmentWithIterations:50 andPoint0:p0 andPoint1:p1 andPoint2:p2 andPoint3:p3];
+		
+		
+//EXAMPLE SLIDER
 		
 		SGG_SKSlider* newSlider = [SGG_SKSlider node];
 		newSlider.position = CGPointMake(200, 200);
@@ -104,10 +140,21 @@
 		newSlider.name = @"newSlider";
 		newSlider.delegate = self;
 		[self addChild:newSlider];
-
+		
+		
+		
+		//also see below via pragma mark
+///END EXAMPLE SLIDER
 		
     }
     return self;
+}
+
+-(void)drawCircle {
+	
+
+	
+	
 }
 
 -(void)drawBezierSegmentWithIterations:(NSInteger)iterations andPoint0:(CGPoint)p0 andPoint1:(CGPoint)p1 andPoint2:(CGPoint)p2 andPoint3:(CGPoint)p3 {
@@ -141,6 +188,19 @@
 				case '[':
 					anotherValue -= 100;
 					break;
+				case 'j':
+					xVal -= 0.1;
+					[self drawCircle];
+					break;
+				case 'l':
+					xVal += 0.1;
+					[self drawCircle];
+					break;
+				case 'k':
+					xVal = 0.5;
+					[self drawCircle];
+					break;
+					
 			}
 		}
 	}
@@ -207,6 +267,9 @@
 	
 	
 }
+
+
+#pragma MARK SLIDER EXAMPLE DELEGATE
 
 -(void)sliderValueChanged:(SGG_SKSlider *)slider {
 	

@@ -12,6 +12,14 @@
 	
 	CAShapeLayer* shapeLayer;
 	
+	CGSize boundingSize;
+	
+	SKSpriteNode* drawSprite;
+	CGPoint defaultPosition;
+	
+	SKNode* null;
+	
+	
 }
 
 @end
@@ -22,7 +30,13 @@
 -(id)init {
 	
 	if (self = [super init]) {
-		_boundingSize = CGSizeMake(500, 500);
+		
+		null = [SKNode node];
+		[self addChild:null];
+		
+		drawSprite = [SKSpriteNode node];
+		[null addChild:drawSprite];
+//		_boundingSize = CGSizeMake(500, 500);
 		_strokeColor = [SKColor whiteColor];
 		_fillColor = [SKColor clearColor];
 		_lineWidth = 1.0;
@@ -35,7 +49,7 @@
 		_strokeEnd = 1.0;
 		_strokeStart = 0.0;
 		
-		self.anchorPoint = CGPointZero;
+		_anchorPoint = CGPointMake(0.5, 0.5);
 	}
 
 	return self;
@@ -65,27 +79,33 @@
 	shapeLayer.strokeStart = _strokeStart;
 
 	
-//	CGAffineTransform transform = CGAffineTransformMake(1, 1, 0, 0, _boundingSize.width*0.75, _boundingSize.height*0.75);
-//	CGPathRef newPath = CGPathCreateCopyByTransformingPath(_path, &transform);
 	
 	
-	shapeLayer.path = _path;
 	
-//	CGRect enclosure = CGPathGetPathBoundingBox(_path);
+	CGRect enclosure = CGPathGetPathBoundingBox(_path);
 //	NSLog(@"bounding: %f %f %f %f", enclosure.origin.x, enclosure.origin.y, enclosure.size.width, enclosure.size.height);
+	CGPoint enclosureOffset = CGPointMake(enclosure.origin.x - _lineWidth, enclosure.origin.y - _lineWidth);
+
+	CGAffineTransform transform = CGAffineTransformMake(1, 0, 0, 1, -enclosureOffset.x, -enclosureOffset.y);
+	CGPathRef newPath = CGPathCreateCopyByTransformingPath(_path, &transform);
+
+	shapeLayer.path = newPath;
 	
+	boundingSize = CGSizeMake(enclosure.size.width + _lineWidth * 2, enclosure.size.height + _lineWidth * 2);
 	
 	CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
 	
-	CGContextRef context = CGBitmapContextCreate(NULL, _boundingSize.width, _boundingSize.height, 8, 0, colorSpace, kCGImageAlphaPremultipliedLast);
+	CGContextRef context = CGBitmapContextCreate(NULL, boundingSize.width, boundingSize.height, 8, 0, colorSpace, kCGImageAlphaPremultipliedLast); //fixing this warning with a proper CGBitmapInfo enum causes the build to crash - Perhaps I did something wrong?
+//	CGContextRef context = CGBitmapContextCreate(NULL, _boundingSize.width, _boundingSize.height, 8, 0, colorSpace, kCGBitmapAlphaInfoMask);
 	
-//	CGContextTranslateCTM(context, _boundingSize.width*0.75, _boundingSize.height*0.75);
+//	CGContextTranslateCTM(context, enclosureOffset.x, enclosureOffset.y);
 	
 	[shapeLayer renderInContext:context];
 	
 	CGImageRef imageRef = CGBitmapContextCreateImage(context);
 	CGContextRelease(context);
 	CGColorSpaceRelease(colorSpace);
+	CGPathRelease(newPath);
 	
 	
 	SKTexture* tex = [SKTexture textureWithCGImage:imageRef];
@@ -93,8 +113,23 @@
 	CGImageRelease(imageRef);
 	
 	
-	self.texture = tex;
-	self.size = _boundingSize;
+	drawSprite.texture = tex;
+	drawSprite.size = boundingSize;
+	drawSprite.anchorPoint = CGPointZero;
+	defaultPosition = CGPointMake(enclosureOffset.x, enclosureOffset.y);
+	drawSprite.position = defaultPosition;
+	[self setAnchorPoint:_anchorPoint];
+	
+}
+
+-(void)setAnchorPoint:(CGPoint)anchorPoint {
+	
+	_anchorPoint = anchorPoint;
+	
+//	drawSprite.position = defaultPosition;
+	null.position = CGPointMake(boundingSize.width * (0.5 - anchorPoint.x), boundingSize.height * (0.5 - anchorPoint.y));
+	
+//	NSLog(@"defx: %f defy: %f boundw: %f boundh: %f finalx: %f finaly: %f", defaultPosition.x, defaultPosition.y, boundingSize.width, boundingSize.height, drawSprite.position.x, drawSprite.position.y);
 	
 }
 
@@ -102,6 +137,13 @@
 -(void)setPath:(CGPathRef)path {
 	_path = path;
 	[self redrawTexture];
+}
+
+-(void)setFillColor:(NSColor *)fillColor {
+	
+	_fillColor = fillColor;
+	[self redrawTexture];
+	
 }
 
 
