@@ -133,6 +133,8 @@
 	_baseButton.hidden = VISIBLE;
 	_baseButtonDisabled.hidden = HIDDEN;
 	
+	self.userInteractionEnabled = YES;
+	
 }
 
 -(void)disableButton {
@@ -160,6 +162,7 @@
 		//don't change anything other than boolean
 	}
 	
+	self.userInteractionEnabled = NO;
 //	[self enumerateChildNodesWithName:@"//*" usingBlock:^(SKNode *node, BOOL *stop) {
 //		NSLog(@"%@ is hidden: %i", node.name, node.hidden);
 //	}];
