@@ -126,6 +126,15 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	return subtractedVector;
 }
 
+-(CGVector)vectorMultiply:(CGVector)vector by:(CGFloat)multiply {
+	
+	CGVector multVector;
+	multVector = CGVectorMake(vector.dx * multiply, vector.dy * multiply);
+	
+	return multVector;
+}
+
+
 -(CGVector)vectorFacingPoint:(CGPoint)destination fromPoint:(CGPoint)origin andNormalize:(BOOL)normalize {
 	
 	CGVector destinationVec = [self vectorFromCGPoint:destination];

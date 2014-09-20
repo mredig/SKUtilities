@@ -7,7 +7,8 @@ Version 1.3
 	- added SKScene ability to consolidate input methods
 		- overwrote default ignoring of right click and other mouse clicks
 	- added deltaMaxTime (defaults to 1.0f) to avoid abrupt spikes in delta time due to lag or being the first time the method is called
-	-added CGPoint to object conversion (and back) (easier cross platform storage for arrays and dicts)
+	- added CGPoint to object conversion (and back) (easier cross platform storage for arrays and dicts)
+	- added vectorMultiply method
 
 	Bug Fixes
 	- renamed kPhone4Scale to kPhoneFromPadScale_SKUTIL 

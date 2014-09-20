@@ -49,6 +49,7 @@
 -(CGVector)vectorNormalize:(CGVector)vector; //returns a vector with a unit length of 1.0
 -(CGVector)vectorAddA:(CGVector)vectorA toVectorB:(CGVector)vectorB andNormalize:(BOOL)normalize; //adds two vectors together with option to normalize
 -(CGVector)vectorSubtractA:(CGVector)vectorA fromVectorB:(CGVector)vectorB andNormalize:(BOOL)normalize; //subtracts two vectors with option to normalize
+-(CGVector)vectorMultiply:(CGVector)vector by:(CGFloat)multiply; //multiplies each direction of a vector by a value
 -(CGVector)vectorFacingPoint:(CGPoint)destination fromPoint:(CGPoint)origin andNormalize:(BOOL)normalize; //calculates a vector between two points with option to normalize
 -(CGVector)vectorFromRadianAngle:(CGFloat)angle; //converts an angle in radians to a normal vector
 -(CGVector)vectorFromDegreeAngle:(CGFloat)degrees; //converts an angle in degrees to a normal vector
