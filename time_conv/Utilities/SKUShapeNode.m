@@ -139,7 +139,7 @@
 	[self redrawTexture];
 }
 
--(void)setFillColor:(NSColor *)fillColor {
+-(void)setFillColor:(SKColor *)fillColor {
 	
 	_fillColor = fillColor;
 	[self redrawTexture];
