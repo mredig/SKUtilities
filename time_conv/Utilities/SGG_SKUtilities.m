@@ -332,7 +332,7 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	
 	_deltaFrameTime = timeUpdate - _currentTime;
 	
-	if (_deltaFrameTime < _deltaMaxTime) {
+	if (_deltaFrameTime > _deltaMaxTime) {
 		_deltaFrameTime = _deltaMaxTime;
 	}
 	_currentTime = timeUpdate;
