@@ -23,7 +23,7 @@ typedef enum : NSInteger {
 
 #pragma mark ----------SVGCommandImpl----------
 @interface SVGCommandImpl : NSObject <SVGCommand>
-@property (retain, nonatomic) NSString *prevCommand;
+@property (strong, nonatomic) NSString *prevCommand;
 
 - (void)performWithParams:(CGFloat *)params
 			  commandType:(CommandType)type
@@ -373,15 +373,6 @@ typedef enum : NSInteger {
 					closePath,			  @"z",
 					nil];
 		
-//		[move release];
-//		[lineTo release];
-//		[horizontalLineTo release];
-//		[verticalLineTo release];
-//		[curveTo release];
-//		[smoothCurveTo release];
-//		[quadraticCurveTo release];
-//		[smoothQuadraticCurveTo release];
-//		[closePath release];
 	}
 	return self;
 }
@@ -440,17 +431,12 @@ typedef enum : NSInteger {
 					NSUInteger length	   = match.range.location - prevMatch.range.location;
 					NSString *commandString = [svgString substringWithRange:NSMakeRange(prevMatch.range.location, length)];
 
-//					NSLog(@"commandString: %@", commandString);
 
 					[self processCommandString:commandString withPrevCommandString:prevCommand forPath:aPath];
-//					[prevCommand release];
 					prevCommand = nil;
-//					[prevMatch release];
 					prevMatch = nil;
-//					prevCommand = [commandString retain];
 					prevCommand = commandString;
 				}
-//				prevMatch = [match retain];
 				prevMatch = match;
 			}
 			
@@ -459,11 +445,7 @@ typedef enum : NSInteger {
 
 		NSString *result = [svgString substringWithRange:NSMakeRange(prevMatch.range.location, svgString.length - prevMatch.range.location)];
 		
-//		NSLog(@"before");
 		[self processCommandString:result withPrevCommandString:prevCommand forPath:aPath];
-//		NSLog(@"after");
-//		[prevMatch release];
-//		[prevCommand release];
 	}
 	return aPath;
 }
@@ -484,6 +466,9 @@ typedef enum : NSInteger {
 
 -(void)addQuadCurveToPoint:(CGPoint)point controlPoint:(CGPoint)controlPoint {
 	
+//	http://fontforge.org/bezier.html
+//	https://www.mail-archive.com/cocoa-dev@lists.apple.com/msg06412.html
+	
 	CGPoint qp0, qp1, qp2, cp0, cp1, cp2, cp3;
 	CGFloat twoThree = 0.6666666666666666;
 	
@@ -501,7 +486,6 @@ typedef enum : NSInteger {
 	[self curveToPoint:cp3 controlPoint1:cp1 controlPoint2:cp2];
 	
 	
-//	NSLog(@"quad p1: %f %f p2: %f %f p3: %f %f", qp0.x, qp0.y, qp1.x, qp1.y, qp2.x, qp2.y);
 }
 
 
