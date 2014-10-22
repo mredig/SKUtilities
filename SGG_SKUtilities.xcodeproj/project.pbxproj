@@ -39,6 +39,8 @@
 		33477369189DC5EE00055A53 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 33477343189DC5EE00055A53 /* UIKit.framework */; };
 		3347737D189DC63F00055A53 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 332C24341890897600281B03 /* Spaceship.png */; };
 		3347737E189DC63F00055A53 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 332C24361890897600281B03 /* Images.xcassets */; };
+		3350DDCB19F83D7E00E0B804 /* SKNode+ConsolidatedInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 3350DDCA19F83D7E00E0B804 /* SKNode+ConsolidatedInput.m */; };
+		3350DDCC19F83D7E00E0B804 /* SKNode+ConsolidatedInput.m in Sources */ = {isa = PBXBuildFile; fileRef = 3350DDCA19F83D7E00E0B804 /* SKNode+ConsolidatedInput.m */; };
 		335779CA19ABDFC100168789 /* SKUShapeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 335779C919ABDFC100168789 /* SKUShapeNode.m */; };
 		335779CB19ABDFC100168789 /* SKUShapeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 335779C919ABDFC100168789 /* SKUShapeNode.m */; };
 		335779CD19ABE01600168789 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 335779CC19ABE01600168789 /* QuartzCore.framework */; };
@@ -134,6 +136,8 @@
 		33477366189DC5EE00055A53 /* skutilsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = skutilsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3347737F189E522A00055A53 /* LICENSE.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = LICENSE.txt; sourceTree = "<group>"; };
 		33477380189E52A800055A53 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = text; path = README.md; sourceTree = "<group>"; };
+		3350DDC919F83D7E00E0B804 /* SKNode+ConsolidatedInput.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SKNode+ConsolidatedInput.h"; sourceTree = "<group>"; };
+		3350DDCA19F83D7E00E0B804 /* SKNode+ConsolidatedInput.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SKNode+ConsolidatedInput.m"; sourceTree = "<group>"; };
 		335779C819ABDFC100168789 /* SKUShapeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKUShapeNode.h; sourceTree = "<group>"; };
 		335779C919ABDFC100168789 /* SKUShapeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKUShapeNode.m; sourceTree = "<group>"; };
 		335779CC19ABE01600168789 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -294,6 +298,8 @@
 				33B2C2B018CED8710006AC87 /* SKUMultiLineLabelNode.m */,
 				33AA783A18E274BD003E4E24 /* SKScene+ConsolidatedInput.h */,
 				33AA783B18E274BD003E4E24 /* SKScene+ConsolidatedInput.m */,
+				3350DDC919F83D7E00E0B804 /* SKNode+ConsolidatedInput.h */,
+				3350DDCA19F83D7E00E0B804 /* SKNode+ConsolidatedInput.m */,
 				33AA783C18E274BD003E4E24 /* SKView+AdditionalMouseSupport.h */,
 				33AA783D18E274BD003E4E24 /* SKView+AdditionalMouseSupport.m */,
 				332C2455189089A300281B03 /* SKUtilityConstants.h */,
@@ -510,6 +516,7 @@
 				33AA784918E27799003E4E24 /* SKView+AdditionalMouseSupport.m in Sources */,
 				33AA784618E27799003E4E24 /* SGG_SKUtilities.m in Sources */,
 				33AA784818E27799003E4E24 /* SKScene+ConsolidatedInput.m in Sources */,
+				3350DDCB19F83D7E00E0B804 /* SKNode+ConsolidatedInput.m in Sources */,
 				33AA784718E27799003E4E24 /* SKUMultiLineLabelNode.m in Sources */,
 				332C24271890897600281B03 /* main.m in Sources */,
 				33113CDB199409490044C3EF /* SGG_SKSlider.m in Sources */,
@@ -534,6 +541,7 @@
 				3347734D189DC5EE00055A53 /* main.m in Sources */,
 				33113CF5199683790044C3EF /* SKColor+Mixing.m in Sources */,
 				33113CDC199409490044C3EF /* SGG_SKSlider.m in Sources */,
+				3350DDCC19F83D7E00E0B804 /* SKNode+ConsolidatedInput.m in Sources */,
 				3347735A189DC5EE00055A53 /* SGG_ViewController.m in Sources */,
 				33AA784E18E2779A003E4E24 /* SGG_SKToggleButton.m in Sources */,
 				33AA784D18E2779A003E4E24 /* SGG_SKPushButton.m in Sources */,

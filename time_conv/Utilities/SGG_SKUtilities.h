@@ -12,6 +12,7 @@
 #import "SKUtilityConstants.h"
 #import "SKUMultiLineLabelNode.h"
 #import "SKScene+ConsolidatedInput.h"
+#import "SKNode+ConsolidatedInput.h"
 #import "SKColor+Mixing.h"
 #import "SKUShapeNode.h"
 

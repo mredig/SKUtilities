@@ -10,29 +10,29 @@
 	<string>SGG_SKUtilities</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>6CC2C9A8-3F17-4ED3-B202-42645110397E</key>
+		<key>AB45B69B96F26D620EADA8FAA4EB947D1FD55109</key>
 		<string>https://github.com/mredig/SKUtilities.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>SGG_SKUtilities.xcodeproj/project.xcworkspace</string>
+	<string>SGG_SKUtilities.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>6CC2C9A8-3F17-4ED3-B202-42645110397E</key>
+		<key>AB45B69B96F26D620EADA8FAA4EB947D1FD55109</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/mredig/SKUtilities.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>6CC2C9A8-3F17-4ED3-B202-42645110397E</string>
+	<string>AB45B69B96F26D620EADA8FAA4EB947D1FD55109</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>6CC2C9A8-3F17-4ED3-B202-42645110397E</string>
+			<string>AB45B69B96F26D620EADA8FAA4EB947D1FD55109</string>
 			<key>IDESourceControlWCCName</key>
 			<string>SKUtilities</string>
 		</dict>
