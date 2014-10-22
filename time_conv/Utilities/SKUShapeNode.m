@@ -146,6 +146,20 @@
 	
 }
 
+-(void)setStrokeEnd:(CGFloat)strokeEnd {
+
+	_strokeEnd = strokeEnd;
+	[self redrawTexture];
+	
+}
+
+-(void)setStrokeStart:(CGFloat)strokeStart {
+	
+	_strokeStart = strokeStart;
+	[self redrawTexture];
+	
+}
+
 
 
 @end
