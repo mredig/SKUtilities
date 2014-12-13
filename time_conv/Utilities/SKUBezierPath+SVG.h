@@ -12,6 +12,8 @@
 #define SKUBezierPath UIBezierPath
 #define addLineToPointSKU addLineToPoint
 #define addCurveToPointSKU addCurveToPoint
+//#define appendBezierPathWithArcWithCenter addArcWithCenter
+
 #else
 #define SKUBezierPath NSBezierPath
 #define addLineToPointSKU lineToPoint
@@ -23,6 +25,10 @@
 
 - (void)addPathFromSVGString:(NSString *)svgString;
 + (SKUBezierPath *)bezierPathWithSVGString:(NSString *)svgString;
+
+#if TARGET_OS_IPHONE
+-(void)appendBezierPathWithArcWithCenter:(CGPoint)center radius:(CGFloat)radius startAngle:(CGFloat)startAngle endAngle:(CGFloat)endAngle clockwise:(BOOL)clockwise;
+#endif
 
 @end
 

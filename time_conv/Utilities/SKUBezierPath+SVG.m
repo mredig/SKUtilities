@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
 //
 //	Modified by Michael Redig 9/28/14
-
+#import "SKUtilityConstants.h"
 #import "SKUBezierPath+SVG.h"
 
 #pragma mark ----------Common----------
@@ -457,6 +457,15 @@ typedef enum : NSInteger {
 + (SKUBezierPath *)bezierPathWithSVGString:(NSString *)svgString {
 	return [self addPathWithSVGString:svgString toPath:[SKUBezierPath bezierPath]];
 }
+
+#if TARGET_OS_IPHONE
+-(void)appendBezierPathWithArcWithCenter:(CGPoint)center radius:(CGFloat)radius startAngle:(CGFloat)startAngle endAngle:(CGFloat)endAngle clockwise:(BOOL)clockwise {
+	
+	[self addArcWithCenter:center radius:radius startAngle:startAngle * kDegToRadConvFactor_SKUTIL endAngle:endAngle * kDegToRadConvFactor_SKUTIL clockwise:!clockwise];
+	
+	
+}
+#endif
 
 @end
 
