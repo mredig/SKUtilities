@@ -7,6 +7,7 @@
 //
 //	Modified by Michael Redig 9/28/14
 
+#import <SpriteKit/SpriteKit.h>
 
 #if TARGET_OS_IPHONE
 #define SKUBezierPath UIBezierPath
