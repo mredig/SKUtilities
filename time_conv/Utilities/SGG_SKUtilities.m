@@ -330,10 +330,12 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 
 -(void)updateCurrentTime:(CFTimeInterval)timeUpdate {
 	
-	_deltaFrameTime = timeUpdate - _currentTime;
+	_deltaFrameTimeUncapped = timeUpdate - _currentTime;
 	
-	if (_deltaFrameTime > _deltaMaxTime) {
+	if (_deltaFrameTimeUncapped > _deltaMaxTime) {
 		_deltaFrameTime = _deltaMaxTime;
+	} else {
+		_deltaFrameTime = _deltaFrameTimeUncapped;
 	}
 	_currentTime = timeUpdate;
 

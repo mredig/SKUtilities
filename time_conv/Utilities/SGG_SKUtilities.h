@@ -25,6 +25,7 @@
 
 @property (nonatomic, readonly) CFTimeInterval currentTime;
 @property (nonatomic, readonly) CFTimeInterval deltaFrameTime;
+@property (nonatomic, readonly) CFTimeInterval deltaFrameTimeUncapped;
 
 
 
