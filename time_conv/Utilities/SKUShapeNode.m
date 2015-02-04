@@ -31,10 +31,14 @@
 	
 	if (self = [super init]) {
 		
+		self.name = @"SKUShapeNode";
+		
 		null = [SKNode node];
+		null.name = @"SKUShapeNodeNULL";
 		[self addChild:null];
 		
 		drawSprite = [SKSpriteNode node];
+		drawSprite.name = @"SKUShapeNodeDrawSprite";
 		[null addChild:drawSprite];
 //		_boundingSize = CGSizeMake(500, 500);
 		_strokeColor = [SKColor whiteColor];
