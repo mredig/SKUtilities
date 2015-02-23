@@ -97,8 +97,12 @@ typedef enum : NSInteger {
 		[path moveToPoint:CGPointMake(params[0], params[1])];
 //		NSLog(@"move: %f %f",params[0], params[1] );
 	} else {
-		[path moveToPoint:CGPointMake(path.currentPoint.x + params[0], 
-									  path.currentPoint.y + params[1])];
+		if (path.isEmpty) {
+			[path moveToPoint:CGPointMake(params[0], params[1])];
+		} else {
+			[path moveToPoint:CGPointMake(path.currentPoint.x + params[0],
+										  path.currentPoint.y + params[1])];
+		}
 		
 	
 //		NSLog(@"move: %f %f",path.currentPoint.x, path.currentPoint.y );
