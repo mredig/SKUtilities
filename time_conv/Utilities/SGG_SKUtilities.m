@@ -478,3 +478,98 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 }
 
 @end
+
+@implementation SGG_PositionObject
+
+-(id)init {
+	if (self = [super init]) {
+	
+	}
+	return self;
+}
+
+-(id)initWithPosition:(CGPoint)position {
+	if (self = [super init]) {
+		self.position = position;
+	}
+	return self;
+}
+
+-(id)initWithVector:(CGVector)vector {
+	if (self = [super init]) {
+		self.vector = vector;
+	}
+	return self;
+}
+
+-(id)initWithSize:(CGSize)size {
+	if (self = [super init]) {
+		self.size = size;
+	}
+	return self;
+}
+
+-(id)initWithRect:(CGRect)rect {
+	if (self = [super init]) {
+		self.rect = rect;
+	}
+	return self;
+}
+
+
++(SGG_PositionObject*)position:(CGPoint)location {
+	return [[SGG_PositionObject alloc]initWithPosition:location];
+}
+
++(SGG_PositionObject*)vector:(CGVector)vector {
+	return [[SGG_PositionObject alloc]initWithVector:vector];
+}
+
++(SGG_PositionObject*)size:(CGSize)size {
+	return [[SGG_PositionObject alloc]initWithSize:size];
+}
+
++(SGG_PositionObject*)rect:(CGRect)rect {
+	return [[SGG_PositionObject alloc]initWithRect:rect];
+}
+
+
+-(void)setPosition:(CGPoint)position {
+	_position = position;
+	_vector = CGVectorMake(position.x, position.y);
+	_rect = CGRectMake(position.x, position.y, _size.width, _size.height);
+}
+
+-(void)setVector:(CGVector)vector {
+	_vector = vector;
+	_position = CGPointMake(vector.dx, vector.dy);
+	_rect = CGRectMake(vector.dx, vector.dy, _size.width, _size.height);
+
+}
+
+-(void)setSize:(CGSize)size {
+	_size = size;
+	_rect = CGRectMake(_position.x, _position.y, size.width, size.height);
+}
+
+-(void)setRect:(CGRect)rect {
+	_rect = rect;
+	_position = CGPointMake(rect.origin.x, rect.origin.y);
+	_vector = CGVectorMake(rect.origin.x, rect.origin.y);
+	_size = CGSizeMake(rect.size.width, rect.size.height);
+}
+
+-(CGSize)getSizeFromPosition {
+	return CGSizeMake(_position.x, _position.y);
+}
+
+-(CGPoint)getPositionFromSize {
+	return CGPointMake(_size.width, _size.height);
+}
+
+-(CGVector)getVectorFromSize {
+	return CGVectorMake(_size.width, _size.height);
+}
+
+@end
+

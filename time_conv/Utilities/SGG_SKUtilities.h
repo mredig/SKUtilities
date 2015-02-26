@@ -96,3 +96,26 @@
 -(CGPoint)findPointOnBezierCurveWithPointA:(CGPoint)a andPointB:(CGPoint)b andPointC:(CGPoint)c andPointD:(CGPoint)d andPlaceOnCurve:(CGFloat)t;
 
 @end
+
+@interface SGG_PositionObject : NSObject
+
+@property (nonatomic) CGPoint position;
+@property (nonatomic) CGSize size;
+@property (nonatomic) CGRect rect;
+@property (nonatomic) CGVector vector;
+
+
+-(id)initWithPosition:(CGPoint)position;
+-(id)initWithVector:(CGVector)vector;
+-(id)initWithSize:(CGSize)size;
+-(id)initWithRect:(CGRect)rect;
++(SGG_PositionObject*)position:(CGPoint)location;
++(SGG_PositionObject*)vector:(CGVector)vector;
++(SGG_PositionObject*)size:(CGSize)size;
++(SGG_PositionObject*)rect:(CGRect)rect;
+
+-(CGSize)getSizeFromPosition;
+-(CGPoint)getPositionFromSize;
+-(CGVector)getVectorFromSize;
+
+@end
