@@ -228,6 +228,18 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	return newDestination;
 }
 
+-(CGPoint)pointBFromPointA:(CGPoint)pointA withVector:(CGVector)vector vectorIsNormalized:(BOOL)normalized andDistance:(CGFloat)distance {
+	
+	if (!normalized) {
+		vector = [self vectorNormalize:vector];
+	}
+	
+	vector = [self vectorMultiply:vector by:distance];
+	CGPoint pointB = CGPointMake(vector.dx + pointA.x, vector.dy + pointA.y);
+	
+	return pointB;
+}
+
 -(BOOL)nodeAtPoint:(CGPoint)originPos isBehindNodeAtPoint:(CGPoint)victimPos facingVector:(CGVector)victimFacingVector isVectorNormal:(BOOL)victimFacingVectorNormal withLatitudeOf:(CGFloat)latitude andMaximumDistanceBetweenPoints:(CGFloat)maxDistance{
 	
 	

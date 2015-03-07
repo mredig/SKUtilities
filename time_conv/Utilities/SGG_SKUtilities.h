@@ -64,6 +64,9 @@
 -(CGPoint)pointAddValue:(CGFloat)value toPoint:(CGPoint)point; //adds a value to the point (x+v, y+v)
 -(CGPoint)pointStepFromPoint:(CGPoint)origin withVector:(CGVector)vector vectorIsNormal:(BOOL)vectorIsNormal withFrameInterval:(CFTimeInterval)interval andMaxInterval:(CGFloat)maxInterval withSpeed:(CGFloat)speed andSpeedModifiers:(CGFloat)speedModifiers; //calculates where a new position should be relative to current position based on environmental variables
 -(CGPoint)pointStepFromPoint:(CGPoint)origin towardsPoint:(CGPoint)destination withFrameInterval:(CFTimeInterval)interval andMaxInterval:(CGFloat)maxInterval withSpeed:(CGFloat)speed andSpeedModifiers:(CGFloat)speedModifiers; //calculates where a new position should be to move towards destination based on environmental variables
+
+-(CGPoint)pointBFromPointA:(CGPoint)pointA withVector:(CGVector)vector vectorIsNormalized:(BOOL)normalized andDistance:(CGFloat)distance; // returns pointB as a CGPoint calculated with the input vector and distance, using pointA as a starting point
+
 -(BOOL)nodeAtPoint:(CGPoint)originPos isBehindNodeAtPoint:(CGPoint)victimPos facingVector:(CGVector)victimFacingVector isVectorNormal:(BOOL)victimFacingVectorNormal withLatitudeOf:(CGFloat)latitude andMaximumDistanceBetweenPoints:(CGFloat)maxDistance; //returns boolean whether or not a backstab would be valid given parameters. Latitude is range from 0 to 1.0. 0.5 would give a valid range of about 45 degrees to backstab
 -(BOOL)nodeAtPoint:(CGPoint)originPos isBehindNodeAtPoint:(CGPoint)victimPos facingVector:(CGVector)victimFacingVector isVectorNormal:(BOOL)victimFacingVectorNormal withLatitudeOf:(CGFloat)latitude; //returns boolean whether or not a backstab would be valid given parameters (see above) this assumes that distance logic has already occurred and simply returns whether the angles are valid
 -(CGPoint)linearInterpolationBetweenPointA:(CGPoint)a andPointB:(CGPoint)b andPlaceBetween:(CGFloat)t;
