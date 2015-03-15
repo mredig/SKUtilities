@@ -41,6 +41,29 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	_deltaMaxTime = 1.0f;
 }
 
+#pragma mark RANDOM NUMBERS
+
+-(u_int32_t)randomIntegerBetweenLowEnd:(u_int32_t)lowend andHighEnd:(u_int32_t)highend {
+	
+	u_int32_t range = highend - lowend;
+	u_int32_t random = arc4random_uniform(range);
+	random += lowend;
+	
+	return random;
+}
+
+-(CGFloat)randomFloatBetweenZeroAndHighEnd:(CGFloat)highend {
+	
+	CGFloat floatRange = highend * 1000;
+	u_int32_t intRange = floatRange;
+	u_int32_t random = arc4random_uniform(intRange);
+	CGFloat floatRandom = (CGFloat)random / 1000.0f;
+
+	return floatRandom;
+}
+
+
+
 #pragma mark DISTANCE FUNCTIONS
 -(CGFloat)distanceBetween:(CGPoint)pointA and: (CGPoint)pointB {
 //	return hypotf(pointB.x - pointA.x, pointB.y - pointA.y); //faster

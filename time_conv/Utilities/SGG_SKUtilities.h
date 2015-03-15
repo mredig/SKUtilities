@@ -33,6 +33,11 @@
 
 +(SGG_SKUtilities*) sharedUtilities;
 
+#pragma mark RANDOM NUMBERS
+
+-(u_int32_t)randomIntegerBetweenLowEnd:(u_int32_t)lowend andHighEnd:(u_int32_t)highend;
+-(CGFloat)randomFloatBetweenZeroAndHighEnd:(CGFloat)highend;
+
 
 #pragma mark DISTANCE FUNCTIONS
 
