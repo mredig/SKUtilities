@@ -41,6 +41,17 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	_deltaMaxTime = 1.0f;
 }
 
+#pragma mark NUMBERS
+
+-(CGFloat)linearInterpolationBetweenFloatValue:(CGFloat)a andB:(CGFloat)b atPoint:(CGFloat)t clipped:(BOOL)clipped {
+	if (clipped) {
+		t = MAX(0.0, t);
+		t = MIN(1.0, t);
+	}
+	return a + (b - a)* t;
+}
+
+
 #pragma mark RANDOM NUMBERS
 
 -(u_int32_t)randomIntegerBetweenLowEnd:(u_int32_t)lowend andHighEnd:(u_int32_t)highend {

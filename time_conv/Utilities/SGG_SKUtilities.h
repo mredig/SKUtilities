@@ -33,6 +33,10 @@
 
 +(SGG_SKUtilities*) sharedUtilities;
 
+#pragma mark NUMBERS
+
+-(CGFloat)linearInterpolationBetweenFloatValue:(CGFloat)a andB:(CGFloat)b atPoint:(CGFloat)t clipped:(BOOL)clipped;
+
 #pragma mark RANDOM NUMBERS
 
 -(u_int32_t)randomIntegerBetweenLowEnd:(u_int32_t)lowend andHighEnd:(u_int32_t)highend;

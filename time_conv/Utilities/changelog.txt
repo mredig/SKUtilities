@@ -11,6 +11,7 @@ Version 1.3
 	- added vectorMultiply method
 	- added pointBFromPointA withVector method
 	- added random number generator convenience methods
+	- added linear interpolation for float values
 
 
 	Bug Fixes
