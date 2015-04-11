@@ -56,6 +56,8 @@
 	
 	[offset addChild:knob];
 	
+	self.anchorPoint = CGPointMake(0.5, 0.5);
+	
 }
 
 -(void)setAnchorPoint:(CGPoint)anchorPoint {
