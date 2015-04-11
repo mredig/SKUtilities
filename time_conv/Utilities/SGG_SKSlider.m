@@ -15,7 +15,7 @@
 	
 	bool knobDown;
 	
-	
+	SKNode* offset;
 }
 
 @end
@@ -34,6 +34,10 @@
 	
 	self.userInteractionEnabled = YES;
 	
+	offset = [SKNode node];
+	[self addChild:offset];
+	
+	
 	knobDown = NO;
 	_continuous = YES;
 	_maxValue = 1.0;
@@ -46,13 +50,28 @@
 	
 	slide = [SKSpriteNode spriteNodeWithTexture:_sliderTexture];
 	slide.anchorPoint = CGPointMake(0, 0.5);
-	[self addChild:slide];
+	[offset addChild:slide];
 	
 	knob = [SKSpriteNode spriteNodeWithTexture:_knobTexture];
 	
-	[self addChild:knob];
+	[offset addChild:knob];
 	
 }
+
+-(void)setAnchorPoint:(CGPoint)anchorPoint {
+	
+	_anchorPoint = anchorPoint;
+	
+	CGFloat xPos, yPos;
+	
+	xPos = -slide.size.width * anchorPoint.x;
+	
+	yPos = -slide.size.height * anchorPoint.y + (slide.size.height * 0.5);
+	
+	offset.position = CGPointMake(xPos, yPos);
+	
+}
+
 
 -(void)setKnobTexture:(SKTexture *)knobTexture {
 	
@@ -79,6 +98,7 @@
 	slide.texture = _sliderTexture;
 	slide.size = _sliderTexture.size;
 	
+	[self setAnchorPoint:_anchorPoint];
 	[self setSliderValue:_sliderValue];
 
 	
@@ -90,6 +110,7 @@
 	
 	slide.size = _sliderSize;
 	
+	[self setAnchorPoint:_anchorPoint];
 	[self setSliderValue:_sliderValue];
 	
 }
@@ -105,8 +126,10 @@
 }
 
 -(void)knobMoved:(CGPoint)location {
+	
+	CGPoint locAdjust = [self convertPoint:location toNode:offset];
 
-	knob.position = CGPointMake(location.x, 0);
+	knob.position = CGPointMake(locAdjust.x, 0);
 	if (knob.position.x < 0) {
 		knob.position = CGPointMake(0, 0);
 	}

@@ -139,7 +139,14 @@
 		newSlider.continuous = YES;
 		newSlider.name = @"newSlider";
 		newSlider.delegate = self;
+		newSlider.sliderSize = CGSizeMake(190, 10);
+		newSlider.anchorPoint = CGPointMake(0.25, 0.75);
 		[self addChild:newSlider];
+		
+		
+		SKSpriteNode* anchor = [SKSpriteNode spriteNodeWithColor:[SKColor orangeColor] size:CGSizeMake(5, 5)];
+		anchor.position = newSlider.position;
+		[self addChild:anchor];
 		
 		
 		
@@ -221,7 +228,7 @@
 	[points removeAllObjects];
 	[points addObject:[sharedUtilties getStringFromPoint:location]];
 	
-	SGG_SKSlider* newSlider = (SGG_SKSlider*)[self childNodeWithName:@"newSlider"];
+//	SGG_SKSlider* newSlider = (SGG_SKSlider*)[self childNodeWithName:@"newSlider"];
 //	newSlider.knobTexturePressed = [SKTexture textureWithImageNamed:@"Spaceship"];
 
 }

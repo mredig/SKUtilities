@@ -19,6 +19,7 @@
 @interface SGG_SKSlider : SKNode 
 
 
+@property (nonatomic) CGPoint anchorPoint;
 
 @property (nonatomic) CGFloat maxValue; //default 1.0
 @property (nonatomic) CGFloat minValue; //default 0.0
