@@ -51,6 +51,20 @@ static SGG_SKUtilities* sharedUtilities = Nil;
 	return a + (b - a)* t;
 }
 
+-(CGFloat)reverseLinearInterpolationBetweenFloatValue:(CGFloat)a andB:(CGFloat)b atPoint:(CGFloat)t clipped:(BOOL)clipped {
+	
+	CGFloat diff = t - a;
+	CGFloat xFactor = 1.0 / (b - a);
+	CGFloat rFloat = diff * xFactor;
+	
+	if (clipped) {
+		rFloat = MAX(0.0, rFloat);
+		rFloat = MIN(1.0, rFloat);
+	}
+	
+	return rFloat;
+}
+
 
 #pragma mark RANDOM NUMBERS
 

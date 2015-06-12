@@ -35,7 +35,9 @@
 
 #pragma mark NUMBERS
 
--(CGFloat)linearInterpolationBetweenFloatValue:(CGFloat)a andB:(CGFloat)b atPoint:(CGFloat)t clipped:(BOOL)clipped;
+-(CGFloat)linearInterpolationBetweenFloatValue:(CGFloat)a andB:(CGFloat)b atPoint:(CGFloat)t clipped:(BOOL)clipped; //// returns value between a and b
+
+-(CGFloat)reverseLinearInterpolationBetweenFloatValue:(CGFloat)a andB:(CGFloat)b atPoint:(CGFloat)t clipped:(BOOL)clipped; ////returns value between 0.0 and 1.0
 
 #pragma mark RANDOM NUMBERS
 
