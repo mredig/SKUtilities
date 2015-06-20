@@ -121,8 +121,13 @@
 
 -(void)knobDown:(CGPoint)location {
 	
-	knob.texture = _knobTexturePressed;
-	knob.size = _knobTexturePressed.size;
+	if (_knobSingle) {
+		knob.color = [SKColor blackColor];
+		knob.colorBlendFactor = 0.5f;
+	} else {
+		knob.texture = _knobTexturePressed;
+		knob.size = _knobTexturePressed.size;
+	}
 	knobDown = YES;
 	
 }
@@ -148,8 +153,12 @@
 -(void)knobReleased:(CGPoint)location {
 
 	knobDown = NO;
-	knob.texture = _knobTexture;
-	knob.size = _knobTexture.size;
+	if (_knobSingle) {
+		knob.colorBlendFactor = 0.0f;
+	}else {
+		knob.texture = _knobTexture;
+		knob.size = _knobTexture.size;
+	}
 	[self evaluateSliderValue];
 	
 }
