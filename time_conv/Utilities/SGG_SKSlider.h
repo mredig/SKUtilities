@@ -28,7 +28,8 @@
 @property (nonatomic) CGFloat sliderValue; //default 0.0
 @property (nonatomic) NSInteger sliderID;
 @property (nonatomic) CGSize sliderSize;
-
+@property (nonatomic) CGFloat sliderEndSize;
+@property (nonatomic) CGFloat sliderWidth;
 
 
 @property (nonatomic, strong) SKTexture* knobTexture;

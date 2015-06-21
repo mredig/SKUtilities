@@ -43,6 +43,8 @@
 	_maxValue = 1.0;
 	_minValue = 0.0;
 	_sliderValue = 0.0;
+	_sliderEndSize = 0.0;
+	_sliderWidth = 1.0;
 	
 	_knobTexture = [SKTexture textureWithImageNamed:@"sliderNob"];
 	_knobTexturePressed = [SKTexture textureWithImageNamed:@"sliderNobPressed"];
@@ -50,9 +52,11 @@
 	
 	slide = [SKSpriteNode spriteNodeWithTexture:_sliderTexture];
 	slide.anchorPoint = CGPointMake(0, 0.5);
+	slide.zPosition = 0;
 	[offset addChild:slide];
 	
 	knob = [SKSpriteNode spriteNodeWithTexture:_knobTexture];
+	knob.zPosition = 0.2;
 	
 	[offset addChild:knob];
 	
@@ -109,8 +113,31 @@
 -(void)setSliderSize:(CGSize)sliderSize {
 	
 	_sliderSize = sliderSize;
-	
 	slide.size = _sliderSize;
+
+	slide.xScale = 1.0;
+	_sliderWidth = 1.0;
+	
+	
+	[self setAnchorPoint:_anchorPoint];
+	[self setSliderValue:_sliderValue];
+	
+}
+
+-(void)setSliderEndSize:(CGFloat)sliderEndSize {
+
+	CGFloat width = slide.size.width;
+	slide.centerRect = CGRectMake(sliderEndSize / width, 0.0, (width - sliderEndSize * 2.0) / width, 1.0);
+	
+}
+
+-(void)setSliderWidth:(CGFloat)sliderWidth {
+	
+	_sliderSize = slide.texture.size;
+	slide.size = slide.texture.size;
+	
+	_sliderWidth = sliderWidth;
+	slide.xScale = _sliderWidth;
 	
 	[self setAnchorPoint:_anchorPoint];
 	[self setSliderValue:_sliderValue];
@@ -187,7 +214,7 @@
 	xVal *= slide.size.width;
 	
 	knob.position = CGPointMake(xVal, 0);
-//	NSLog(@"set to %f - width: %f", sliderValue, slide.size.width);
+//	NSLog(@"set to %f - width: %f scale: %f xVal: %f", sliderValue, slide.size.width, slide.xScale, xVal);
 	
 	
 }
